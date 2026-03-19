@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.pyo
+ordenes.json
+.env
+node_modules/
