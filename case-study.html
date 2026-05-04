@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso de Estudio: Sushi Seven — AgentX</title>
+  <meta name="description" content="+127% pedidos vía WhatsApp, tiempo de respuesta de 8 min a 12 seg, 5 sucursales atendidas con un solo sistema. Así automatizamos Sushi Seven, cadena de sushi en Puebla y Querétaro." />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD11FZ1DHM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PD11FZ1DHM');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Design Tokens ───────────────────────────────────────────── */
+    :root {
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+      --bg:           #0a0a0f;
+      --bg-2:         #101018;
+      --bg-3:         #16161f;
+      --border:       rgba(255,255,255,0.07);
+      --border-mid:   rgba(255,255,255,0.12);
+      --text-1:       #f0f0ff;
+      --text-2:       #a0a0b8;
+      --text-3:       #606078;
+      --accent:       #7c5cfc;
+      --accent-2:     #5b8af5;
+      --accent-3:     #25d366; /* WhatsApp green */
+      --accent-glow:  rgba(124,92,252,0.35);
+      --accent-light: rgba(124,92,252,0.12);
+      --gradient-hero: linear-gradient(135deg, #7c5cfc 0%, #5b8af5 50%, #38c8ff 100%);
+      --gradient-card: linear-gradient(145deg, rgba(124,92,252,0.08) 0%, rgba(91,138,245,0.04) 100%);
+      --r-sm: 8px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px;
+      --t-fast: 150ms cubic-bezier(0.4,0,0.2,1);
+      --t-mid:  300ms cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-1);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 99px; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* ─── NAV ──────────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .nav-brand {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .nav-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--text-3);
+    }
+    .nav-tag span {
+      padding: 3px 10px;
+      border: 1px solid var(--border-mid);
+      border-radius: 99px;
+      color: var(--text-2);
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav {
+      padding: 7px 18px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity var(--t-fast);
+    }
+    .btn-nav:hover { opacity: 0.85; }
+
+    /* ─── LANG TOGGLE ──────────────────────────────────────────────── */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 3px;
+    }
+    .lang-btn {
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all var(--t-fast);
+      color: var(--text-3);
+      background: transparent;
+      border: none;
+      letter-spacing: 0.04em;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────────────────── */
+    .hero {
+      padding: 96px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(124,92,252,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 28px;
+      font-size: 0.8rem;
+      color: var(--text-3);
+    }
+    .breadcrumb a { color: var(--text-3); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--text-2); }
+    .breadcrumb-sep { opacity: 0.4; }
+    .breadcrumb-current { color: var(--text-2); }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid rgba(37,211,102,0.3);
+      border-radius: 99px;
+      background: rgba(37,211,102,0.08);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-3);
+      box-shadow: 0 0 8px var(--accent-3);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .gradient-text {
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-2);
+      max-width: 600px;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-3);
+    }
+    .hero-meta-item strong { color: var(--text-2); font-weight: 500; }
+    .hero-meta-dot {
+      width: 3px; height: 3px;
+      background: var(--text-3);
+      border-radius: 50%;
+    }
+
+    /* ─── HERO METRICS BAND ──────────────────────────────────────── */
+    .metrics-band {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .metric-cell {
+      background: var(--bg-2);
+      padding: 32px 28px;
+      text-align: center;
+      position: relative;
+      transition: background var(--t-fast);
+    }
+    .metric-cell:hover { background: var(--bg-3); }
+    .metric-value {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .metric-value.green  { background: linear-gradient(135deg, #25d366, #128c7e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .metric-value.purple { background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .metric-value.blue   { background: linear-gradient(135deg, #5b8af5, #38c8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .metric-label { font-size: 0.82rem; color: var(--text-3); line-height: 1.4; }
+    .metric-label strong { display: block; color: var(--text-2); font-size: 0.88rem; margin-bottom: 2px; }
+
+    /* ─── SECTION BASE ─────────────────────────────────────────────── */
+    section { padding: 80px 0; }
+    .section-label {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .label-orange { background: rgba(255,140,0,0.12); color: #ff8c00; border: 1px solid rgba(255,140,0,0.25); }
+    .label-purple { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(124,92,252,0.25); }
+    .label-green  { background: rgba(37,211,102,0.1); color: var(--accent-3); border: 1px solid rgba(37,211,102,0.25); }
+    .label-blue   { background: rgba(56,200,255,0.1); color: #38c8ff; border: 1px solid rgba(56,200,255,0.25); }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* ─── DIVIDER ───────────────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-mid), transparent);
+    }
+
+    /* ─── CLIENT PROFILE ────────────────────────────────────────────── */
+    .client-profile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .client-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .client-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient-hero);
+    }
+    .client-avatar {
+      width: 72px; height: 72px;
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .client-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+    .client-location {
+      font-size: 0.82rem;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+    .client-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      padding: 4px 10px;
+      border: 1px solid var(--border-mid);
+      border-radius: 99px;
+      font-size: 0.72rem;
+      color: var(--text-2);
+    }
+
+    .challenge-list { display: flex; flex-direction: column; gap: 16px; }
+    .challenge-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      transition: border-color var(--t-fast);
+    }
+    .challenge-item:hover { border-color: var(--border-mid); }
+    .challenge-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--r-sm);
+      background: rgba(255,100,100,0.1);
+      border: 1px solid rgba(255,100,100,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .challenge-text strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+    .challenge-text span { font-size: 0.82rem; color: var(--text-3); }
+
+    /* ─── BEFORE/AFTER ─────────────────────────────────────────────── */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .ba-panel {
+      padding: 36px 32px;
+    }
+    .ba-panel.before { background: var(--bg-2); }
+    .ba-panel.after  { background: var(--bg-3); }
+    .ba-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ba-dot-red  { width: 8px; height: 8px; border-radius: 50%; background: #ff4444; box-shadow: 0 0 8px rgba(255,68,68,0.5); }
+    .ba-dot-green { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-3); box-shadow: 0 0 8px rgba(37,211,102,0.5); }
+    .ba-items { display: flex; flex-direction: column; gap: 12px; }
+    .ba-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-2);
+    }
+    .ba-item::before { content: '—'; color: var(--text-3); flex-shrink: 0; }
+    .ba-panel.after .ba-item::before { content: '✓'; color: var(--accent-3); }
+    .ba-panel.after .ba-item { color: var(--text-1); }
+
+    /* ─── SOLUTION STEPS ───────────────────────────────────────────── */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .solution-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--t-mid);
+    }
+    .solution-card:hover {
+      border-color: rgba(124,92,252,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .solution-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-card);
+      opacity: 0;
+      transition: opacity var(--t-mid);
+    }
+    .solution-card:hover::after { opacity: 1; }
+    .solution-step {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .solution-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .solution-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .solution-card p {
+      font-size: 0.83rem;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
+
+    /* ─── WHATSAPP MOCKUP ──────────────────────────────────────────── */
+    .mockup-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .mockup-phone {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .phone-statusbar {
+      background: #075e54;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .phone-back { color: #fff; font-size: 1.1rem; opacity: 0.8; cursor: pointer; }
+    .phone-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .phone-contact { flex: 1; }
+    .phone-contact-name { font-size: 0.9rem; font-weight: 600; color: #fff; }
+    .phone-contact-status { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
+    .phone-chat {
+      background: #0b141a;
+      padding: 16px;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .msg {
+      max-width: 72%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      position: relative;
+    }
+    .msg-in {
+      background: #202c33;
+      color: #e9edef;
+      border-radius: 0 8px 8px 8px;
+      align-self: flex-start;
+    }
+    .msg-out {
+      background: #005c4b;
+      color: #e9edef;
+      border-radius: 8px 0 8px 8px;
+      align-self: flex-end;
+    }
+    .msg-time { font-size: 0.65rem; color: rgba(255,255,255,0.4); text-align: right; margin-top: 4px; }
+    .msg-typing {
+      background: #202c33;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 8px;
+      display: inline-flex;
+      gap: 4px;
+      align-self: flex-start;
+    }
+    .typing-dot {
+      width: 6px; height: 6px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      animation: typing 1.2s infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    /* ─── RESULTS ──────────────────────────────────────────────────── */
+    .results-section { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .result-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--t-mid);
+    }
+    .result-card:hover {
+      border-color: var(--border-mid);
+      transform: translateY(-2px);
+    }
+    .result-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(124,92,252,0.12) 0%, rgba(91,138,245,0.06) 100%);
+      border-color: rgba(124,92,252,0.3);
+    }
+    .result-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .result-number.purple { background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .result-number.green  { background: linear-gradient(135deg, #25d366, #128c7e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .result-number.blue   { background: linear-gradient(135deg, #5b8af5, #38c8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .result-number.orange { background: linear-gradient(135deg, #ff8c00, #ff6b35); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .result-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .result-desc { font-size: 0.83rem; color: var(--text-3); line-height: 1.5; }
+    .result-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 99px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    .result-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 1.5s ease-out;
+    }
+    .result-bar-fill.purple { background: var(--gradient-hero); }
+    .result-bar-fill.green  { background: linear-gradient(90deg, #25d366, #128c7e); }
+    .result-bar-fill.blue   { background: linear-gradient(90deg, #5b8af5, #38c8ff); }
+    .result-bar-fill.orange { background: linear-gradient(90deg, #ff8c00, #ff6b35); }
+
+    /* Featured result row */
+    .featured-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .featured-metric-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .featured-metric-label { font-size: 0.82rem; color: var(--text-2); }
+
+    /* ─── TIMELINE ─────────────────────────────────────────────────── */
+    .timeline { position: relative; padding-left: 32px; margin-top: 48px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), transparent);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 4px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .tl-date {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tl-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .tl-desc { font-size: 0.83rem; color: var(--text-3); }
+
+    /* ─── TESTIMONIAL ──────────────────────────────────────────────── */
+    .testimonial-block {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 48px;
+      position: relative;
+      margin-top: 60px;
+    }
+    .testimonial-block::before {
+      content: '"';
+      position: absolute;
+      top: 24px; left: 36px;
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.25;
+      font-family: Georgia, serif;
+    }
+    .testimonial-quote {
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--text-1);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .author-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 700; }
+    .author-role { font-size: 0.78rem; color: var(--text-3); }
+    .stars {
+      margin-left: auto;
+      color: #ffd700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+    }
+
+    /* ─── PRICING SECTION ──────────────────────────────────────────── */
+    .pricing-section { text-align: center; }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+      text-align: left;
+    }
+    .pricing-card {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--t-mid);
+    }
+    .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+    .pricing-card.popular {
+      border-color: rgba(124,92,252,0.5);
+      background: linear-gradient(145deg, rgba(124,92,252,0.1), rgba(91,138,245,0.05));
+    }
+    .popular-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+    .pricing-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .pricing-price {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--text-3); }
+    .pricing-period { font-size: 0.78rem; color: var(--text-3); margin-bottom: 24px; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-2);
+    }
+    .pricing-features li::before { content: '✓'; color: var(--accent-3); font-weight: 700; flex-shrink: 0; }
+    .btn-pricing {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: var(--r-md);
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--t-fast);
+      border: none;
+    }
+    .btn-pricing-outline {
+      background: transparent;
+      border: 1px solid var(--border-mid);
+      color: var(--text-1);
+    }
+    .btn-pricing-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-pricing-filled {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-pricing-filled:hover { opacity: 0.88; }
+
+    /* ─── CTA SECTION ──────────────────────────────────────────────── */
+    .cta-section {
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(124,92,252,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      max-width: 640px;
+      margin: 0 auto 20px;
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      color: var(--text-2);
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--t-fast);
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 30px var(--accent-glow);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--text-1);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--r-md);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--t-fast);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .cta-trust {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-3);
+    }
+    .trust-icon { font-size: 0.9rem; }
+
+    /* ─── FOOTER ───────────────────────────────────────────────────── */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-weight: 800;
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-3); text-decoration: none; }
+    .footer-links a:hover { color: var(--text-2); }
+    .footer-copy { font-size: 0.78rem; color: var(--text-3); }
+
+    /* ─── LANG SECTIONS ────────────────────────────────────────────── */
+    [data-lang="en"] { display: none; }
+    body.lang-en [data-lang="es"] { display: none; }
+    body.lang-en [data-lang="en"] { display: block; }
+    /* For inline elements that need display:flex or display:inline-flex */
+    .inline-lang[data-lang="en"] { display: none; }
+    body.lang-en .inline-lang[data-lang="es"] { display: none; }
+    body.lang-en .inline-lang[data-lang="en"] { display: inline-flex; }
+
+    /* ─── RESPONSIVE ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .metrics-band,
+      .before-after,
+      .solution-grid,
+      .results-grid,
+      .mockup-section,
+      .client-profile,
+      .pricing-cards,
+      .featured-metrics { grid-template-columns: 1fr; }
+      .result-card.featured { grid-column: span 1; }
+      .nav-tag { display: none; }
+      h2 { font-size: 1.6rem; }
+      .hero h1 { font-size: 2rem; }
+      .metric-value { font-size: 2.2rem; }
+      .testimonial-block { padding: 28px; }
+      .testimonial-quote { font-size: 1rem; }
+      .hero { padding: 60px 0 50px; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://byagentx.ai" class="nav-brand">AgentX</a>
+    <div class="nav-tag">
+      <span data-lang="es">Caso de Estudio</span>
+      <span data-lang="en">Case Study</span>
+      <span>Sushi Seven · Puebla</span>
+    </div>
+    <div class="nav-cta">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_nav" class="btn-nav" data-lang="es" data-track="tidycal_click" data-location="case_study_nav">Agendar sesión →</a>
+      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_nav" class="btn-nav" data-lang="en" data-track="tidycal_click" data-location="case_study_nav">Book session →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="container-narrow">
+
+    <div class="breadcrumb">
+      <a href="https://byagentx.ai">byagentx.ai</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current" data-lang="es">Casos de éxito</span>
+      <span class="breadcrumb-current" data-lang="en">Case studies</span>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Sushi Seven</span>
+    </div>
+
+    <div class="hero-label" data-lang="es">🍣 Cadena de sushi · Puebla &amp; Querétaro, México</div>
+    <div class="hero-label" data-lang="en">🍣 Sushi chain · Puebla &amp; Querétaro, Mexico</div>
+
+    <div data-lang="es">
+      <h1>Cómo Sushi Seven <span class="gradient-text">unificó 5 sucursales</span> con un bot de WhatsApp</h1>
+      <p class="hero-sub">Sushi Seven pasó de responder el mismo mensaje 40 veces al día en cada sucursal a operar con un solo sistema centralizado. Menos caos, más pedidos, sin contratar más personal.</p>
+    </div>
+    <div data-lang="en">
+      <h1>How Sushi Seven <span class="gradient-text">unified 5 branches</span> with a WhatsApp bot</h1>
+      <p class="hero-sub">Sushi Seven went from answering the same message 40 times a day across every branch to running with one centralized system. Less chaos, more orders, no extra staff.</p>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong data-lang="es">Industria:</strong><strong data-lang="en">Industry:</strong>&nbsp;<span data-lang="es">Cadena de sushi / Delivery</span><span data-lang="en">Sushi chain / Delivery</span></div>
+      <div class="hero-meta-dot"></div>
+      <div class="hero-meta-item"><strong data-lang="es">Tamaño:</strong><strong data-lang="en">Size:</strong>&nbsp;<span data-lang="es">5 sucursales, 30+ empleados</span><span data-lang="en">5 branches, 30+ employees</span></div>
+      <div class="hero-meta-dot"></div>
+      <div class="hero-meta-item"><strong data-lang="es">Implementación:</strong><strong data-lang="en">Deployed:</strong>&nbsp;<span>7 días / days</span></div>
+      <div class="hero-meta-dot"></div>
+      <div class="hero-meta-item"><strong>ROI:</strong>&nbsp;<span data-lang="es">Primer mes</span><span data-lang="en">First month</span></div>
+    </div>
+
+    <!-- Metrics Band -->
+    <div class="metrics-band">
+      <div class="metric-cell">
+        <div class="metric-value green">+127%</div>
+        <div class="metric-label">
+          <strong data-lang="es">Pedidos vía WhatsApp</strong>
+          <strong data-lang="en">WhatsApp orders</strong>
+          <span data-lang="es">en el primer mes</span>
+          <span data-lang="en">in the first month</span>
+        </div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-value purple">12s</div>
+        <div class="metric-label">
+          <strong data-lang="es">Tiempo de respuesta</strong>
+          <strong data-lang="en">Response time</strong>
+          <span data-lang="es">antes: 8 minutos</span>
+          <span data-lang="en">before: 8 minutes</span>
+        </div>
+      </div>
+      <div class="metric-cell">
+        <div class="metric-value blue">5</div>
+        <div class="metric-label">
+          <strong data-lang="es">Sucursales centralizadas</strong>
+          <strong data-lang="en">Branches centralized</strong>
+          <span data-lang="es">un solo sistema</span>
+          <span data-lang="en">one single system</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── CHALLENGE ────────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="client-profile">
+      <!-- Client card -->
+      <div>
+        <div class="section-label label-orange" data-lang="es">El desafío</div>
+        <div class="section-label label-orange" data-lang="en">The challenge</div>
+        <h2 data-lang="es">Una cadena de sushi con éxito, ahogada en mensajes repetidos</h2>
+        <h2 data-lang="en">A successful sushi chain drowning in repeated messages</h2>
+        <p class="section-desc" data-lang="es">Sushi Seven tenía 5 sucursales en Puebla y Querétaro, cada una con su propio WhatsApp y sin consistencia. El mismo mensaje llegaba 40 veces al día — y nadie lo respondía igual.</p>
+        <p class="section-desc" data-lang="en">Sushi Seven had 5 branches in Puebla and Querétaro, each with its own WhatsApp and no consistency. The same message arrived 40 times a day — and nobody answered it the same way.</p>
+
+        <div class="challenge-list" style="margin-top: 32px;">
+          <div class="challenge-item">
+            <div class="challenge-icon">💬</div>
+            <div class="challenge-text">
+              <strong data-lang="es">El mismo mensaje 40 veces al día</strong>
+              <strong data-lang="en">The same message 40 times a day</strong>
+              <span data-lang="es">Clientes preguntando qué rollos hay, precios y horarios — sin parar, en todas las sucursales.</span>
+              <span data-lang="en">Customers asking which rolls are available, prices and hours — non-stop, across all branches.</span>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-icon">📵</div>
+            <div class="challenge-text">
+              <strong data-lang="es">5 WhatsApp sin consistencia</strong>
+              <strong data-lang="en">5 WhatsApps with no consistency</strong>
+              <span data-lang="es">Cada sucursal respondía diferente: precios distintos, tiempos distintos, tono distinto. Caos total.</span>
+              <span data-lang="en">Each branch answered differently: different prices, different times, different tone. Total chaos.</span>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-icon">📋</div>
+            <div class="challenge-text">
+              <strong data-lang="es">Pedidos tomados a mano, errores frecuentes</strong>
+              <strong data-lang="en">Handwritten orders, frequent errors</strong>
+              <span data-lang="es">Los pedidos llegaban por chat y alguien los transcribía. Errores, demoras y clientes molestos.</span>
+              <span data-lang="en">Orders came in via chat and someone transcribed them. Errors, delays and angry customers.</span>
+            </div>
+          </div>
+          <div class="challenge-item">
+            <div class="challenge-icon">⏰</div>
+            <div class="challenge-text">
+              <strong data-lang="es">Tiempo perdido confirmando por teléfono</strong>
+              <strong data-lang="en">Time wasted confirming by phone</strong>
+              <span data-lang="es">Cada pedido requería una llamada de confirmación. El equipo pasaba horas en el teléfono.</span>
+              <span data-lang="en">Every order required a confirmation call. The team spent hours on the phone.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client card -->
+      <div>
+        <div class="client-card">
+          <div class="client-avatar">🍣</div>
+          <div class="client-name">Sushi Seven</div>
+          <div class="client-location">📍 Puebla &amp; Querétaro, México</div>
+          <div class="client-tags">
+            <span class="tag">Cadena de sushi</span>
+            <span class="tag">5 sucursales</span>
+            <span class="tag">Delivery</span>
+            <span class="tag">Para llevar</span>
+            <span class="tag">PYME</span>
+          </div>
+          <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);">
+            <div style="background: linear-gradient(135deg, #0a1a0a, #001a10); border-radius: 16px; padding: 32px 24px; text-align: center; border: 1px solid rgba(37,211,102,0.2);">
+              <div style="font-size: 4rem; margin-bottom: 16px;">🍣🥢🍱</div>
+              <div style="font-size: 0.8rem; color: var(--text-3);" data-lang="es">Especialidad: Sushi fusión mexicana</div>
+              <div style="font-size: 0.8rem; color: var(--text-3);" data-lang="en">Specialty: Mexican fusion sushi</div>
+              <div style="font-size: 0.75rem; color: var(--text-3); margin-top: 8px;" data-lang="es">Fundado: 2019 · 4.7 ⭐ en Google</div>
+              <div style="font-size: 0.75rem; color: var(--text-3); margin-top: 8px;" data-lang="en">Founded: 2019 · 4.7 ⭐ on Google</div>
+            </div>
+            <!-- Stats mini -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
+              <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; text-align: center;">
+                <div style="font-size: 1.4rem; font-weight: 800;">~220</div>
+                <div style="font-size: 0.7rem; color: var(--text-3);" data-lang="es">pedidos/semana<br>antes de AgentX</div>
+                <div style="font-size: 0.7rem; color: var(--text-3);" data-lang="en">orders/week<br>before AgentX</div>
+              </div>
+              <div style="background: var(--bg); border: 1px solid rgba(37,211,102,0.3); border-radius: 12px; padding: 14px; text-align: center;">
+                <div style="font-size: 1.4rem; font-weight: 800; color: var(--accent-3);">~500</div>
+                <div style="font-size: 0.7rem; color: var(--text-3);" data-lang="es">pedidos/semana<br>después de AgentX</div>
+                <div style="font-size: 0.7rem; color: var(--text-3);" data-lang="en">orders/week<br>after AgentX</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── BEFORE / AFTER ───────────────────────────────────────────── -->
+<section>
+  <div class="container-narrow">
+    <div style="text-align:center; margin-bottom: 40px;">
+      <div class="section-label label-purple" data-lang="es">La transformación</div>
+      <div class="section-label label-purple" data-lang="en">The transformation</div>
+      <h2 data-lang="es">De 5 WhatsApp sin control a un sistema unificado</h2>
+      <h2 data-lang="en">From 5 uncontrolled WhatsApps to one unified system</h2>
+    </div>
+    <div class="before-after">
+      <div class="ba-panel before">
+        <div class="ba-header"><div class="ba-dot-red"></div> <span data-lang="es">Antes de AgentX</span><span data-lang="en">Before AgentX</span></div>
+        <div class="ba-items">
+          <div class="ba-item" data-lang="es">El dueño respondía mensajes hasta medianoche</div>
+          <div class="ba-item" data-lang="en">Owner replied to messages until midnight</div>
+          <div class="ba-item" data-lang="es">Menú enviado como imagen por cada cliente</div>
+          <div class="ba-item" data-lang="en">Menu sent as image to every customer</div>
+          <div class="ba-item" data-lang="es">Sin confirmación automática de pedidos</div>
+          <div class="ba-item" data-lang="en">No automatic order confirmation</div>
+          <div class="ba-item" data-lang="es">Errores de cocina por mensajes confusos</div>
+          <div class="ba-item" data-lang="en">Kitchen errors from confusing messages</div>
+          <div class="ba-item" data-lang="es">Sin datos de clientes recurrentes</div>
+          <div class="ba-item" data-lang="en">No recurring customer data</div>
+          <div class="ba-item" data-lang="es">Imposible manejar picos de demanda</div>
+          <div class="ba-item" data-lang="en">Unable to handle demand spikes</div>
+        </div>
+      </div>
+      <div class="ba-panel after">
+        <div class="ba-header"><div class="ba-dot-green"></div> <span data-lang="es">Después de AgentX</span><span data-lang="en">After AgentX</span></div>
+        <div class="ba-items">
+          <div class="ba-item" data-lang="es">Bot responde y toma pedidos 24/7</div>
+          <div class="ba-item" data-lang="en">Bot responds and takes orders 24/7</div>
+          <div class="ba-item" data-lang="es">Menú interactivo con categorías y precios</div>
+          <div class="ba-item" data-lang="en">Interactive menu with categories & prices</div>
+          <div class="ba-item" data-lang="es">Confirmación + resumen automático al cliente</div>
+          <div class="ba-item" data-lang="en">Auto confirmation + order summary to client</div>
+          <div class="ba-item" data-lang="es">Pedidos estructurados directo a cocina</div>
+          <div class="ba-item" data-lang="en">Structured orders sent directly to kitchen</div>
+          <div class="ba-item" data-lang="es">CRM básico: historial y frecuencia</div>
+          <div class="ba-item" data-lang="en">Basic CRM: history & frequency tracking</div>
+          <div class="ba-item" data-lang="es">Escala sin límite, sin contratar más</div>
+          <div class="ba-item" data-lang="en">Scales without limits, no extra hiring</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── SOLUTION ─────────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 8px;">
+      <div class="section-label label-purple" data-lang="es">La solución</div>
+      <div class="section-label label-purple" data-lang="en">The solution</div>
+      <h2 data-lang="es">Qué implementamos en 7 días</h2>
+      <h2 data-lang="en">What we deployed in 7 days</h2>
+      <p class="section-desc" style="margin: 12px auto 0; text-align: center;" data-lang="es">Sin apps extra, sin hardware, sin cambiar cómo trabaja el restaurante. Solo automatización inteligente.</p>
+      <p class="section-desc" style="margin: 12px auto 0; text-align: center;" data-lang="en">No extra apps, no hardware, no changing how the restaurant works. Just smart automation.</p>
+    </div>
+
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-step" data-lang="es">Paso 01</div>
+        <div class="solution-step" data-lang="en">Step 01</div>
+        <span class="solution-icon">🤖</span>
+        <h3 data-lang="es">Bot de WhatsApp con IA</h3>
+        <h3 data-lang="en">AI WhatsApp Bot</h3>
+        <p data-lang="es">Responde preguntas frecuentes, presenta el menú, toma pedidos y calcula el total — todo sin intervención humana.</p>
+        <p data-lang="en">Answers FAQs, presents the menu, takes orders and calculates totals — all without human intervention.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-step" data-lang="es">Paso 02</div>
+        <div class="solution-step" data-lang="en">Step 02</div>
+        <span class="solution-icon">📋</span>
+        <h3 data-lang="es">Flujo de pedidos estructurado</h3>
+        <h3 data-lang="en">Structured order flow</h3>
+        <p data-lang="es">Cada pedido genera una ficha clara para cocina con platillos, personalización y datos de entrega — sin errores de interpretación.</p>
+        <p data-lang="en">Each order generates a clear kitchen ticket with dishes, customizations and delivery info — no misinterpretation errors.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-step" data-lang="es">Paso 03</div>
+        <div class="solution-step" data-lang="en">Step 03</div>
+        <span class="solution-icon">🔔</span>
+        <h3 data-lang="es">Notificaciones al equipo</h3>
+        <h3 data-lang="en">Team notifications</h3>
+        <p data-lang="es">El dueño y cocina reciben alertas instantáneas en su propio WhatsApp — sin tener que revisar un sistema nuevo.</p>
+        <p data-lang="en">Owner and kitchen receive instant alerts on their own WhatsApp — no need to learn a new system.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-step" data-lang="es">Paso 04</div>
+        <div class="solution-step" data-lang="en">Step 04</div>
+        <span class="solution-icon">📊</span>
+        <h3 data-lang="es">Dashboard de pedidos</h3>
+        <h3 data-lang="en">Orders dashboard</h3>
+        <p data-lang="es">Resumen diario automático: cuántos pedidos, platillos más vendidos, ingresos estimados y horas pico.</p>
+        <p data-lang="en">Daily automatic summary: how many orders, top dishes, estimated revenue and peak hours.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-step" data-lang="es">Paso 05</div>
+        <div class="solution-step" data-lang="en">Step 05</div>
+        <span class="solution-icon">💾</span>
+        <h3 data-lang="es">CRM básico de clientes</h3>
+        <h3 data-lang="en">Basic customer CRM</h3>
+        <p data-lang="es">Registro automático de clientes: nombre, pedidos anteriores y frecuencia. Ideal para promociones futuras.</p>
+        <p data-lang="en">Automatic customer registration: name, past orders and frequency. Perfect for future promotions.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-step" data-lang="es">Paso 06</div>
+        <div class="solution-step" data-lang="en">Step 06</div>
+        <span class="solution-icon">🔄</span>
+        <h3 data-lang="es">Escalada a humano</h3>
+        <h3 data-lang="en">Human handoff</h3>
+        <p data-lang="es">Cuando el bot no puede resolver algo, transfiere la conversación al dueño con el contexto completo — sin fricción.</p>
+        <p data-lang="en">When the bot can't resolve something, it transfers the conversation to the owner with full context — no friction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── WHATSAPP MOCKUP ──────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="mockup-section">
+      <div>
+        <div class="section-label label-green" data-lang="es">El bot en acción</div>
+        <div class="section-label label-green" data-lang="en">The bot in action</div>
+        <h2 data-lang="es">Así se ve la experiencia del cliente</h2>
+        <h2 data-lang="en">This is what the customer experience looks like</h2>
+        <p class="section-desc" data-lang="es">Natural, conversacional, rápido. Los clientes ni se dan cuenta que es un bot — solo saben que Sushi Seven siempre responde.</p>
+        <p class="section-desc" data-lang="en">Natural, conversational, fast. Customers don't even notice it's a bot — they just know Sushi Seven always responds.</p>
+        <div style="margin-top: 28px; display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-2);">
+            <span style="font-size: 1.1rem;">⚡</span>
+            <span data-lang="es">Respuesta media: <strong style="color: var(--text-1);">menos de 2 segundos</strong></span>
+            <span data-lang="en">Average response: <strong style="color: var(--text-1);">under 2 seconds</strong></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-2);">
+            <span style="font-size: 1.1rem;">🌙</span>
+            <span data-lang="es">Disponible: <strong style="color: var(--text-1);">24 horas, 7 días</strong></span>
+            <span data-lang="en">Available: <strong style="color: var(--text-1);">24 hours, 7 days</strong></span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-2);">
+            <span style="font-size: 1.1rem;">✅</span>
+            <span data-lang="es">Tasa de resolución: <strong style="color: var(--text-1);">94% sin intervención humana</strong></span>
+            <span data-lang="en">Resolution rate: <strong style="color: var(--text-1);">94% without human intervention</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="mockup-phone">
+        <div class="phone-statusbar">
+          <div class="phone-back">←</div>
+          <div class="phone-avatar">🍽️</div>
+          <div class="phone-contact">
+            <div class="phone-contact-name">Sushi Seven</div>
+            <div class="phone-contact-status" data-lang="es">en línea ahora</div>
+            <div class="phone-contact-status" data-lang="en">online now</div>
+          </div>
+          <div style="color: #fff; font-size: 1rem; opacity: 0.6;">⋮</div>
+        </div>
+        <div class="phone-chat">
+          <div class="msg msg-in" data-lang="es">¡Hola! Quiero hacer un pedido 😊</div>
+          <div class="msg msg-in" data-lang="en">Hi! I'd like to place an order 😊</div>
+          <div class="msg msg-out" data-lang="es">¡Hola! 👋 Bienvenido a Sushi Seven. Soy tu asistente automático.<br><br>¿Qué deseas ordenar hoy?<br>1️⃣ Ver menú de rollos<br>2️⃣ Ordenar para llevar<br>3️⃣ Preguntar por domicilio<div class="msg-time">10:32 ✓✓</div></div>
+          <div class="msg msg-out" data-lang="en">Hello! 👋 Welcome to Sushi Seven. I'm your automated assistant.<br><br>What would you like today?<br>1️⃣ See rolls menu<br>2️⃣ Order to go<br>3️⃣ Ask about delivery<div class="msg-time">10:32 ✓✓</div></div>
+          <div class="msg msg-in">1</div>
+          <div class="msg msg-out" data-lang="es">🍣 *MENÚ SUSHI SEVEN*<br><br>*Rollos especiales*<br>• Roll Spicy Tuna — $145<br>• Roll Dragon — $165<br>• Roll Puebla Crispy — $155<br><br>*Clásicos*<br>• California Roll — $115<br>• Philadelphia Roll — $125<br><br>¿Qué te llevo? Escribe el nombre ✍️<div class="msg-time">10:32 ✓✓</div></div>
+          <div class="msg msg-out" data-lang="en">🍣 *SUSHI SEVEN MENU*<br><br>*Special rolls*<br>• Spicy Tuna Roll — $145<br>• Dragon Roll — $165<br>• Puebla Crispy Roll — $155<br><br>*Classics*<br>• California Roll — $115<br>• Philadelphia Roll — $125<br><br>What can I get you? Type the name ✍️<div class="msg-time">10:32 ✓✓</div></div>
+          <div class="msg msg-in" data-lang="es">Un Dragon Roll y un Spicy Tuna por favor</div>
+          <div class="msg msg-in" data-lang="en">One Dragon Roll and one Spicy Tuna please</div>
+          <div class="msg msg-typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+        </div>
+        <div style="background: #1f2c33; padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(255,255,255,0.05);">
+          <div style="font-size: 1rem; opacity: 0.4;">😊</div>
+          <div style="flex: 1; background: #2a3942; border-radius: 20px; padding: 8px 14px; font-size: 0.78rem; color: rgba(255,255,255,0.3);" data-lang="es">Escribe un mensaje…</div>
+          <div style="font-size: 1rem; opacity: 0.4);">🎤</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── RESULTS ───────────────────────────────────────────────────── -->
+<section class="results-section">
+  <div class="container">
+    <div style="text-align: center;">
+      <div class="section-label label-green" data-lang="es">Resultados medibles</div>
+      <div class="section-label label-green" data-lang="en">Measurable results</div>
+      <h2 data-lang="es">Números reales, en el primer mes</h2>
+      <h2 data-lang="en">Real numbers, in the first month</h2>
+      <p class="section-desc" style="margin: 12px auto 0; text-align: center;" data-lang="es">No estimados. Datos del sistema comparados con el mes anterior a la implementación.</p>
+      <p class="section-desc" style="margin: 12px auto 0; text-align: center;" data-lang="en">Not estimates. System data compared to the month before implementation.</p>
+    </div>
+
+    <div class="results-grid">
+      <!-- Featured -->
+      <div class="result-card featured">
+        <div class="featured-metrics">
+          <div>
+            <div class="featured-metric-num" style="background: linear-gradient(135deg, #25d366, #128c7e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">+127%</div>
+            <div class="featured-metric-label" data-lang="es">Pedidos vía WhatsApp en el primer mes</div>
+            <div class="featured-metric-label" data-lang="en">WhatsApp orders in the first month</div>
+          </div>
+          <div>
+            <div class="featured-metric-num" style="background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">12s</div>
+            <div class="featured-metric-label" data-lang="es">Tiempo de respuesta (antes: 8 min)</div>
+            <div class="featured-metric-label" data-lang="en">Response time (before: 8 min)</div>
+          </div>
+          <div>
+            <div class="featured-metric-num" style="background: linear-gradient(135deg, #ff8c00, #ff6b35); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">5</div>
+            <div class="featured-metric-label" data-lang="es">Sucursales en un solo sistema</div>
+            <div class="featured-metric-label" data-lang="en">Branches on one single system</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-number green">+127%</div>
+        <div class="result-title" data-lang="es">Pedidos vía WhatsApp</div>
+        <div class="result-title" data-lang="en">WhatsApp orders</div>
+        <div class="result-desc" data-lang="es">De ~220 a ~500 pedidos por semana en todas las sucursales. El primer mes fue el mejor mes de la cadena.</div>
+        <div class="result-desc" data-lang="en">From ~220 to ~500 orders per week across all branches. The first month was the chain's best month ever.</div>
+        <div class="result-bar"><div class="result-bar-fill green" style="width: 75%;"></div></div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-number blue">12s</div>
+        <div class="result-title" data-lang="es">Tiempo de respuesta promedio</div>
+        <div class="result-title" data-lang="en">Average response time</div>
+        <div class="result-desc" data-lang="es">Antes: 8 minutos en promedio (cuando alguien contestaba). Ahora: 12 segundos, siempre.</div>
+        <div class="result-desc" data-lang="en">Before: 8 minutes on average (when someone answered). Now: 12 seconds, always.</div>
+        <div class="result-bar"><div class="result-bar-fill blue" style="width: 90%;"></div></div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-number purple">5</div>
+        <div class="result-title" data-lang="es">Sucursales, un solo sistema</div>
+        <div class="result-title" data-lang="en">Branches, one single system</div>
+        <div class="result-desc" data-lang="es">Todas las sucursales con la misma voz, los mismos precios y el mismo proceso. Sin caos, sin inconsistencias.</div>
+        <div class="result-desc" data-lang="en">All branches with the same voice, same prices, same process. No chaos, no inconsistencies.</div>
+        <div class="result-bar"><div class="result-bar-fill purple" style="width: 100%;"></div></div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-number orange">4.9★</div>
+        <div class="result-title" data-lang="es">Calificación Google (de 4.7)</div>
+        <div class="result-title" data-lang="en">Google rating (from 4.7)</div>
+        <div class="result-desc" data-lang="es">El bot solicita reseña automáticamente tras confirmar cada pedido entregado. Subió 0.2 puntos en 30 días.</div>
+        <div class="result-desc" data-lang="en">The bot automatically requests a review after every confirmed delivery. Up 0.2 points in 30 days.</div>
+        <div class="result-bar"><div class="result-bar-fill orange" style="width: 82%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── TIMELINE ─────────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+      <div>
+        <div class="section-label label-blue" data-lang="es">Implementación</div>
+        <div class="section-label label-blue" data-lang="en">Implementation</div>
+        <h2 data-lang="es">De idea a producción en 7 días</h2>
+        <h2 data-lang="en">From idea to production in 7 days</h2>
+        <p class="section-desc" data-lang="es">Sin meses de desarrollo ni contratos largos. Implementamos rápido y ajustamos en tiempo real.</p>
+        <p class="section-desc" data-lang="en">No months of development or long contracts. We deploy fast and adjust in real time.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date" data-lang="es">Día 1</div>
+          <div class="tl-date" data-lang="en">Day 1</div>
+          <div class="tl-title" data-lang="es">Diagnóstico y diseño del flujo</div>
+          <div class="tl-title" data-lang="en">Diagnosis and flow design</div>
+          <div class="tl-desc" data-lang="es">Entendemos cómo opera el restaurante hoy, qué preguntas llegan más y cómo es el proceso de pedido.</div>
+          <div class="tl-desc" data-lang="en">We understand how the restaurant operates today, which questions arrive most, and what the order process looks like.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date" data-lang="es">Días 2–3</div>
+          <div class="tl-date" data-lang="en">Days 2–3</div>
+          <div class="tl-title" data-lang="es">Construcción del bot</div>
+          <div class="tl-title" data-lang="en">Bot development</div>
+          <div class="tl-desc" data-lang="es">Programamos el bot con el menú, precios, horarios y flujos de pedido según las reglas del negocio.</div>
+          <div class="tl-desc" data-lang="en">We program the bot with menu, prices, hours and order flows per business rules.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date" data-lang="es">Días 4–5</div>
+          <div class="tl-date" data-lang="en">Days 4–5</div>
+          <div class="tl-title" data-lang="es">Pruebas y ajustes</div>
+          <div class="tl-title" data-lang="en">Testing and tuning</div>
+          <div class="tl-desc" data-lang="es">Probamos con el equipo real del restaurante, simulamos pedidos y ajustamos respuestas hasta que se siente natural.</div>
+          <div class="tl-desc" data-lang="en">We test with the real restaurant team, simulate orders and tune responses until they feel natural.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date" data-lang="es">Días 6–7</div>
+          <div class="tl-date" data-lang="en">Days 6–7</div>
+          <div class="tl-title" data-lang="es">Lanzamiento y monitoreo</div>
+          <div class="tl-title" data-lang="en">Launch and monitoring</div>
+          <div class="tl-desc" data-lang="es">Activamos en producción y monitoreamos durante 48h para garantizar que todo funcione perfecto.</div>
+          <div class="tl-desc" data-lang="en">We go live and monitor for 48h to ensure everything works perfectly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── PROOF BLOCK ───────────────────────────────────────────────── -->
+<section>
+  <div class="container-narrow">
+    <div class="testimonial-block">
+      <div class="testimonial-quote" data-lang="es">
+        Implementación real: pedidos centralizados, respuestas automáticas y operación más consistente sin aumentar carga manual por sucursal.
+      </div>
+      <div class="testimonial-quote" data-lang="en">
+        Real implementation: centralized orders, automated replies, and more consistent operations without increasing manual load at each branch.
+      </div>
+      <div class="testimonial-author">
+        <div class="author-avatar">👔</div>
+        <div>
+          <div class="author-name">Operational proof</div>
+          <div class="author-role" data-lang="es">Caso real documentado · Sushi Seven · Puebla &amp; Querétaro</div>
+          <div class="author-role" data-lang="en">Documented real case · Sushi Seven · Puebla &amp; Querétaro</div>
+        </div>
+        <div class="stars">REAL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── CTA POST-RESULTS ─────────────────────────────────────────── -->
+<section style="text-align:center; padding: 80px 20px; background: linear-gradient(135deg, rgba(124,92,252,0.08), rgba(91,138,245,0.04));">
+  <div style="max-width: 600px; margin: 0 auto;">
+    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:#7c5cfc; margin-bottom:16px;">¿LISTO PARA EMPEZAR?</div>
+    <h2 style="font-size: 2rem; font-weight:700; margin-bottom:16px;">¿Tu negocio podría tener resultados similares?</h2>
+    <p style="color:#888; margin-bottom:32px; font-size:1.1rem;">Cada negocio es diferente. Cuéntanos tu caso y te decimos exactamente qué se puede automatizar.</p>
+    <a href="index.html#pricing" style="display:inline-block; background:linear-gradient(135deg,#7c5cfc,#5b8af5); color:#fff; font-weight:600; padding:16px 40px; border-radius:12px; text-decoration:none; font-size:1rem; margin-right:12px;" data-track="pricing_click" data-location="case_study_mid_cta">Ver planes y precios →</a>
+    <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_mid_cta" style="display:inline-block; border:1px solid rgba(255,255,255,0.15); color:#fff; font-weight:500; padding:16px 32px; border-radius:12px; text-decoration:none; font-size:1rem;" data-track="tidycal_click" data-location="case_study_mid_cta">Agendar con Joaquin →</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ─── CTA ───────────────────────────────────────────────────────── -->
+<section class="cta-section">
+  <div class="container-narrow">
+    <div class="section-label label-purple" style="display: inline-block;" data-lang="es">¿Listo para automatizar?</div>
+    <div class="section-label label-purple" style="display: inline-block;" data-lang="en">Ready to automate?</div>
+    <h2 data-lang="es">Tu negocio merece operar <span style="background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">24/7 sin agotarse</span></h2>
+    <h2 data-lang="en">Your business deserves to operate <span style="background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">24/7 without burning out</span></h2>
+    <p data-lang="es">Hablemos 15 minutos. Te mostramos exactamente cómo funcionaría para tu negocio — sin compromiso.</p>
+    <p data-lang="en">Let's talk for 15 minutes. We'll show you exactly how it would work for your business — no commitment.</p>
+    <div class="cta-buttons">
+      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_final_cta" class="btn-primary" data-lang="es" data-track="tidycal_click" data-location="case_study_final_cta">
+        <span>📅</span> Agendar con Joaquin
+      </a>
+      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_final_cta" class="btn-primary" data-lang="en" data-track="tidycal_click" data-location="case_study_final_cta">
+        <span>📅</span> Book with Joaquin
+      </a>
+      <a href="https://byagentx.ai#pricing" class="btn-secondary" data-lang="es" data-track="pricing_click" data-location="case_study_final_cta">Ver planes y precios →</a>
+      <a href="https://byagentx.ai#pricing" class="btn-secondary" data-lang="en" data-track="pricing_click" data-location="case_study_final_cta">See pricing →</a>
+    </div>
+    <div class="cta-trust">
+      <div class="trust-item"><span class="trust-icon">⚡</span> <span data-lang="es">Setup en 7 días</span><span data-lang="en">7-day setup</span></div>
+      <div class="trust-item"><span class="trust-icon">💳</span> <span data-lang="es">Sin contrato largo</span><span data-lang="en">No long contract</span></div>
+      <div class="trust-item"><span class="trust-icon">🔒</span> <span data-lang="es">Sin acceso a tu cuenta</span><span data-lang="en">No account access needed</span></div>
+      <div class="trust-item"><span class="trust-icon">🇲🇽</span> <span data-lang="es">Precios en MXN</span><span data-lang="en">Prices in MXN</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">AgentX</div>
+      <div class="footer-links">
+        <a href="https://byagentx.ai" data-lang="es">Inicio</a>
+        <a href="https://byagentx.ai" data-lang="en">Home</a>
+        <a href="https://byagentx.ai#casos" data-lang="es">Casos</a>
+        <a href="https://byagentx.ai#cases" data-lang="en">Cases</a>
+        <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_footer" data-track="tidycal_click" data-location="case_study_footer">Contacto</a>
+      </div>
+      <div class="footer-copy">© 2025 AgentX · byagentx.ai</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
+    localStorage.setItem('agentx-lang', lang);
+  }
+
+  function trackEvent(name, data) {
+    const payload = Object.assign({ event: name, page: window.location.pathname, timestamp: new Date().toISOString() }, data || {});
+    try {
+      const events = JSON.parse(localStorage.getItem('agentx_events') || '[]');
+      events.push(payload);
+      localStorage.setItem('agentx_events', JSON.stringify(events.slice(-50)));
+    } catch (e) {}
+    if (window.dataLayer && Array.isArray(window.dataLayer)) window.dataLayer.push(payload);
+    if (typeof window.gtag === 'function') window.gtag('event', name, data || {});
+    if (typeof window.plausible === 'function') window.plausible(name, { props: data || {} });
+  }
+
+  document.querySelectorAll('[data-track]').forEach(el => {
+    el.addEventListener('click', () => {
+      trackEvent(el.dataset.track, {
+        location: el.dataset.location || '',
+        href: el.getAttribute('href') || ''
+      });
+    });
+  });
+
+  // Restore saved language preference
+  const savedLang = localStorage.getItem('agentx-lang') || 'es';
+  if (savedLang === 'en') setLang('en');
+  else setLang('es');
+
+  // Animate result bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width || entry.target.style.width;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Fade in on scroll
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.solution-card, .result-card, .challenge-item, .tl-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    fadeObserver.observe(el);
+  });
+</script>
+</body>
+</html>
