@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Ricki Pollo — Menú a Domicilio</title>
+  <meta name="description" content="Pide a domicilio el mejor pollo rostizado a la leña de Cholula. Menú completo con pollos, complementos y bebidas." />
+  <meta property="og:title" content="Ricki Pollo — Menú a Domicilio" />
+  <meta property="og:description" content="Pollo rostizado a la leña en Cholula, Puebla. Pide directo por WhatsApp." />
+  <meta property="og:image" content="ricki-pollo-img/hero-new.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --negro:   #1e1e1e;
+      --cafe:    #b4532a;
+      --crema:   #f4f0e8;
+      --naranja: #d96a1b;
+      --gris:    #a8a8a8;
+      --blanco:  #ffffff;
+
+      --font-title: 'Playfair Display', Georgia, serif;
+      --font-body:  'Nunito', system-ui, sans-serif;
+
+      --radius:      12px;
+      --transition:  0.35s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--crema);
+      color: var(--negro);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 100px;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 clamp(16px, 4vw, 48px);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition);
+      background: transparent;
+    }
+    #navbar.scrolled {
+      background: var(--negro);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+
+    .nav-logo {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--crema);
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--naranja); }
+
+    /* Cart button in nav */
+    #cart-nav-btn {
+      background: var(--naranja);
+      border: none;
+      border-radius: 50px;
+      padding: 8px 20px;
+      color: var(--blanco);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background var(--transition), transform var(--transition);
+      position: relative;
+    }
+    #cart-nav-btn:hover {
+      background: var(--cafe);
+      transform: translateY(-1px);
+    }
+    #cart-count {
+      background: var(--crema);
+      color: var(--naranja);
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    #cart-count.show { display: flex; }
+
+    /* ============================================================
+       HERO — compact with image
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: clamp(280px, 45vw, 480px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: var(--negro);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('ricki-pollo-img/hero-new.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(30,30,30,0.35) 0%,
+        rgba(30,30,30,0.65) 60%,
+        rgba(30,30,30,0.88) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--crema);
+      padding: 0 20px;
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--naranja);
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: heroFadeUp 0.9s ease 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: heroFadeUp 0.9s ease 0.4s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--naranja); }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(244,240,232,0.85);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: heroFadeUp 0.9s ease 0.6s forwards;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--naranja);
+      color: var(--blanco);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 13px 30px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(217,106,27,0.4);
+      transition: background var(--transition), transform var(--transition);
+      opacity: 0;
+      animation: heroFadeUp 0.9s ease 0.8s forwards;
+    }
+    .hero-cta:hover {
+      background: var(--cafe);
+      transform: translateY(-2px);
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================================
+       CATEGORY TABS — sticky under navbar
+    ============================================================ */
+    #cat-tabs {
+      position: sticky;
+      top: 64px;
+      z-index: 900;
+      background: var(--negro);
+      border-bottom: 1px solid rgba(217,106,27,0.3);
+      padding: 10px clamp(12px, 4vw, 32px);
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    #cat-tabs::-webkit-scrollbar { display: none; }
+
+    .cat-tab {
+      flex-shrink: 0;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 2px solid rgba(244,240,232,0.2);
+      background: transparent;
+      color: rgba(244,240,232,0.7);
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .cat-tab:hover {
+      border-color: var(--naranja);
+      color: var(--crema);
+    }
+    .cat-tab.active {
+      background: var(--naranja);
+      border-color: var(--naranja);
+      color: var(--blanco);
+    }
+
+    /* ============================================================
+       MENU CONTENT
+    ============================================================ */
+    #menu-content {
+      padding: 0 clamp(12px, 4vw, 40px);
+    }
+
+    /* Category section */
+    .cat-section {
+      padding: 40px 0 16px;
+    }
+
+    .cat-section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .cat-section-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(180,83,42,0.3);
+    }
+    .cat-section-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--negro);
+    }
+    .cat-section-icon {
+      font-size: 1.6rem;
+    }
+
+    /* Cards grid */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    @media (min-width: 700px) {
+      .items-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .items-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+
+    /* Card */
+    .menu-card {
+      background: var(--blanco);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(30,30,30,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(30,30,30,0.14);
+    }
+
+    .card-img-wrap {
+      height: 160px;
+      background: linear-gradient(135deg, #2d1a0e 0%, #b4532a 60%, #d96a1b 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .menu-card:hover .card-img { transform: scale(1.06); }
+
+    .card-badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: var(--negro);
+      color: var(--crema);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+    .card-badge.popular { background: var(--naranja); }
+
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .card-name {
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--negro);
+      line-height: 1.2;
+    }
+    .card-price {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--naranja);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    /* Add button */
+    .add-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--naranja);
+      color: var(--blanco);
+      border: none;
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--transition), transform 0.1s;
+      width: 100%;
+      margin-top: auto;
+    }
+    .add-btn:hover { background: var(--cafe); }
+    .add-btn:active { transform: scale(0.97); }
+
+    /* ============================================================
+       CART DRAWER (right-side)
+    ============================================================ */
+    #cart-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1100;
+    }
+    #cart-overlay.open { display: block; }
+
+    #cart-drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(400px, 92vw);
+      background: var(--blanco);
+      z-index: 1101;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -4px 0 32px rgba(0,0,0,0.2);
+    }
+    #cart-drawer.open { transform: translateX(0); }
+
+    #cart-header {
+      background: var(--negro);
+      padding: 20px 20px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #cart-header h2 {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--crema);
+    }
+    #cart-close {
+      background: none;
+      border: none;
+      color: var(--gris);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: color var(--transition);
+    }
+    #cart-close:hover { color: var(--crema); }
+
+    #cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gris);
+    }
+    .cart-empty-icon { font-size: 3rem; margin-bottom: 12px; }
+    .cart-empty p { font-size: 0.95rem; }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(30,30,30,0.07);
+    }
+    .ci-info { flex: 1; min-width: 0; }
+    .ci-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--negro);
+      line-height: 1.3;
+    }
+    .ci-unit {
+      font-size: 0.75rem;
+      color: var(--gris);
+      margin-top: 2px;
+    }
+    .qty-ctrl {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qty-btn {
+      background: var(--crema);
+      border: 1px solid rgba(30,30,30,0.12);
+      border-radius: 50%;
+      width: 28px; height: 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--negro);
+      transition: background var(--transition), color var(--transition);
+    }
+    .qty-btn:hover {
+      background: var(--naranja);
+      color: var(--blanco);
+      border-color: var(--naranja);
+    }
+    .qty-num {
+      min-width: 22px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--negro);
+    }
+    .ci-subtotal {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--naranja);
+      min-width: 48px;
+      text-align: right;
+    }
+
+    #cart-footer {
+      padding: 16px 20px;
+      border-top: 2px solid rgba(30,30,30,0.08);
+      background: var(--blanco);
+    }
+    #cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    #cart-total-label {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--negro);
+    }
+    #cart-total {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--naranja);
+    }
+    #wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #25d366;
+      color: var(--blanco);
+      border: none;
+      border-radius: 50px;
+      padding: 14px 20px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+    }
+    #wa-btn:hover {
+      background: #1db954;
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       FLOATING CART BUTTON
+    ============================================================ */
+    #float-cart {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      z-index: 999;
+      background: var(--naranja);
+      color: var(--blanco);
+      border: none;
+      border-radius: 50px;
+      padding: 13px 22px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(217,106,27,0.45);
+      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+    }
+    #float-cart:hover {
+      background: var(--cafe);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(217,106,27,0.55);
+    }
+    #float-cart-count {
+      background: var(--crema);
+      color: var(--naranja);
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      font-size: 12px;
+      font-weight: 800;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    #float-cart-count.show { display: flex; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: #141414;
+      padding: 48px clamp(16px, 5vw, 60px) 32px;
+      margin-top: 48px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 640px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    .footer-logo {
+      font-family: var(--font-title);
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--crema);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--naranja); }
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.7;
+      max-width: 240px;
+      margin-bottom: 20px;
+    }
+
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(168,168,168,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gris);
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+    .social-link:hover {
+      background: var(--naranja);
+      border-color: var(--naranja);
+      color: var(--blanco);
+    }
+
+    .footer-col-title {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--crema);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: var(--gris);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--naranja); }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(168,168,168,0.1);
+      margin-bottom: 24px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: rgba(168,168,168,0.55);
+    }
+    .footer-copy span { color: var(--naranja); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">RICKI <span>POLLO</span></a>
+    <button id="cart-nav-btn" onclick="toggleCart()">
+      🛒 Carrito
+      <span id="cart-count">0</span>
+    </button>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">🔥 Cholula, Puebla · Pedidos a domicilio</div>
+      <h1 class="hero-title">Ricki <em>Pollo</em></h1>
+      <p class="hero-sub">Rostizados a la leña. Pide tu pedido y lo llevamos a tu puerta.</p>
+      <a href="#pollos" class="hero-cta" onclick="scrollToSection('pollos', event)">Ver Menú ↓</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CATEGORY TABS
+  ============================================================ -->
+  <div id="cat-tabs">
+    <button class="cat-tab active" data-target="pollos">🍗 POLLOS</button>
+    <button class="cat-tab" data-target="complementos">🍝 COMPLEMENTOS</button>
+    <button class="cat-tab" data-target="bebidas">🥤 BEBIDAS</button>
+  </div>
+
+  <!-- ============================================================
+       MENU CONTENT
+  ============================================================ -->
+  <div id="menu-content">
+
+    <!-- POLLOS Y PAQUETES -->
+    <div class="cat-section" id="pollos">
+      <div class="cat-section-header">
+        <div class="cat-section-icon">🍗</div>
+        <div class="cat-section-title">Pollos y paquetes</div>
+        <div class="cat-section-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/pollo-rostizado-ai.png" alt="Pollo Rostizado" onerror="this.style.display='none'" />
+            <div class="card-badge">Clásico</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Pollo Rostizado</div>
+              <div class="card-price">$299</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 8 tortillas, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Pollo Rostizado', 299)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-individual-rostizado.png" alt="Paquete Individual Rostizado" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Individual Rostizado</div>
+              <div class="card-price">$120</div>
+            </div>
+            <div class="card-desc">Incluye: 1/4 de pollo rostizado (300 g aprox.), 4 tortillas, chiles en escabeche 120 g, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Individual Rostizado', 120)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-ejecutivo-rostizado.png" alt="Paquete Ejecutivo Rostizado" onerror="this.style.display='none'" />
+            <div class="card-badge popular">Más Pedido</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Ejecutivo Rostizado</div>
+              <div class="card-price">$205</div>
+            </div>
+            <div class="card-desc">Incluye: 1/2 pollo rostizado (600 g aprox.), 8 tortillas, chiles en escabeche 225 g, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Ejecutivo Rostizado', 205)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-familiar.jpg" alt="Paquete Familiar Rostizado" onerror="this.style.display='none'" />
+            <div class="card-badge popular">Para la Familia</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Familiar Rostizado</div>
+              <div class="card-price">$415</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Familiar Rostizado', 415)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-especial-rostizado.png" alt="Paquete Especial Rostizado" onerror="this.style.display='none'" />
+            <div class="card-badge">Especial</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Especial Rostizado</div>
+              <div class="card-price">$429</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Especial Rostizado', 429)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-ricky-rostizado.png" alt="Paquete Ricky Rostizado" onerror="this.style.display='none'" />
+            <div class="card-badge popular">Premium</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Ricky Rostizado</div>
+              <div class="card-price">$488</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, complemento a elegir, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Ricky Rostizado', 488)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/pollo-adobado-ai.png" alt="Pollo Adobado" onerror="this.style.display='none'" />
+            <div class="card-badge">Adobado</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Pollo Adobado</div>
+              <div class="card-price">$310</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 8 tortillas, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Pollo Adobado', 310)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-individual-adobado.png" alt="Paquete Individual Adobado" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Individual Adobado</div>
+              <div class="card-price">$120</div>
+            </div>
+            <div class="card-desc">Incluye: 1/4 de pollo adobado (300 g aprox.), 4 tortillas, chiles en escabeche 120 g, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Individual Adobado', 120)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-ejecutivo-adobado.png" alt="Paquete Ejecutivo Adobado" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Ejecutivo Adobado</div>
+              <div class="card-price">$230</div>
+            </div>
+            <div class="card-desc">Incluye: 1/2 pollo adobado (600 g aprox.), 8 tortillas, chiles en escabeche 225 g, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Ejecutivo Adobado', 230)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-familiar-adobado.png" alt="Paquete Familiar Adobado" onerror="this.style.display='none'" />
+            <div class="card-badge popular">Para la Familia</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Familiar Adobado</div>
+              <div class="card-price">$415</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Familiar Adobado', 415)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-especial-adobado.png" alt="Paquete Especial Adobado" onerror="this.style.display='none'" />
+            <div class="card-badge">Especial</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Especial Adobado</div>
+              <div class="card-price">$429</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Especial Adobado', 429)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/paquete-ricky-adobado.png" alt="Paquete Ricky Adobado" onerror="this.style.display='none'" />
+            <div class="card-badge popular">Premium</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Paquete Ricky Adobado</div>
+              <div class="card-price">$488</div>
+            </div>
+            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, complemento a elegir, cebollas asadas y salsa de la casa.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Ricky Adobado', 488)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTOS Y POSTRES -->
+    <div class="cat-section" id="complementos">
+      <div class="cat-section-header">
+        <div class="cat-section-icon">🍝</div>
+        <div class="cat-section-title">Complementos y postres</div>
+        <div class="cat-section-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/espagueti-rojo.jpg" alt="Espagueti Rojo" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Espagueti Rojo</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 280 g.</div>
+            <button class="add-btn" onclick="addToCart('Espagueti Rojo', 62)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/codito-jamon.jpg" alt="Sopa de Codito con Jamón" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Sopa de Codito con Jamón</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 350 g.</div>
+            <button class="add-btn" onclick="addToCart('Sopa de Codito con Jamón', 62)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/arroz-rojo.jpg" alt="Arroz Rojo" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Arroz Rojo</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 300 g.</div>
+            <button class="add-btn" onclick="addToCart('Arroz Rojo', 62)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/ensalada-col.jpg" alt="Ensalada de Col" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Ensalada de Col</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 320 g.</div>
+            <button class="add-btn" onclick="addToCart('Ensalada de Col', 62)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/ensalada-manzana.jpg" alt="Ensalada de Manzana" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Ensalada de Manzana</div>
+              <div class="card-price">$72</div>
+            </div>
+            <div class="card-desc">Porción: 250 g.</div>
+            <button class="add-btn" onclick="addToCart('Ensalada de Manzana', 72)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/papas-fritas.jpg" alt="Papas Fritas" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Papas Fritas</div>
+              <div class="card-price">$68</div>
+            </div>
+            <div class="card-desc">Porción: 100 g.</div>
+            <button class="add-btn" onclick="addToCart('Papas Fritas', 68)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/papas-cambray.jpg" alt="Papas Cambray Adobada" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Papas Cambray Adobada</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 150 g.</div>
+            <button class="add-btn" onclick="addToCart('Papas Cambray Adobada', 62)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/chiles-escabeche.jpg" alt="Chiles en Escabeche con Verduras" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Chiles en Escabeche con Verduras</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 350 g.</div>
+            <button class="add-btn" onclick="addToCart('Chiles en Escabeche con Verduras', 62)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/salsa-roja-ai.png" alt="Salsa Roja" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Salsa Roja</div>
+              <div class="card-price">$40</div>
+            </div>
+            <div class="card-desc">Porción: 170 g.</div>
+            <button class="add-btn" onclick="addToCart('Salsa Roja', 40)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/salsa-verde-ai.png" alt="Salsa Verde" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Salsa Verde</div>
+              <div class="card-price">$40</div>
+            </div>
+            <div class="card-desc">Porción: 170 g.</div>
+            <button class="add-btn" onclick="addToCart('Salsa Verde', 40)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/salsa-macha-ai.png" alt="Salsa Macha" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Salsa Macha</div>
+              <div class="card-price">$37</div>
+            </div>
+            <div class="card-desc">Porción: 100 g.</div>
+            <button class="add-btn" onclick="addToCart('Salsa Macha', 37)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/cebollas-chiles-toreados.png" alt="Cebollas y Chiles Toreados" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Cebollas y Chiles Toreados</div>
+              <div class="card-price">$26</div>
+            </div>
+            <div class="card-desc">Porción: 150 g.</div>
+            <button class="add-btn" onclick="addToCart('Cebollas y Chiles Toreados', 26)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/guacamole.jpg" alt="Guacamole" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Guacamole</div>
+              <div class="card-price">$79</div>
+            </div>
+            <div class="card-desc">Porción: 170 g.</div>
+            <button class="add-btn" onclick="addToCart('Guacamole', 79)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/tortillas-maiz.png" alt="Orden de Tortilla de Maíz" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Orden de Tortilla de Maíz</div>
+              <div class="card-price">$20</div>
+            </div>
+            <div class="card-desc">Porción: 200 g.</div>
+            <button class="add-btn" onclick="addToCart('Orden de Tortilla de Maíz', 20)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/pan-bolillo.png" alt="Orden de Pan Bolillo" onerror="this.style.display='none'" />
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Orden de Pan Bolillo</div>
+              <div class="card-price">$26</div>
+            </div>
+            <div class="card-desc">Porción: 3 piezas.</div>
+            <button class="add-btn" onclick="addToCart('Orden de Pan Bolillo', 26)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/brownie-chocolate.png" alt="Brownie de Chocolate" onerror="this.style.display='none'" />
+            <div class="card-badge">Postre</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Brownie de Chocolate</div>
+              <div class="card-price">$58</div>
+            </div>
+            <div class="card-desc">Porción: 1 pieza.</div>
+            <button class="add-btn" onclick="addToCart('Brownie de Chocolate', 58)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/flan-elote.png" alt="Flan de Elote" onerror="this.style.display='none'" />
+            <div class="card-badge">Postre</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Flan de Elote</div>
+              <div class="card-price">$62</div>
+            </div>
+            <div class="card-desc">Porción: 1 pieza.</div>
+            <button class="add-btn" onclick="addToCart('Flan de Elote', 62)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="cat-section" id="bebidas">
+      <div class="cat-section-header">
+        <div class="cat-section-icon">🥤</div>
+        <div class="cat-section-title">Bebidas</div>
+        <div class="cat-section-line"></div>
+      </div>
+      <div class="items-grid">
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/coca-cola-clasica-355.png" alt="Coca Cola Clásica 355ml" onerror="this.style.display='none'" />
+            <div class="card-badge">355 ml</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Coca Cola Clásica 355ml</div>
+              <div class="card-price">$44</div>
+            </div>
+            <div class="card-desc">Presentación: lata 355 ml.</div>
+            <button class="add-btn" onclick="addToCart('Coca Cola Clásica 355ml', 44)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/coca-cola-zero-355.png" alt="Coca Cola Zero 355ml" onerror="this.style.display='none'" />
+            <div class="card-badge">355 ml</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Coca Cola Zero 355ml</div>
+              <div class="card-price">$44</div>
+            </div>
+            <div class="card-desc">Presentación: lata 355 ml.</div>
+            <button class="add-btn" onclick="addToCart('Coca Cola Zero 355ml', 44)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/sidral-mundet-355.png" alt="Sidral Mundet 355ml" onerror="this.style.display='none'" />
+            <div class="card-badge">355 ml</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Sidral Mundet 355ml</div>
+              <div class="card-price">$44</div>
+            </div>
+            <div class="card-desc">Presentación: lata 355 ml.</div>
+            <button class="add-btn" onclick="addToCart('Sidral Mundet 355ml', 44)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/sprite-355.png" alt="Sprite 355ml" onerror="this.style.display='none'" />
+            <div class="card-badge">355 ml</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Sprite 355ml</div>
+              <div class="card-price">$44</div>
+            </div>
+            <div class="card-desc">Presentación: lata 355 ml.</div>
+            <button class="add-btn" onclick="addToCart('Sprite 355ml', 44)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/fanta-355.png" alt="Fanta 355ml" onerror="this.style.display='none'" />
+            <div class="card-badge">355 ml</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Fanta 355ml</div>
+              <div class="card-price">$44</div>
+            </div>
+            <div class="card-desc">Presentación: lata 355 ml.</div>
+            <button class="add-btn" onclick="addToCart('Fanta 355ml', 44)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/agua-ciel-600.png" alt="Agua Ciel 600ml" onerror="this.style.display='none'" />
+            <div class="card-badge">600 ml</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Agua Ciel 600ml</div>
+              <div class="card-price">$37</div>
+            </div>
+            <div class="card-desc">Presentación: botella 600 ml.</div>
+            <button class="add-btn" onclick="addToCart('Agua Ciel 600ml', 37)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/coca-cola-clasica-2l.png" alt="Coca Cola Clásica 2L" onerror="this.style.display='none'" />
+            <div class="card-badge">2 L</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Coca Cola Clásica 2L</div>
+              <div class="card-price">$89</div>
+            </div>
+            <div class="card-desc">Presentación: botella 2 L / 2000 ml.</div>
+            <button class="add-btn" onclick="addToCart('Coca Cola Clásica 2L', 89)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/sidral-mundet-2l.png" alt="Sidral Mundet 2L" onerror="this.style.display='none'" />
+            <div class="card-badge">2 L</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Sidral Mundet 2L</div>
+              <div class="card-price">$89</div>
+            </div>
+            <div class="card-desc">Presentación: botella 2 L / 2000 ml.</div>
+            <button class="add-btn" onclick="addToCart('Sidral Mundet 2L', 89)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/sprite-2l.png" alt="Sprite 2L" onerror="this.style.display='none'" />
+            <div class="card-badge">2 L</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Sprite 2L</div>
+              <div class="card-price">$89</div>
+            </div>
+            <div class="card-desc">Presentación: botella 2 L / 2000 ml.</div>
+            <button class="add-btn" onclick="addToCart('Sprite 2L', 89)">+ Agregar</button>
+          </div>
+        </div>
+        <div class="menu-card fade-in">
+          <div class="card-img-wrap">
+            <img class="card-img" src="rickipollo-img/fanta-2l.png" alt="Fanta 2L" onerror="this.style.display='none'" />
+            <div class="card-badge">2 L</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <div class="card-name">Fanta 2L</div>
+              <div class="card-price">$89</div>
+            </div>
+            <div class="card-desc">Presentación: botella 2 L / 2000 ml.</div>
+            <button class="add-btn" onclick="addToCart('Fanta 2L', 89)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- ============================================================
+       CART OVERLAY + DRAWER
+  ============================================================ -->
+  <div id="cart-overlay" onclick="toggleCart()"></div>
+
+  <div id="cart-drawer">
+    <div id="cart-header">
+      <h2>🛒 Tu Pedido</h2>
+      <button id="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cart-items">
+      <div class="cart-empty" id="cart-empty">
+        <div class="cart-empty-icon">🍗</div>
+        <p>Tu carrito está vacío.<br>¡Agrega algo delicioso!</p>
+      </div>
+    </div>
+    <div id="cart-footer">
+      <div id="cart-total-row">
+        <span id="cart-total-label">Total</span>
+        <span id="cart-total">$0</span>
+      </div>
+      <a id="wa-btn" href="#" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Confirmar Pedido por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FLOATING CART BUTTON
+  ============================================================ -->
+  <button id="float-cart" onclick="toggleCart()">
+    🛒 Ver Pedido
+    <span id="float-cart-count">0</span>
+  </button>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    // ── ?from= ref ──────────────────────────────────────────────
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromRef = urlParams.get('from');
+    if (fromRef) sessionStorage.setItem('rickipollo_from', fromRef);
+    const ref = sessionStorage.getItem('rickipollo_from') || '';
+
+    // ── Cart state ───────────────────────────────────────────────
+    const cart = {};
+
+    function addToCart(name, price) {
+      if (cart[name]) {
+        cart[name].qty++;
+      } else {
+        cart[name] = { price, qty: 1 };
+      }
+      renderCart();
+      // Flash effect: briefly open cart drawer then keep open
+      openCart();
+    }
+
+    function changeQty(name, delta) {
+      if (!cart[name]) return;
+      cart[name].qty += delta;
+      if (cart[name].qty <= 0) delete cart[name];
+      renderCart();
+    }
+
+    function renderCart() {
+      const itemsEl = document.getElementById('cart-items');
+      const emptyEl = document.getElementById('cart-empty');
+      const totalEl = document.getElementById('cart-total');
+      const countBadge = document.getElementById('cart-count');
+      const floatCount = document.getElementById('float-cart-count');
+      const waBtn = document.getElementById('wa-btn');
+
+      const keys = Object.keys(cart);
+      let total = 0;
+      let totalItems = 0;
+
+      if (keys.length === 0) {
+        itemsEl.innerHTML = '';
+        itemsEl.appendChild(emptyEl);
+        emptyEl.style.display = 'block';
+        totalEl.textContent = '$0';
+        countBadge.classList.remove('show');
+        floatCount.classList.remove('show');
+        waBtn.href = '#';
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+
+      // Build items HTML
+      let html = '';
+      keys.forEach(name => {
+        const { price, qty } = cart[name];
+        const sub = price * qty;
+        total += sub;
+        totalItems += qty;
+        html += `
+          <div class="cart-item">
+            <div class="ci-info">
+              <div class="ci-name">${name}</div>
+              <div class="ci-unit">$${price} c/u</div>
+            </div>
+            <div class="qty-ctrl">
+              <button class="qty-btn" onclick="changeQty('${name.replace(/'/g,"\\'")}', -1)">−</button>
+              <span class="qty-num">${qty}</span>
+              <button class="qty-btn" onclick="changeQty('${name.replace(/'/g,"\\'")}', 1)">+</button>
+            </div>
+            <div class="ci-subtotal">$${sub}</div>
+          </div>`;
+      });
+
+      itemsEl.innerHTML = html;
+      totalEl.textContent = '$' + total;
+
+      // Update counters
+      countBadge.textContent = totalItems;
+      countBadge.classList.add('show');
+      floatCount.textContent = totalItems;
+      floatCount.classList.add('show');
+
+      // Build WhatsApp message
+      let msg = '🍗 *PEDIDO RICKI POLLO*\n\n';
+      keys.forEach(name => {
+        const { price, qty } = cart[name];
+        msg += `• ${name} x${qty} — $${price * qty}\n`;
+      });
+      msg += `\n*Total: $${total}*`;
+      if (ref) msg += `\n\nRef: ${ref}`;
+
+      waBtn.href = 'https://wa.me/5212711328513?text=' + encodeURIComponent(msg);
+    }
+
+    // ── Cart drawer ──────────────────────────────────────────────
+    function openCart() {
+      document.getElementById('cart-overlay').classList.add('open');
+      document.getElementById('cart-drawer').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+      document.getElementById('cart-overlay').classList.remove('open');
+      document.getElementById('cart-drawer').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function toggleCart() {
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer.classList.contains('open')) closeCart();
+      else openCart();
+    }
+
+    // ── Navbar scroll ────────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      updateActiveTab();
+    }, { passive: true });
+
+    // ── Category tabs — scroll + active ─────────────────────────
+    const SECTIONS = ['pollos', 'complementos', 'bebidas'];
+
+    function scrollToSection(id, e) {
+      if (e) e.preventDefault();
+      const el = document.getElementById(id);
+      if (!el) return;
+      const navbarHeight = document.getElementById('navbar').offsetHeight;
+      const tabsHeight = document.getElementById('cat-tabs').offsetHeight;
+      const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight - tabsHeight - 8;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.cat-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        scrollToSection(tab.dataset.target);
+      });
+    });
+
+    function updateActiveTab() {
+      const navbarHeight = document.getElementById('navbar').offsetHeight;
+      const tabsHeight = document.getElementById('cat-tabs').offsetHeight;
+      const offset = navbarHeight + tabsHeight + 20;
+
+      let current = SECTIONS[0];
+      SECTIONS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = id;
+        }
+      });
+
+      document.querySelectorAll('.cat-tab').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.target === current);
+      });
+    }
+
+    // ── Intersection Observer (fade-in) ─────────────────────────
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+    // Init cart render (sets empty state)
+    renderCart();
+  </script>
+
+</body>
+</html>
