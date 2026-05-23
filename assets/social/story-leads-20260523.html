@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1080, initial-scale=1" />
+<title>AgentX Story — Leads</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif; color: #fff; background: #050812; }
+  .story { position: relative; width: 1080px; height: 1920px; padding: 92px 78px 82px; background:
+    radial-gradient(circle at 80% 12%, rgba(33, 215, 255, .30), transparent 30%),
+    radial-gradient(circle at 8% 42%, rgba(114, 75, 255, .24), transparent 34%),
+    radial-gradient(circle at 50% 90%, rgba(0, 255, 178, .16), transparent 34%),
+    linear-gradient(160deg, #050812 0%, #090d1d 48%, #03050b 100%); }
+  .grid { position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(circle at 50% 48%, black 0, transparent 72%); }
+  .noise { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 1px, transparent 1px, transparent 5px); mix-blend-mode: overlay; opacity: .5; }
+  .brand { position: relative; display: flex; align-items: center; gap: 18px; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; }
+  .mark { width: 62px; height: 62px; border-radius: 18px; background: linear-gradient(135deg, #00ffd1, #36a3ff 52%, #8a5cff); display: grid; place-items: center; color: #02040a; font-weight: 900; box-shadow: 0 18px 55px rgba(0, 255, 209, .24); }
+  .pill { position: relative; margin-top: 135px; display: inline-flex; padding: 15px 22px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.08); backdrop-filter: blur(12px); font-size: 28px; font-weight: 700; color: #b7fff3; }
+  h1 { position: relative; margin: 42px 0 0; font-size: 104px; line-height: .95; letter-spacing: -0.075em; max-width: 910px; font-weight: 900; }
+  h1 span { color: #55ffdc; text-shadow: 0 0 44px rgba(85,255,220,.22); }
+  .sub { position: relative; margin-top: 42px; max-width: 690px; font-size: 42px; line-height: 1.18; color: rgba(255,255,255,.84); letter-spacing: -0.035em; font-weight: 650; }
+  .card { position: relative; margin-top: 82px; padding: 38px; border-radius: 38px; border: 1px solid rgba(255,255,255,.16); background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.055)); box-shadow: 0 30px 90px rgba(0,0,0,.35); backdrop-filter: blur(18px); max-width: 650px; }
+  .row { display: flex; align-items: center; gap: 20px; padding: 20px 0; font-size: 31px; line-height: 1.08; font-weight: 750; color: rgba(255,255,255,.93); letter-spacing: -.035em; }
+  .row:not(:last-child){ border-bottom: 1px solid rgba(255,255,255,.10); }
+  .check { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: rgba(85,255,220,.16); display: grid; place-items: center; color: #55ffdc; font-weight: 900; }
+  .cta { position: absolute; left: 78px; right: 78px; bottom: 98px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 34px; border-radius: 34px; background: #f7fbff; color: #050812; box-shadow: 0 22px 60px rgba(85,255,220,.18); }
+  .cta strong { display:block; font-size: 33px; letter-spacing: -.04em; }
+  .cta span { display:block; margin-top: 6px; font-size: 24px; color: rgba(5,8,18,.66); font-weight: 700; }
+  .arrow { width: 72px; height: 72px; border-radius: 24px; background: #050812; color: #55ffdc; display: grid; place-items: center; font-size: 44px; font-weight: 900; }
+  .phone { position: absolute; right: 56px; top: 780px; width: 315px; height: 560px; border: 2px solid rgba(255,255,255,.18); border-radius: 54px; background: rgba(5,8,18,.58); transform: rotate(7deg); box-shadow: 0 45px 120px rgba(0,0,0,.45); padding: 32px 24px; opacity: .92; }
+  .speaker { width: 92px; height: 10px; border-radius: 99px; background: rgba(255,255,255,.22); margin: 0 auto 34px; }
+  .bubble { margin: 16px 0; padding: 18px 20px; border-radius: 24px; font-size: 22px; line-height: 1.15; font-weight: 700; letter-spacing: -.02em; }
+  .incoming { background: rgba(255,255,255,.12); color: rgba(255,255,255,.82); border-top-left-radius: 7px; }
+  .outgoing { background: linear-gradient(135deg,#55ffdc,#4db8ff); color:#031018; border-top-right-radius: 7px; margin-left: 42px; }
+  .tag { position:absolute; right: 88px; top: 1310px; padding: 16px 20px; border-radius: 20px; background: rgba(85,255,220,.12); color:#aaffef; font-size: 23px; font-weight:800; border: 1px solid rgba(85,255,220,.22); transform: rotate(-4deg); }
+</style>
+</head>
+<body>
+  <main class="story">
+    <div class="grid"></div><div class="noise"></div>
+    <div class="brand"><div class="mark">AX</div><div>AgentX</div></div>
+    <div class="pill">WhatsApp · Instagram · Facebook · Web</div>
+    <h1>Si tardas en responder, <span>el lead se enfría.</span></h1>
+    <p class="sub">AgentX responde 24/7, califica prospectos y deja cada oportunidad lista para seguimiento.</p>
+    <section class="card">
+      <div class="row"><div class="check">✓</div><div>Respuestas instantáneas con IA controlada</div></div>
+      <div class="row"><div class="check">✓</div><div>Datos del cliente ordenados automáticamente</div></div>
+      <div class="row"><div class="check">✓</div><div>Handoff a tu equipo con siguiente paso claro</div></div>
+    </section>
+    <div class="phone">
+      <div class="speaker"></div>
+      <div class="bubble incoming">Hola, ¿me puedes mandar info?</div>
+      <div class="bubble outgoing">Claro. Te hago 3 preguntas y te paso una recomendación.</div>
+      <div class="bubble incoming">Perfecto 👌</div>
+      <div class="bubble outgoing">Listo: ya quedó registrado para seguimiento.</div>
+    </div>
+    <div class="tag">menos caos · más ventas</div>
+    <div class="cta"><div><strong>Agenda un diagnóstico de 15 min</strong><span>Link en bio · byagentx.ai</span></div><div class="arrow">→</div></div>
+  </main>
+</body>
+</html>
