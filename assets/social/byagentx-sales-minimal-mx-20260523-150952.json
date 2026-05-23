@@ -1,0 +1,94 @@
+{
+  "status": "success",
+  "created_at": "2026-05-23T15:10:08.563356",
+  "pipeline": "minimal premium HTML/Chrome slides + ffmpeg + edge-tts es-MX",
+  "voice": "es-MX-JorgeNeural",
+  "accent": "Mexico",
+  "video_path": "/Users/josecortesmacmini2/projects/byagentx.com/assets/social/byagentx-sales-minimal-mx-20260523-150952.mp4",
+  "thumbnail_path": "/Users/josecortesmacmini2/projects/byagentx.com/assets/social/byagentx-sales-minimal-mx-20260523-150952.jpg",
+  "audio_path": "/Users/josecortesmacmini2/projects/byagentx.com/assets/social/byagentx-sales-minimal-mx-20260523-150952.mp3",
+  "voiceover": "Tus leads no deberían esperar. AgentX responde al instante, califica prospectos y da seguimiento por WhatsApp, Instagram y web. Cuando alguien está listo para comprar, avisa a tu equipo. Menos leads perdidos. Más conversaciones que sí venden. Agenda tu diagnóstico en byagentx.ai.",
+  "slides": [
+    {
+      "duration": 2.8,
+      "kicker": "PROBLEMA",
+      "title": [
+        "LEADS",
+        "SIN RESPUESTA"
+      ],
+      "subtitle": "Se enfrían rápido.",
+      "metric": "01"
+    },
+    {
+      "duration": 3.4,
+      "kicker": "SOLUCIÓN",
+      "title": [
+        "RESPUESTA",
+        "INSTANTÁNEA"
+      ],
+      "subtitle": "WhatsApp • Instagram • Web",
+      "metric": "02"
+    },
+    {
+      "duration": 3.8,
+      "kicker": "AGENTX",
+      "title": [
+        "CALIFICA",
+        "Y DA SEGUIMIENTO"
+      ],
+      "subtitle": "Sin perder el tono humano.",
+      "metric": "03"
+    },
+    {
+      "duration": 3.8,
+      "kicker": "CIERRE",
+      "title": [
+        "AVISA CUANDO",
+        "ESTÁ LISTO"
+      ],
+      "subtitle": "Tu equipo entra en el momento correcto.",
+      "metric": "04"
+    },
+    {
+      "duration": 4.0,
+      "kicker": "RESULTADO",
+      "title": [
+        "MENOS PÉRDIDAS",
+        "MÁS VENTAS"
+      ],
+      "subtitle": "Sistema IA para convertir leads.",
+      "metric": "05"
+    },
+    {
+      "duration": 4.2,
+      "kicker": "BYAGENTX",
+      "title": [
+        "AGENDA",
+        "15 MIN"
+      ],
+      "subtitle": "byagentx.ai",
+      "metric": "X"
+    }
+  ],
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "duration": "17.666667"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "duration": "17.664000"
+      }
+    ]
+  },
+  "caveats": "Less text, more objective premium design. No publishing."
+}
