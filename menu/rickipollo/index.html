@@ -304,11 +304,15 @@
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 18px;
     }
-    @media (min-width: 700px) {
+    @media (min-width: 900px) {
       .items-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
     }
-    @media (max-width: 480px) {
-      .items-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    @media (max-width: 899px) {
+      .items-grid { grid-template-columns: 1fr; gap: 18px; }
+      .cat-section-header { align-items: flex-start; flex-wrap: wrap; }
+      .cat-section-line { display: none; }
+      .cat-section-note { margin-top: 0; line-height: 1.45; }
+      #pollos .card-img-wrap { height: 240px; }
     }
 
     /* Card */
@@ -338,6 +342,14 @@
       transition: transform 0.5s ease;
     }
     .menu-card:hover .card-img { transform: scale(1.06); }
+
+    #pollos .card-img-wrap {
+      height: 220px;
+      background: #241208;
+    }
+    #pollos .card-img {
+      object-fit: cover;
+    }
 
     .card-badge {
       position: absolute;
@@ -597,7 +609,7 @@
       font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
-      display: flex;
+      display: none;
       align-items: center;
       gap: 8px;
       box-shadow: 0 4px 20px rgba(217,106,27,0.45);
@@ -620,6 +632,10 @@
       justify-content: center;
     }
     #float-cart-count.show { display: flex; }
+
+    @media (min-width: 769px) {
+      #float-cart { display: none; }
+    }
 
     /* ============================================================
        FOOTER
@@ -755,11 +771,12 @@
         <div class="cat-section-icon">🍗</div>
         <div class="cat-section-title">Pollos y paquetes</div>
         <div class="cat-section-line"></div>
+        <div class="cat-section-note">*Pollos adobados solo de viernes a domingo y hasta agotar existencias.</div>
       </div>
       <div class="items-grid">
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/pollo-rostizado-ai.png" alt="Pollo Rostizado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/pollo-rostizado-foto-20260525.jpg" alt="Pollo Rostizado" onerror="this.style.display='none'" />
             <div class="card-badge">Clásico</div>
           </div>
           <div class="card-body">
@@ -767,26 +784,26 @@
               <div class="card-name">Pollo Rostizado</div>
               <div class="card-price">$299</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 8 tortillas, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1 pollo entero, 8 tortillas, chiles en escabeche 350 g y salsa de la casa 100 g.</div>
             <button class="add-btn" onclick="addToCart('Pollo Rostizado', 299)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/paquete-individual-rostizado.png" alt="Paquete Individual Rostizado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/paquete-individual-rostizado-foto-20260525.jpg" alt="Paquete Individual Rostizado" onerror="this.style.display='none'" />
           </div>
           <div class="card-body">
             <div class="card-header">
               <div class="card-name">Paquete Individual Rostizado</div>
               <div class="card-price">$120</div>
             </div>
-            <div class="card-desc">Incluye: 1/4 de pollo rostizado (300 g aprox.), 4 tortillas, chiles en escabeche 120 g, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1/4 de pollo, 4 tortillas, chiles en escabeche 175 g, arroz o ensalada de col y salsa de la casa 100 g.</div>
             <button class="add-btn" onclick="addToCart('Paquete Individual Rostizado', 120)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/paquete-ejecutivo-rostizado.png" alt="Paquete Ejecutivo Rostizado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/paquete-ejecutivo-rostizado-foto-20260525.jpg" alt="Paquete Ejecutivo Rostizado" onerror="this.style.display='none'" />
             <div class="card-badge popular">Más Pedido</div>
           </div>
           <div class="card-body">
@@ -794,13 +811,13 @@
               <div class="card-name">Paquete Ejecutivo Rostizado</div>
               <div class="card-price">$205</div>
             </div>
-            <div class="card-desc">Incluye: 1/2 pollo rostizado (600 g aprox.), 8 tortillas, chiles en escabeche 225 g, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1/2 de pollo, 8 tortillas, chiles en escabeche 350 g, arroz o ensalada de col y salsa de la casa 100 g.</div>
             <button class="add-btn" onclick="addToCart('Paquete Ejecutivo Rostizado', 205)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/paquete-familiar.jpg" alt="Paquete Familiar Rostizado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/paquete-familiar-rostizado-foto-20260525.jpg" alt="Paquete Familiar Rostizado" onerror="this.style.display='none'" />
             <div class="card-badge popular">Para la Familia</div>
           </div>
           <div class="card-body">
@@ -808,36 +825,36 @@
               <div class="card-name">Paquete Familiar Rostizado</div>
               <div class="card-price">$415</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1 pollo entero, 16 tortillas, chiles en escabeche 350 g, papas fritas 100 g, salsa de la casa 100 g y arroz rojo 250 g.</div>
             <button class="add-btn" onclick="addToCart('Paquete Familiar Rostizado', 415)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/paquete-especial-rostizado.png" alt="Paquete Especial Rostizado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/paquete-especial-rostizado-foto-20260525.jpg" alt="Paquete Especial Rostizado" onerror="this.style.display='none'" />
             <div class="card-badge">Especial</div>
           </div>
           <div class="card-body">
             <div class="card-header">
               <div class="card-name">Paquete Especial Rostizado</div>
-              <div class="card-price">$429</div>
+              <div class="card-price">$439</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, cebollas asadas y salsa de la casa.</div>
-            <button class="add-btn" onclick="addToCart('Paquete Especial Rostizado', 429)">+ Agregar</button>
+            <div class="card-desc">Incluye: 1 pollo entero, 16 tortillas, chiles en escabeche 350 g, salsa de la casa 100 g, arroz rojo 250 g, papas fritas 100 g y refresco de 2 L.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Especial Rostizado', 439)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/paquete-ricky-rostizado.png" alt="Paquete Ricky Rostizado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/paquete-ricki-pollo-rostizado-foto-20260525.jpg" alt="Paquete Ricki Pollo Rostizado" onerror="this.style.display='none'" />
             <div class="card-badge popular">Premium</div>
           </div>
           <div class="card-body">
             <div class="card-header">
-              <div class="card-name">Paquete Ricky Rostizado</div>
+              <div class="card-name">Paquete Ricki Pollo Rostizado</div>
               <div class="card-price">$488</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo rostizado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, complemento a elegir, cebollas asadas y salsa de la casa.</div>
-            <button class="add-btn" onclick="addToCart('Paquete Ricky Rostizado', 488)">+ Agregar</button>
+            <div class="card-desc">Incluye: 1 pollo entero, 16 tortillas, chiles en escabeche 350 g, salsa de la casa 100 g, papas fritas 100 g, arroz rojo 250 g, + 1 complemento a elegir y refresco de 2 L.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Ricki Pollo Rostizado', 488)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
@@ -850,7 +867,7 @@
               <div class="card-name">Pollo Adobado</div>
               <div class="card-price">$310</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 8 tortillas, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1 pollo entero, 8 tortillas, chiles en escabeche 350 g y salsa de la casa 100 g. Disponible de viernes a domingo y hasta agotar existencias.</div>
             <button class="add-btn" onclick="addToCart('Pollo Adobado', 310)">+ Agregar</button>
           </div>
         </div>
@@ -863,7 +880,7 @@
               <div class="card-name">Paquete Individual Adobado</div>
               <div class="card-price">$120</div>
             </div>
-            <div class="card-desc">Incluye: 1/4 de pollo adobado (300 g aprox.), 4 tortillas, chiles en escabeche 120 g, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1/4 de pollo, 4 tortillas, chiles en escabeche 175 g, arroz o ensalada de col y salsa de la casa 100 g. Disponible de viernes a domingo y hasta agotar existencias.</div>
             <button class="add-btn" onclick="addToCart('Paquete Individual Adobado', 120)">+ Agregar</button>
           </div>
         </div>
@@ -876,7 +893,7 @@
               <div class="card-name">Paquete Ejecutivo Adobado</div>
               <div class="card-price">$230</div>
             </div>
-            <div class="card-desc">Incluye: 1/2 pollo adobado (600 g aprox.), 8 tortillas, chiles en escabeche 225 g, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1/2 de pollo, 8 tortillas, chiles en escabeche 350 g, arroz o ensalada de col y salsa de la casa 100 g. Disponible de viernes a domingo y hasta agotar existencias.</div>
             <button class="add-btn" onclick="addToCart('Paquete Ejecutivo Adobado', 230)">+ Agregar</button>
           </div>
         </div>
@@ -890,7 +907,7 @@
               <div class="card-name">Paquete Familiar Adobado</div>
               <div class="card-price">$415</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche, cebollas asadas y salsa de la casa.</div>
+            <div class="card-desc">Incluye: 1 pollo entero, 16 tortillas, chiles en escabeche 350 g, papas fritas 100 g, salsa de la casa 100 g y arroz rojo 250 g. Disponible de viernes a domingo y hasta agotar existencias.</div>
             <button class="add-btn" onclick="addToCart('Paquete Familiar Adobado', 415)">+ Agregar</button>
           </div>
         </div>
@@ -902,24 +919,24 @@
           <div class="card-body">
             <div class="card-header">
               <div class="card-name">Paquete Especial Adobado</div>
-              <div class="card-price">$429</div>
+              <div class="card-price">$439</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, cebollas asadas y salsa de la casa.</div>
-            <button class="add-btn" onclick="addToCart('Paquete Especial Adobado', 429)">+ Agregar</button>
+            <div class="card-desc">Incluye: 1 pollo entero, 16 tortillas, chiles en escabeche 350 g, salsa de la casa 100 g, arroz rojo 250 g, papas fritas 100 g y refresco de 2 L. Disponible de viernes a domingo y hasta agotar existencias.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Especial Adobado', 439)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/paquete-ricky-adobado.png" alt="Paquete Ricky Adobado" onerror="this.style.display='none'" />
+            <img class="card-img" src="rickipollo-img/paquete-ricki-pollo-adobado.png" alt="Paquete Ricki Pollo Adobado" onerror="this.style.display='none'" />
             <div class="card-badge popular">Premium</div>
           </div>
           <div class="card-body">
             <div class="card-header">
-              <div class="card-name">Paquete Ricky Adobado</div>
+              <div class="card-name">Paquete Ricki Pollo Adobado</div>
               <div class="card-price">$488</div>
             </div>
-            <div class="card-desc">Incluye: 1 pollo adobado (1.2 Kg aprox.), 16 tortillas, chiles en escabeche 225 g, papas fritas 100 g, complemento a elegir, cebollas asadas y salsa de la casa.</div>
-            <button class="add-btn" onclick="addToCart('Paquete Ricky Adobado', 488)">+ Agregar</button>
+            <div class="card-desc">Incluye: 1 pollo entero, 16 tortillas, chiles en escabeche 350 g, salsa de la casa 100 g, papas fritas 100 g, arroz rojo 250 g, + 1 complemento a elegir y refresco de 2 L. Disponible de viernes a domingo y hasta agotar existencias.</div>
+            <button class="add-btn" onclick="addToCart('Paquete Ricki Pollo Adobado', 488)">+ Agregar</button>
           </div>
         </div>
       </div>
@@ -942,7 +959,7 @@
               <div class="card-name">Espagueti Rojo</div>
               <div class="card-price">$62</div>
             </div>
-            <div class="card-desc">Porción: 280 g.</div>
+            <div class="card-desc">Porción: 300 g.</div>
             <button class="add-btn" onclick="addToCart('Espagueti Rojo', 62)">+ Agregar</button>
           </div>
         </div>
@@ -955,7 +972,7 @@
               <div class="card-name">Sopa de Codito con Jamón</div>
               <div class="card-price">$62</div>
             </div>
-            <div class="card-desc">Porción: 350 g.</div>
+            <div class="card-desc">Porción: 300 g.</div>
             <button class="add-btn" onclick="addToCart('Sopa de Codito con Jamón', 62)">+ Agregar</button>
           </div>
         </div>
@@ -968,7 +985,7 @@
               <div class="card-name">Arroz Rojo</div>
               <div class="card-price">$62</div>
             </div>
-            <div class="card-desc">Porción: 300 g.</div>
+            <div class="card-desc">Porción: 250 g.</div>
             <button class="add-btn" onclick="addToCart('Arroz Rojo', 62)">+ Agregar</button>
           </div>
         </div>
@@ -981,7 +998,7 @@
               <div class="card-name">Ensalada de Col</div>
               <div class="card-price">$62</div>
             </div>
-            <div class="card-desc">Porción: 320 g.</div>
+            <div class="card-desc">Porción: 300 g.</div>
             <button class="add-btn" onclick="addToCart('Ensalada de Col', 62)">+ Agregar</button>
           </div>
         </div>
@@ -1013,19 +1030,6 @@
         </div>
         <div class="menu-card fade-in">
           <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/papas-cambray.jpg" alt="Papas Cambray Adobada" onerror="this.style.display='none'" />
-          </div>
-          <div class="card-body">
-            <div class="card-header">
-              <div class="card-name">Papas Cambray Adobada</div>
-              <div class="card-price">$62</div>
-            </div>
-            <div class="card-desc">Porción: 150 g.</div>
-            <button class="add-btn" onclick="addToCart('Papas Cambray Adobada', 62)">+ Agregar</button>
-          </div>
-        </div>
-        <div class="menu-card fade-in">
-          <div class="card-img-wrap">
             <img class="card-img" src="rickipollo-img/chiles-escabeche.jpg" alt="Chiles en Escabeche con Verduras" onerror="this.style.display='none'" />
           </div>
           <div class="card-body">
@@ -1046,7 +1050,7 @@
               <div class="card-name">Salsa Roja</div>
               <div class="card-price">$40</div>
             </div>
-            <div class="card-desc">Porción: 170 g.</div>
+            <div class="card-desc">Porción: 100 g.</div>
             <button class="add-btn" onclick="addToCart('Salsa Roja', 40)">+ Agregar</button>
           </div>
         </div>
@@ -1059,7 +1063,7 @@
               <div class="card-name">Salsa Verde</div>
               <div class="card-price">$40</div>
             </div>
-            <div class="card-desc">Porción: 170 g.</div>
+            <div class="card-desc">Porción: 100 g.</div>
             <button class="add-btn" onclick="addToCart('Salsa Verde', 40)">+ Agregar</button>
           </div>
         </div>
@@ -1074,32 +1078,6 @@
             </div>
             <div class="card-desc">Porción: 100 g.</div>
             <button class="add-btn" onclick="addToCart('Salsa Macha', 37)">+ Agregar</button>
-          </div>
-        </div>
-        <div class="menu-card fade-in">
-          <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/cebollas-chiles-toreados.png" alt="Cebollas y Chiles Toreados" onerror="this.style.display='none'" />
-          </div>
-          <div class="card-body">
-            <div class="card-header">
-              <div class="card-name">Cebollas y Chiles Toreados</div>
-              <div class="card-price">$26</div>
-            </div>
-            <div class="card-desc">Porción: 150 g.</div>
-            <button class="add-btn" onclick="addToCart('Cebollas y Chiles Toreados', 26)">+ Agregar</button>
-          </div>
-        </div>
-        <div class="menu-card fade-in">
-          <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/guacamole.jpg" alt="Guacamole" onerror="this.style.display='none'" />
-          </div>
-          <div class="card-body">
-            <div class="card-header">
-              <div class="card-name">Guacamole</div>
-              <div class="card-price">$79</div>
-            </div>
-            <div class="card-desc">Porción: 170 g.</div>
-            <button class="add-btn" onclick="addToCart('Guacamole', 79)">+ Agregar</button>
           </div>
         </div>
         <div class="menu-card fade-in">
@@ -1140,20 +1118,6 @@
             </div>
             <div class="card-desc">Porción: 1 pieza.</div>
             <button class="add-btn" onclick="addToCart('Brownie de Chocolate', 58)">+ Agregar</button>
-          </div>
-        </div>
-        <div class="menu-card fade-in">
-          <div class="card-img-wrap">
-            <img class="card-img" src="rickipollo-img/flan-elote.png" alt="Flan de Elote" onerror="this.style.display='none'" />
-            <div class="card-badge">Postre</div>
-          </div>
-          <div class="card-body">
-            <div class="card-header">
-              <div class="card-name">Flan de Elote</div>
-              <div class="card-price">$62</div>
-            </div>
-            <div class="card-desc">Porción: 1 pieza.</div>
-            <button class="add-btn" onclick="addToCart('Flan de Elote', 62)">+ Agregar</button>
           </div>
         </div>
       </div>
