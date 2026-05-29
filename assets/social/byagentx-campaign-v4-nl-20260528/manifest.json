@@ -35,8 +35,18 @@
     "sha256_12": "45f31303d757"
   },
   {
+    "path": "manifest.json",
+    "bytes": 912,
+    "sha256_12": "0fe6c3688671"
+  },
+  {
     "path": "video/byagentx-el-cliente-no-espera-nl-9x16.mp4",
     "bytes": 7919659,
     "sha256_12": "58c400058150"
+  },
+  {
+    "path": "video/thumb-byagentx-el-cliente-no-espera-nl.jpg",
+    "bytes": 171936,
+    "sha256_12": "3f5b19fd5fc5"
   }
 ]
