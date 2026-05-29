@@ -1,0 +1,42 @@
+[
+  {
+    "path": "00_FINAL_REPORT.md",
+    "bytes": 7498,
+    "sha256_12": "4a4e304fecc6"
+  },
+  {
+    "path": "images/post1-hero-elcliente-1080x1350.jpg",
+    "bytes": 269325,
+    "sha256_12": "59a279e1d903"
+  },
+  {
+    "path": "images/post3-alivio-1080x1350.jpg",
+    "bytes": 327176,
+    "sha256_12": "50ead3e524ea"
+  },
+  {
+    "path": "images/post4-omnicanal-1080x1350.jpg",
+    "bytes": 274765,
+    "sha256_12": "07cfb2ed51cd"
+  },
+  {
+    "path": "images/post6-seguimiento-1080x1350.jpg",
+    "bytes": 272064,
+    "sha256_12": "449573a7d1f2"
+  },
+  {
+    "path": "images/post7-24-7-1080x1350.jpg",
+    "bytes": 263158,
+    "sha256_12": "6efbf376debc"
+  },
+  {
+    "path": "images/post8-story-manifiesto-1080x1920.jpg",
+    "bytes": 378956,
+    "sha256_12": "45f31303d757"
+  },
+  {
+    "path": "video/byagentx-el-cliente-no-espera-nl-9x16.mp4",
+    "bytes": 7919659,
+    "sha256_12": "58c400058150"
+  }
+]
