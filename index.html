@@ -74,6 +74,28 @@
     @media(max-width:759px){.neural-field{opacity:.26}.parallax-card,.cards .parallax-card:nth-child(2),.cards .parallax-card:nth-child(3),.price-grid .parallax-card:nth-child(2),.price-grid .parallax-card:nth-child(3){transform:none!important}section.motion-aware:before{inset:8% 12px auto;min-height:120px;filter:blur(18px)}section.motion-aware:after{opacity:.42}}
     @media(prefers-reduced-motion:reduce){.neural-field,.global-flow,.flow-canvas,.motion-depth,.agentx-motion-field{display:none!important}section.motion-aware:before,section.motion-aware:after{display:none}.parallax-card,.orbit{transform:none!important}}
 
+
+    /* Conversion Phase 1: embedded IA demo, honest proof, WhatsApp FAB */
+    .conversion-strip{display:grid;gap:14px;margin-top:24px}
+    .metric-card{position:relative;overflow:hidden;padding:20px;border-radius:26px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.035));box-shadow:0 26px 90px rgba(0,0,0,.30);backdrop-filter:blur(18px)}
+    .metric-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at var(--mx,20%) var(--my,20%),rgba(66,245,155,.18),transparent 36%),radial-gradient(circle at 90% 0,rgba(70,216,255,.12),transparent 34%);opacity:.86;pointer-events:none}
+    .metric-card>*{position:relative}.metric-card b{display:block;font-size:28px;letter-spacing:-.05em}.metric-card span{display:block;color:#b9c9d1;font-weight:700;font-size:13px}.metric-card small{display:block;margin-top:8px;color:#dfffee;line-height:1.45}
+    .ai-demo-grid{display:grid;gap:20px;align-items:stretch}.chat-demo{overflow:hidden;border-radius:32px;border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(5,10,9,.74),rgba(8,18,22,.52));box-shadow:0 38px 120px rgba(0,0,0,.45);backdrop-filter:blur(22px)}
+    .chat-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 16px;border-bottom:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.045)}
+    .agent-badge{display:flex;align-items:center;gap:10px;font-weight:900}.agent-avatar{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--green),var(--cyan));color:#06100d;box-shadow:0 0 24px rgba(66,245,155,.28)}
+    .live-pill{display:inline-flex;align-items:center;gap:7px;color:#dfffee;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.live-pill i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 7px rgba(66,245,155,.10)}
+    .chat-body{min-height:330px;padding:18px;display:flex;flex-direction:column;gap:12px}.msg{max-width:82%;padding:13px 14px;border-radius:20px;color:#f6fff9;line-height:1.45;box-shadow:0 12px 40px rgba(0,0,0,.22);animation:msgIn .42s var(--ease) both}.msg.user{align-self:flex-end;border-bottom-right-radius:7px;background:linear-gradient(135deg,rgba(70,216,255,.26),rgba(161,107,255,.18));border:1px solid rgba(70,216,255,.22)}.msg.bot{align-self:flex-start;border-bottom-left-radius:7px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.11)}
+    @keyframes msgIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+    .chat-actions{display:flex;flex-wrap:wrap;gap:9px;padding:0 18px 18px}.prompt-chip{appearance:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.065);color:#effff6;border-radius:999px;padding:10px 12px;font-weight:850;cursor:pointer;transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease)}.prompt-chip:hover{transform:translateY(-2px);border-color:rgba(66,245,155,.42);background:rgba(66,245,155,.10)}
+    .agent-panel{padding:26px;border-radius:32px}.pipeline{display:grid;gap:12px;margin-top:18px}.pipeline-step{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:13px 14px;border-radius:18px;background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.10)}.pipeline-step i{width:28px;height:28px;border-radius:11px;display:grid;place-items:center;background:rgba(66,245,155,.13);color:#bfffe0;font-style:normal;font-weight:900}.pipeline-step strong{display:block}.pipeline-step small{color:#aebdc4}.pipeline-step em{font-style:normal;color:#42f59b;font-weight:900;font-size:12px}
+    .case-proof-grid{display:grid;gap:18px;align-items:stretch;margin-top:22px}.case-card{padding:26px;border-radius:32px}.case-card h3{margin:0 0 10px;font-size:28px;letter-spacing:-.04em}.case-card p{color:#c3d0d6}.case-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.case-tags span{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.06);border-radius:999px;padding:8px 10px;color:#dfffee;font-weight:850;font-size:12px}.proof-logo-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}.proof-logo{min-height:72px;display:grid;place-items:center;border-radius:20px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.03));color:#effff6;font-weight:950;letter-spacing:-.035em;text-align:center}.proof-logo small{display:block;color:#aebdc4;font-weight:750;letter-spacing:0;margin-top:3px}
+    .asset-stage{position:relative;overflow:hidden;min-height:350px;border-radius:34px;border:1px solid rgba(255,255,255,.12);background:radial-gradient(circle at 28% 30%,rgba(66,245,155,.18),transparent 32%),radial-gradient(circle at 75% 22%,rgba(70,216,255,.16),transparent 30%),rgba(4,8,10,.62);box-shadow:inset 0 0 0 1px rgba(255,255,255,.045),0 34px 100px rgba(0,0,0,.35)}.asset-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 42%,rgba(255,255,255,.08) 48%,transparent 55%);animation:scanBeam 5.8s linear infinite}.asset-node{position:absolute;border-radius:24px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);backdrop-filter:blur(18px);padding:14px;box-shadow:0 18px 70px rgba(0,0,0,.32);animation:floatCard 5.2s var(--ease) infinite alternate}.asset-node b{display:block}.asset-node small{color:#bdd0d8}.asset-node.n1{left:8%;top:12%;width:170px}.asset-node.n2{right:8%;top:28%;width:188px;animation-delay:-1.8s}.asset-node.n3{left:22%;bottom:12%;width:210px;animation-delay:-3s}.asset-orb{position:absolute;left:50%;top:50%;width:160px;height:160px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,var(--green),rgba(70,216,255,.52) 48%,transparent 69%);filter:blur(2px);opacity:.42;animation:pulse 3.6s ease-in-out infinite}
+    @keyframes scanBeam{to{transform:translateX(120%)}}
+    .wa-fab{position:fixed;right:18px;bottom:18px;z-index:90;display:flex;align-items:center;gap:11px;max-width:min(318px,calc(100vw - 36px));padding:12px 14px;border-radius:999px;border:1px solid rgba(66,245,155,.36);background:linear-gradient(135deg,rgba(9,22,16,.86),rgba(5,12,16,.88));box-shadow:0 20px 80px rgba(0,0,0,.42),0 0 34px rgba(66,245,155,.16);backdrop-filter:blur(18px);color:#f4fff8;text-decoration:none;font-weight:950;transform:translateZ(0)}.wa-fab svg{width:27px;height:27px;flex:0 0 auto}.wa-fab span{display:block;font-size:13px;line-height:1.08}.wa-fab small{display:block;color:#bdeed4;font-size:11px;font-weight:800;margin-top:3px}.wa-fab:hover{transform:translateY(-2px);border-color:rgba(66,245,155,.62)}
+    @media(min-width:860px){.conversion-strip{grid-template-columns:repeat(3,1fr)}.ai-demo-grid{grid-template-columns:1.05fr .95fr}.case-proof-grid{grid-template-columns:.95fr 1.05fr}.proof-logo-row{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:759px){.chat-body{min-height:300px;padding:14px}.msg{max-width:92%;font-size:14px}.agent-panel,.case-card{padding:20px}.asset-stage{min-height:300px}.asset-node.n1{left:5%;top:9%;width:150px}.asset-node.n2{right:5%;top:38%;width:158px}.asset-node.n3{left:8%;bottom:10%;width:184px}.wa-fab{right:12px;bottom:12px;padding:11px 12px}.wa-fab span{display:none}.wa-fab svg{width:30px;height:30px}}
+    @media(prefers-reduced-motion:reduce){.asset-stage:before,.asset-node{animation:none!important}.wa-fab{transition:none!important}}
+
   </style>
 </head>
 <body>
@@ -83,7 +105,7 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="AgentX inicio"><span class="mark"><img src="assets/higgsfield/byagentx-agentx-emblem-192.png" alt="" loading="eager" /></span><span class="brand-word">AgentX</span></a>
-      <nav class="nav-links" aria-label="Principal"><a href="#websites">Websites</a><a href="#sistema">Sistema</a><a href="#proof">Demos</a><a href="#precios">Pricing</a></nav>
+      <nav class="nav-links" aria-label="Principal"><a href="#websites">Websites</a><a href="#sistema">Sistema</a><a href="#ia-demo">IA demo</a><a href="#proof">Demos</a><a href="#precios">Pricing</a></nav>
       <a class="nav-cta btn primary" href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx_ai&utm_medium=website&utm_campaign=nav" target="_blank" rel="noopener noreferrer" data-track="booking_click" data-location="nav" data-offer="diagnostic">Agendar diagnóstico</a>
       <a class="mobile-cta" href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx_ai&utm_medium=website&utm_campaign=mobile_nav" target="_blank" rel="noopener noreferrer" data-track="booking_click" data-location="mobile_nav" data-offer="diagnostic">Agendar</a>
     </div>
@@ -144,10 +166,63 @@
       </div>
     </section>
 
+
+    <section id="ia-demo">
+      <div class="container">
+        <div class="section-head reveal"><span class="label">Agente IA en vivo</span><h2>No vendemos “chatbots”. Mostramos el sistema.</h2><p>Un visitante pregunta, Regina califica intención, recomienda el siguiente paso y deja trazabilidad para tu equipo.</p></div>
+        <div class="ai-demo-grid">
+          <div class="chat-demo reveal" aria-label="Demo de chat IA AgentX">
+            <div class="chat-top"><div class="agent-badge"><span class="agent-avatar">R</span><span>Regina · AgentX</span></div><span class="live-pill"><i></i> demo</span></div>
+            <div class="chat-body" id="agentChatDemo" aria-live="polite">
+              <div class="msg user">Hola, recibo leads por WhatsApp pero se enfrían rápido.</div>
+              <div class="msg bot">Soy Regina de AgentX. Te ayudo a convertir ese tráfico en un flujo: respuesta inmediata, preguntas de calificación, agenda y seguimiento.</div>
+              <div class="msg bot">Para cotizarlo bien necesito 3 datos: volumen de mensajes, oferta principal y qué debe pasar cuando un lead está listo para comprar.</div>
+            </div>
+            <div class="chat-actions" aria-label="Preguntas de demo">
+              <button class="prompt-chip" type="button" data-demo-prompt="restaurant">Restaurante</button>
+              <button class="prompt-chip" type="button" data-demo-prompt="services">Servicios</button>
+              <button class="prompt-chip" type="button" data-demo-prompt="pricing">Precio</button>
+            </div>
+          </div>
+          <div class="agent-panel liquid reveal">
+            <span class="label">Lo que hace detrás</span>
+            <h3>Conversación conectada a operación.</h3>
+            <p>El valor no es responder bonito. Es saber cuándo capturar datos, cuándo escalar a humano, cuándo agendar y cómo medir qué pasó.</p>
+            <div class="pipeline">
+              <div class="pipeline-step"><i>1</i><div><strong>Captura contexto</strong><small>Nombre, necesidad, presupuesto e intención.</small></div><em>Lead</em></div>
+              <div class="pipeline-step"><i>2</i><div><strong>Recomienda siguiente paso</strong><small>Cita, menú, pago, cotización o handoff.</small></div><em>Acción</em></div>
+              <div class="pipeline-step"><i>3</i><div><strong>Deja trazabilidad</strong><small>Registro para CRM, Sheets, alertas o reportes.</small></div><em>Ops</em></div>
+            </div>
+          </div>
+        </div>
+        <div class="conversion-strip reveal" aria-label="Prueba operacional AgentX">
+          <div class="metric-card"><b>15 min</b><span>diagnóstico inicial</span><small>Mapeamos el primer flujo que puede vender o ahorrar operación.</small></div>
+          <div class="metric-card"><b>3 rutas</b><span>web · WhatsApp · pagos</span><small>Landing, agente y operación conectada sin promesas vagas.</small></div>
+          <div class="metric-card"><b>Demos</b><span>rutas navegables</span><small>Revisas sistemas reales antes de contratar.</small></div>
+        </div>
+      </div>
+    </section>
+
     <section id="proof">
       <div class="container">
-        <div class="section-head reveal"><span class="label">Proof / demos</span><h2>Revisa rutas reales. Sin ruido.</h2><p>Demos navegables, portafolio y pagos seguros antes de contratar.</p></div>
+        <div class="section-head reveal"><span class="label">Proof / demos</span><h2>Prueba operacional para decidir rápido.</h2><p>Demos navegables y rutas concretas para revisar cómo vendería tu sistema antes de contratar.</p></div>
+        <div class="case-proof-grid">
+          <article class="case-card liquid reveal">
+            <span class="label">Caso demo</span>
+            <h3>Sushi Seven: menú móvil + WhatsApp.</h3>
+            <p>Una ruta realista para restaurante: catálogo, carrito, pedido por WhatsApp y seguimiento. El mismo patrón se adapta a clínicas, servicios, inmobiliarias y ecommerce local.</p>
+            <div class="case-tags"><span>Menú móvil</span><span>WhatsApp order flow</span><span>Tracking</span><span>Handoff humano</span></div>
+            <div class="hero-actions"><a class="btn primary" href="menu/sushiseven/" data-track="demo_click" data-location="case_sushi" data-offer="restaurant_demo">Abrir demo →</a><a class="btn ghost" href="portfolio.html" data-track="portfolio_click" data-location="case_sushi" data-offer="portfolio">Ver portafolio</a></div>
+          </article>
+          <div class="asset-stage reveal" aria-label="Motion system AgentX">
+            <div class="asset-orb"></div>
+            <div class="asset-node n1"><b>Lead entra</b><small>web / Meta / WhatsApp</small></div>
+            <div class="asset-node n2"><b>IA califica</b><small>datos + intención</small></div>
+            <div class="asset-node n3"><b>Equipo cierra</b><small>cita / pago / seguimiento</small></div>
+          </div>
+        </div>
         <div class="proof reveal"><a href="portfolio.html" data-track="portfolio_click" data-location="proof" data-offer="portfolio"><span>Portafolio<small>websites, piezas y referencias</small></span><b>→</b></a><a href="menu/sushiseven/" data-track="demo_click" data-location="proof" data-offer="restaurant_demo"><span>Demo restaurante<small>menú móvil + WhatsApp</small></span><b>→</b></a><a href="payment-intent.html" data-track="stripe_interest_click" data-location="proof" data-offer="payment_intent"><span>Pago seguro<small>flujo Stripe / intención</small></span><b>→</b></a></div>
+        <div class="proof-logo-row reveal" aria-label="Rutas que AgentX puede conectar"><div class="proof-logo">Web<small>landing / sitio</small></div><div class="proof-logo">WhatsApp<small>respuesta + captura</small></div><div class="proof-logo">CRM<small>Sheets / pipeline</small></div><div class="proof-logo">Pagos<small>Stripe / invoice</small></div></div>
       </div>
     </section>
 
@@ -167,6 +242,12 @@
     </section>
   </main>
 
+
+  <a class="wa-fab" href="https://wa.me/14155238886?text=Hola%20AgentX%2C%20quiero%20cotizar%20un%20motion%20website%20con%20agente%20IA." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="floating_fab" data-offer="whatsapp_contact" aria-label="Hablar con AgentX por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#42f59b" d="M16.02 3.2A12.65 12.65 0 0 0 5.1 22.25L3.7 28.8l6.68-1.75A12.65 12.65 0 1 0 16.02 3.2Zm0 22.96c-1.91 0-3.77-.53-5.39-1.54l-.39-.24-3.96 1.04.84-3.86-.25-.4a10.26 10.26 0 1 1 9.16 5Zm5.63-7.7c-.31-.15-1.82-.9-2.1-1-.28-.1-.49-.15-.7.16-.2.3-.8.99-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.15-.7-1.68-.96-2.3-.25-.6-.51-.52-.7-.53l-.6-.01c-.2 0-.54.08-.82.39-.28.3-1.08 1.06-1.08 2.58s1.1 2.99 1.26 3.2c.15.2 2.17 3.31 5.25 4.64.73.32 1.31.51 1.75.65.74.23 1.41.2 1.94.12.59-.09 1.82-.74 2.08-1.46.26-.72.26-1.34.18-1.46-.08-.13-.28-.2-.59-.36Z"/></svg>
+    <span>Habla con AgentX<small>Cotiza tu sistema IA</small></span>
+  </a>
+
   <footer class="footer"><div class="container footer-inner"><div><strong>AgentX</strong><br>AI-native websites, WhatsApp/web agents y automatización para vender.</div><div class="footer-links"><a href="portfolio.html">Portafolio</a><a href="restaurants.html">Restaurantes</a><a href="case-study.html">Caso</a><a href="payment.html">Pagos</a><a href="payment-intent.html">Pago seguro</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a></div></div></footer>
 
   <script>
@@ -180,6 +261,13 @@
 
       function initNeuralField(){try{var c=document.getElementById('neuralField');if(!c||reduced)return;var gl=c.getContext('webgl',{alpha:true,antialias:false,preserveDrawingBuffer:false});if(!gl){return;}var dpr=Math.min(window.devicePixelRatio||1,1.7),w=0,h=0,count=150,buffer,program,mouse=[.58,.42],scroll=0,start=performance.now();function shader(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){throw new Error(gl.getShaderInfoLog(s));}return s;}var vert='attribute vec3 a;uniform float t;uniform vec2 r;uniform vec2 m;uniform float sy;varying float v;void main(){float z=a.z;float drift=sin(t*.00018+a.x*5.0+a.y*3.0)*.030;vec2 p=a.xy; p.x += drift + (m.x-.5)*.055*z; p.y += cos(t*.00015+a.x*4.0)*.022 + (m.y-.5)*.035*z - sy*.00010*z; float depth=mix(.72,1.12,z); gl_Position=vec4((p*2.0-1.0)*depth,0.0,1.0); gl_PointSize=(1.2+4.3*z)*min(r.x,r.y)/900.0; v=z;}';var frag='precision mediump float;varying float v;void main(){vec2 uv=gl_PointCoord-.5;float d=length(uv);float a=smoothstep(.5,0.0,d)*(0.22+v*.42);vec3 green=vec3(.258,.961,.608);vec3 cyan=vec3(.274,.847,1.0);vec3 violet=vec3(.631,.42,1.0);vec3 col=mix(green,cyan,sin(v*6.283)*.5+.5);col=mix(col,violet,smoothstep(.82,1.0,v));gl_FragColor=vec4(col,a);}';program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,vert));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,frag));gl.linkProgram(program);gl.useProgram(program);var data=new Float32Array(count*3);for(var i=0;i<count;i++){data[i*3]=(Math.random()*1.34)-.17;data[i*3+1]=(Math.random()*1.24)-.12;data[i*3+2]=Math.random();}buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);var loc=gl.getAttribLocation(program,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,3,gl.FLOAT,false,0,0);var uT=gl.getUniformLocation(program,'t'),uR=gl.getUniformLocation(program,'r'),uM=gl.getUniformLocation(program,'m'),uS=gl.getUniformLocation(program,'sy');function resize(){w=innerWidth;h=innerHeight;c.width=Math.floor(w*dpr);c.height=Math.floor(h*dpr);c.style.width=w+'px';c.style.height=h+'px';gl.viewport(0,0,c.width,c.height);gl.uniform2f(uR,c.width,c.height);}function draw(now){scroll=window.scrollY||0;gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE);gl.uniform1f(uT,now-start);gl.uniform2f(uM,mouse[0],mouse[1]);gl.uniform1f(uS,scroll);gl.drawArrays(gl.POINTS,0,count);requestAnimationFrame(draw);}addEventListener('resize',resize,{passive:true});if(window.matchMedia('(pointer:fine)').matches){addEventListener('pointermove',function(e){mouse[0]=e.clientX/innerWidth;mouse[1]=e.clientY/innerHeight;document.documentElement.style.setProperty('--cursor-x',(mouse[0]*100).toFixed(1)+'%');document.documentElement.style.setProperty('--cursor-y',(mouse[1]*100).toFixed(1)+'%');},{passive:true});}resize();requestAnimationFrame(draw);}catch(e){try{console.warn('AgentX neural field disabled',e&&e.message?e.message:e);}catch(_){}}}initNeuralField();
       function initSectionParallax(){if(reduced)return;var sections=[].slice.call(document.querySelectorAll('main section'));sections.forEach(function(s){s.classList.add('motion-aware');[].forEach.call(s.querySelectorAll('.liquid,.proof a'),function(el){el.classList.add('parallax-card');});});var ticking=false;function update(){ticking=false;var vh=innerHeight||800;var y=scrollY||0;document.documentElement.style.setProperty('--page-y',y+'px');sections.forEach(function(s){var r=s.getBoundingClientRect();var progress=(vh*.58-(r.top+r.height*.5))/(vh+r.height);progress=Math.max(-1,Math.min(1,progress));s.style.setProperty('--section-shift',progress.toFixed(3));s.style.setProperty('--section-tilt',(progress*1.8).toFixed(3));s.style.setProperty('--section-glow',Math.max(0,.10-Math.abs(progress)*.045).toFixed(3));});}function request(){if(!ticking){ticking=true;requestAnimationFrame(update);}}addEventListener('scroll',request,{passive:true});addEventListener('resize',request,{passive:true});update();}initSectionParallax();
+
+      var demoReplies={
+        restaurant:['Quiero vender más pedidos sin saturar WhatsApp.','AgentX puede mostrar menú, capturar pedido, enviar resumen por WhatsApp y dejar el lead listo para seguimiento humano.'],
+        services:['Necesito más citas calificadas para mi servicio.','Armamos una landing con preguntas de intención, presupuesto y urgencia. Si el lead encaja, lo mandamos a agenda; si no, queda nutrido para seguimiento.'],
+        pricing:['¿Cuánto cuesta implementar algo así?','El punto de entrada empieza en $14,900 MXN setup. En 15 minutos revisamos tu flujo y te digo qué paquete conviene sin inflar alcance.']
+      };
+      function initAgentChatDemo(){var box=document.getElementById('agentChatDemo');if(!box)return;document.querySelectorAll('[data-demo-prompt]').forEach(function(btn){btn.addEventListener('click',function(){var key=btn.getAttribute('data-demo-prompt'),pair=demoReplies[key]||demoReplies.services;box.innerHTML='';pair.forEach(function(text,i){setTimeout(function(){var m=document.createElement('div');m.className='msg '+(i===0?'user':'bot');m.textContent=text;box.appendChild(m);box.scrollTop=box.scrollHeight;},i*320);});var payload={event:'ai_demo_click',location:'embedded_chat',offer:key,timestamp:new Date().toISOString()};window.dataLayer=window.dataLayer||[];window.dataLayer.push(payload);if(typeof gtag==='function')gtag('event',payload.event,payload);});});}initAgentChatDemo();
       document.addEventListener('click',function(event){var el=event.target.closest('[data-track]'); if(!el) return; var payload={event:el.dataset.track,location:el.dataset.location||'',offer:el.dataset.offer||'',href:el.href||'',timestamp:new Date().toISOString()}; try{var recent=JSON.parse(localStorage.getItem('agentx_recent_events')||'[]');recent.unshift(payload);localStorage.setItem('agentx_recent_events',JSON.stringify(recent.slice(0,20)));}catch(e){} window.dataLayer=window.dataLayer||[];window.dataLayer.push(payload); if(typeof gtag==='function') gtag('event',payload.event,payload); if(typeof plausible==='function') plausible(payload.event,{props:payload});});
     })();
   </script>
