@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#0c0c0c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <script>document.documentElement.classList.add('js');</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD11FZ1DHM"></script>
   <script>
@@ -106,20 +106,44 @@
     @media(max-width:759px){.real-3d-stage{opacity:.38;transform:scale(1.28);transform-origin:66% 20%}.real-3d-ready .hero:before{right:-30%;top:10%;width:128vw;height:128vw;opacity:.52}.real-3d-ready .flow-canvas{opacity:.22}.bubble-canvas:after{inset:10px}}
     @media(prefers-reduced-motion:reduce){.real-3d-stage{display:none!important}.real-3d-ready .hero:before{display:none!important}}
 
+
+    /* CodeNest-inspired AgentX motion-site hero pass */
+    .bg-video{opacity:.24;filter:saturate(1.18) contrast(1.18) brightness(.34)}
+    .shade{background:linear-gradient(90deg,#070b0a 0%,rgba(7,11,10,.96) 24%,rgba(7,11,10,.84) 58%,rgba(7,11,10,.94) 100%),linear-gradient(0deg,#070b0a 0%,rgba(7,11,10,.92) 28%,rgba(7,11,10,.70) 68%,rgba(7,11,10,.72) 100%),radial-gradient(circle at 50% 8%,rgba(94,210,156,.16),transparent 34%),radial-gradient(circle at 82% 18%,rgba(70,216,255,.12),transparent 32%)}
+    .template-grid-lines{position:fixed;inset:0;z-index:-1;pointer-events:none;display:none}.template-grid-lines i{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,.10)}.template-grid-lines i:nth-child(1){left:25%}.template-grid-lines i:nth-child(2){left:50%}.template-grid-lines i:nth-child(3){left:75%}
+    .hero-ellipse-glow{position:absolute;left:50%;top:72px;width:min(900px,82vw);height:180px;transform:translateX(-50%);z-index:-1;pointer-events:none;opacity:.72;mix-blend-mode:screen}
+    .nav{position:fixed;left:0;right:0;background:linear-gradient(180deg,rgba(7,11,10,.74),rgba(7,11,10,.30));border-bottom:1px solid rgba(255,255,255,.10)}
+    main#top{padding-top:82px}.nav-links a{font-size:16px;text-transform:uppercase;letter-spacing:-.02em}.nav-links a:hover{color:#5ed29c}.hamburger{display:inline-grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.045);color:#fff;cursor:pointer}.hamburger span{display:block;width:18px;height:2px;background:#fff;border-radius:99px;margin:2px 0;transition:transform .25s var(--ease),opacity .25s var(--ease)}.hamburger b{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#dffff0;margin-top:1px}.mobile-menu-overlay{position:fixed;inset:0;z-index:120;display:grid;place-items:center;background:rgba(7,11,10,.96);backdrop-filter:blur(28px);opacity:0;visibility:hidden;transform:scale(1.02);transition:opacity .25s var(--ease),visibility .25s var(--ease),transform .25s var(--ease)}.mobile-menu-overlay.open{opacity:1;visibility:visible;transform:none}.mobile-menu-overlay nav{display:grid;gap:22px;text-align:center}.mobile-menu-overlay a{font-size:clamp(30px,9vw,66px);font-weight:900;letter-spacing:-.06em}.mobile-menu-overlay a:hover{color:#5ed29c}.mobile-menu-close{position:absolute;right:22px;top:22px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff;font-size:32px;line-height:1;cursor:pointer}
+    .hero{min-height:100vh;padding:118px 0 84px}.hero .agentx-motion-field:after{content:"";position:absolute;inset:-2px;background:linear-gradient(90deg,rgba(7,11,10,.62),rgba(7,11,10,.30) 48%,rgba(7,11,10,.60)),linear-gradient(0deg,rgba(7,11,10,.70),transparent 42%);z-index:3;pointer-events:none}.hero-copy{position:relative;z-index:4;display:flex;flex-direction:column;align-items:flex-start}.liquid-glass-card{position:relative;width:200px;height:200px;transform:translateY(-50px);margin-bottom:-22px;padding:18px 17px;border-radius:30px;background:rgba(255,255,255,.01);background-blend-mode:luminosity;backdrop-filter:blur(4px);box-shadow:inset 0 1px 1px rgba(255,255,255,.10),0 26px 90px rgba(0,0,0,.35);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}.liquid-glass-card:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.05) 42%,rgba(94,210,156,.30) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}.liquid-glass-card:after{content:"";position:absolute;inset:-35%;background:radial-gradient(circle at 45% 10%,rgba(94,210,156,.20),transparent 36%);filter:blur(12px);pointer-events:none}.liquid-glass-card>*{position:relative;z-index:1}.glass-tag{font:800 14px/1 "Plus Jakarta Sans",Inter,sans-serif;color:rgba(255,255,255,.78);letter-spacing:.06em}.liquid-glass-card h2{margin:0;color:#fff;font-size:18px;line-height:1.06;letter-spacing:-.04em}.liquid-glass-card h2 em{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;color:#f2fff8}.liquid-glass-card p{margin:0;color:rgba(255,255,255,.64);font-size:11px;line-height:1.42}.eyebrow{font-family:"Plus Jakarta Sans",Inter,sans-serif;color:#5ed29c;font-size:11px;font-weight:800;letter-spacing:.13em;background:rgba(94,210,156,.075);border-color:rgba(94,210,156,.22)}.template-headline{font-weight:900;text-transform:uppercase;letter-spacing:-.065em;font-size:clamp(40px,7.2vw,72px);line-height:.92;max-width:780px}.green-period{color:#5ed29c}.lead{color:rgba(255,255,255,.70);font-size:14px;max-width:512px}.primary{background:#5ed29c;color:#070b0a;text-transform:uppercase;letter-spacing:.04em}.cinematic-product{transform:translateY(16px)}
+    @media(min-width:760px){.template-grid-lines{display:block}.hamburger{display:none}.hero-grid{grid-template-columns:.98fr 1.02fr}}
+    @media(max-width:759px){main#top{padding-top:74px}.hero{min-height:auto;padding:76px 0 54px}.nav{padding:8px 0}.nav-inner{position:relative}.mobile-cta{display:none}.hamburger{display:grid;position:absolute;position:fixed;right:18px;top:14px;transform:none;z-index:130;display:grid!important;grid-template-rows:auto auto auto;background:rgba(94,210,156,.18);border-color:rgba(94,210,156,.36);box-shadow:0 0 22px rgba(94,210,156,.14)}.hamburger span{background:#f7fff9}.liquid-glass-card{width:178px;height:178px;border-radius:26px;padding:16px;transform:translateY(-28px);margin-bottom:-10px}.liquid-glass-card h2{font-size:17px}.template-headline{font-size:clamp(40px,12vw,54px);line-height:.96;max-width:340px}.lead{font-size:14px}.hero-ellipse-glow{top:88px;width:110vw}.hero-actions .btn{min-height:50px}.cinematic-product{display:none}.section-head h2,.minimal-copy h2,.cta-box h2{font-size:clamp(30px,10.4vw,42px);line-height:1.05;letter-spacing:-.035em;max-width:calc(100vw - 36px);overflow-wrap:break-word;word-break:normal}.section-head p,.minimal-copy p{max-width:calc(100vw - 36px)}}
+
   </style>
 </head>
 <body>
-  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg" aria-hidden="true"><source src="assets/higgsfield/byagentx-human-robot-fingertouch-global-bg.mp4" type="video/mp4" /></video>
-  <div class="shade" aria-hidden="true"></div><canvas class="neural-field" id="neuralField" aria-hidden="true"></canvas><canvas class="global-flow" id="globalFlow" aria-hidden="true"></canvas><div class="motion-depth" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="grain" aria-hidden="true"></div><i class="orb a"></i><i class="orb b"></i><i class="orb c"></i>
+  <video id="agentxBgVideo" class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg" data-hls="https://stream.mux.com/tLkHO1qZoaaQOUeVWo8hEBeGQfySP02EPS02BmnNFyXys.m3u8" aria-hidden="true"><source src="assets/higgsfield/byagentx-human-robot-fingertouch-global-bg.mp4" type="video/mp4" /></video>
+  <div class="shade" aria-hidden="true"></div><div class="template-grid-lines" aria-hidden="true"><i></i><i></i><i></i></div><svg class="hero-ellipse-glow" viewBox="0 0 900 180" aria-hidden="true"><defs><filter id="agentxHeroBlur"><feGaussianBlur stdDeviation="25"/></filter></defs><ellipse cx="450" cy="90" rx="360" ry="48" fill="rgba(94,210,156,.42)" filter="url(#agentxHeroBlur)"/><ellipse cx="450" cy="90" rx="260" ry="26" fill="rgba(70,216,255,.20)" filter="url(#agentxHeroBlur)"/></svg><canvas class="neural-field" id="neuralField" aria-hidden="true"></canvas><canvas class="global-flow" id="globalFlow" aria-hidden="true"></canvas><div class="motion-depth" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="grain" aria-hidden="true"></div><i class="orb a"></i><i class="orb b"></i><i class="orb c"></i>
 
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="AgentX inicio"><span class="mark"><img src="assets/higgsfield/byagentx-agentx-emblem-192.png" alt="" loading="eager" /></span><span class="brand-word">AgentX</span></a>
       <nav class="nav-links" aria-label="Principal"><a href="#websites">Websites</a><a href="#sistema">Sistema</a><a href="#ia-demo">IA demo</a><a href="#proof">Demos</a><a href="#precios">Pricing</a></nav>
+      <button class="hamburger" id="mobileMenuToggle" type="button" aria-label="Abrir menú" aria-controls="mobileMenuOverlay" aria-expanded="false"><span></span><span></span><b>Menú</b></button>
       <a class="nav-cta btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="nav" data-offer="regina_chat">Hablar con nuestro agente de ventas</a>
       <a class="mobile-cta" href="#ia-demo" data-track="regina_chat_click" data-location="mobile_nav" data-offer="regina_chat">Ventas</a>
     </div>
   </header>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" type="button" aria-label="Cerrar menú">×</button>
+    <nav aria-label="Menú móvil AgentX">
+      <a href="#websites">WEBSITES</a>
+      <a href="#sistema">SISTEMA</a>
+      <a href="#ia-demo">IA DEMO</a>
+      <a href="#proof">DEMOS</a>
+      <a href="#precios">PRICING</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+  </div>
 
   <main id="top">
     <section class="hero">
@@ -135,9 +159,14 @@
       </div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow"><i class="dot"></i> Humano + IA · motion website</span>
-          <h1><span class="hline">Tu negocio,</span><span class="hline">en <span class="shine">movimiento.</span></span></h1>
-          <p class="lead">Diseñamos páginas premium con video, agentes IA y seguimiento automático para convertir visitas en ventas.</p>
+          <div class="liquid-glass-card" aria-label="AgentX motion site 2026">
+            <div class="glass-tag">[ 2026 ]</div>
+            <h2>Built by <em>human + AI</em> operators</h2>
+            <p>Motion website, embedded sales agent and connected follow-up in one premium system.</p>
+          </div>
+          <span class="eyebrow"><i class="dot"></i> AI-Native Sales System</span>
+          <h1 class="template-headline"><span class="hline">LAUNCH YOUR</span><span class="hline">SALES SYSTEM<span class="green-period">.</span></span></h1>
+          <p class="lead">Motion websites, web chat IA, WhatsApp agents and automation that turn attention into qualified conversations.</p>
           <div class="hero-actions"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="hero" data-offer="regina_chat">Hablar con nuestro agente de ventas →</a><a class="btn ghost" href="#proof" data-track="internal_click" data-location="hero" data-offer="demo">Ver demos</a><a class="btn gold" href="#precios" data-track="pricing_click" data-location="hero" data-offer="pricing">Precios</a></div>
           <div class="tiny">Desde $14,900 MXN · Motion website + IA + operación conectada</div>
           <div class="focus-row" aria-label="Servicios clave"><span>Websites / landings</span><span>Agente web + WhatsApp</span><span>CRM / pagos / seguimiento</span></div>
@@ -243,9 +272,9 @@
       <div class="container">
         <div class="section-head reveal"><span class="label">Pricing</span><h2>Elige el punto de entrada.</h2><p>Confirmamos alcance primero; después mandamos link de pago seguro o invoice.</p></div>
         <div class="price-grid">
-          <article class="price-card liquid featured reveal"><h3>WhatsApp Starter</h3><p>Para negocios que pierden leads por responder tarde.</p><div class="price">$14,900 <small>MXN setup</small></div><div class="setup">+ $3,900 MXN/mes</div><ul><li>FAQ + respuestas</li><li>Captura de datos</li><li>Handoff humano</li></ul><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="pricing" data-offer="whatsapp">Preguntar al agente de ventas →</a></article>
-          <article class="price-card liquid reveal"><h3>Web + Chat IA</h3><p>Para convertir tráfico móvil en conversación y oportunidad.</p><div class="price">$19,900 <small>MXN setup</small></div><div class="setup">+ $2,900 MXN/mes</div><ul><li>Landing profesional</li><li>Tracking + CTAs</li><li>Chat/agente IA</li></ul><a class="btn ghost" href="#ia-demo" data-track="regina_chat_click" data-location="pricing" data-offer="web">Preguntar al agente de ventas →</a></article>
-          <article class="price-card liquid reveal"><h3>Automation Stack</h3><p>Para equipos con demasiadas tareas manuales.</p><div class="price">Desde $29,900 <small>MXN setup</small></div><div class="setup">+ desde $6,900 MXN/mes</div><ul><li>CRM / Sheets / Gmail</li><li>Alertas y seguimiento</li><li>Reportes operativos</li></ul><a class="btn ghost" href="#ia-demo" data-track="regina_chat_click" data-location="pricing" data-offer="automation_stack">Preguntar al agente de ventas →</a></article>
+          <article class="price-card liquid featured reveal"><h3>WhatsApp Starter</h3><p>Para negocios que pierden leads por responder tarde.</p><div class="price">$14,900 <small>MXN setup</small></div><div class="setup">+ $3,999 MXN/mes</div><ul><li>FAQ + respuestas</li><li>Captura de datos</li><li>Handoff humano</li></ul><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="pricing" data-offer="whatsapp">Preguntar al agente de ventas →</a></article>
+          <article class="price-card liquid reveal"><h3>Web + Chat IA</h3><p>Para convertir tráfico móvil en conversación y oportunidad.</p><div class="price">$19,900 <small>MXN setup</small></div><div class="setup">+ $3,999 MXN/mes</div><ul><li>Landing profesional</li><li>Tracking + CTAs</li><li>Chat/agente IA</li></ul><a class="btn ghost" href="#ia-demo" data-track="regina_chat_click" data-location="pricing" data-offer="web">Preguntar al agente de ventas →</a></article>
+          <article class="price-card liquid reveal"><h3>Automation Stack</h3><p>Para equipos con demasiadas tareas manuales.</p><div class="price">Desde $29,900 <small>MXN setup</small></div><div class="setup">+ $6,999 MXN/mes</div><ul><li>CRM / Sheets / Gmail</li><li>Alertas y seguimiento</li><li>Reportes operativos</li></ul><a class="btn ghost" href="#ia-demo" data-track="regina_chat_click" data-location="pricing" data-offer="automation_stack">Preguntar al agente de ventas →</a></article>
         </div>
       </div>
     </section>
@@ -262,6 +291,37 @@
   </a>
 
   <footer class="footer"><div class="container footer-inner"><div><strong>AgentX</strong><br>AI-native websites, WhatsApp/web agents y automatización para vender.</div><div class="footer-links"><a href="portfolio.html">Portafolio</a><a href="restaurants.html">Restaurantes</a><a href="case-study.html">Caso</a><a href="payment.html">Pagos</a><a href="payment-intent.html">Pago seguro</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a></div></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
+  <script>
+    (function(){
+      var video=document.getElementById('agentxBgVideo');
+      var src=video&&video.getAttribute('data-hls');
+      if(video&&src&&window.Hls&&Hls.isSupported()){
+        var hls=new Hls({enableWorker:false});
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        window.__agentxHls=true;
+      }else if(video&&src&&video.canPlayType('application/vnd.apple.mpegurl')){
+        video.src=src;
+        window.__agentxHls='native';
+      }
+      var toggle=document.getElementById('mobileMenuToggle');
+      var overlay=document.getElementById('mobileMenuOverlay');
+      var close=document.getElementById('mobileMenuClose');
+      function setMenu(open){
+        if(!overlay||!toggle)return;
+        overlay.classList.toggle('open',open);
+        overlay.setAttribute('aria-hidden',open?'false':'true');
+        toggle.setAttribute('aria-expanded',open?'true':'false');
+        document.body.style.overflow=open?'hidden':'';
+      }
+      if(toggle)toggle.addEventListener('click',function(){setMenu(!(overlay&&overlay.classList.contains('open')));});
+      if(close)close.addEventListener('click',function(){setMenu(false);});
+      if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay||e.target.closest('a'))setMenu(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+    })();
+  </script>
 
   <script>
     (function(){
