@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "increment_mxn": 1000,
+  "beforeAccount": {
+    "id": "act_1917689112269730",
+    "name": "AgentX",
+    "account_status": 1,
+    "currency": "MXN",
+    "amount_spent": "490399",
+    "spend_cap": "1030000",
+    "balance": "0"
+  },
+  "beforeAdset": {
+    "id": "120251177749410242",
+    "name": "MX | Dueños y negocios | Lead Form | FB+IG | 14D | MXN3500",
+    "status": "ACTIVE",
+    "effective_status": "ACTIVE",
+    "configured_status": "ACTIVE",
+    "lifetime_budget": "360000",
+    "budget_remaining": "822",
+    "campaign_id": "120251177749230242"
+  },
+  "update": {
+    "success": true
+  },
+  "afterAccount": {
+    "id": "act_1917689112269730",
+    "name": "AgentX",
+    "account_status": 1,
+    "currency": "MXN",
+    "amount_spent": "490399",
+    "spend_cap": "1030000",
+    "balance": "0"
+  },
+  "afterAdset": {
+    "id": "120251177749410242",
+    "name": "MX | Dueños y negocios | Lead Form | FB+IG | 14D | MXN3500",
+    "status": "ACTIVE",
+    "effective_status": "ACTIVE",
+    "configured_status": "ACTIVE",
+    "lifetime_budget": "460000",
+    "budget_remaining": "100822",
+    "campaign_id": "120251177749230242"
+  },
+  "finished_at": "2026-06-12T00:55:57.689Z"
+}
