@@ -1,0 +1,99 @@
+{
+  "started_at": "2026-06-12T00:05:45.237Z",
+  "pageId": "979839645220711",
+  "igId": "17841436533155984",
+  "adAccountId": "act_1917689112269730",
+  "organic": {
+    "ig_carousel": {
+      "children": [
+        "18089805218217772",
+        "18089805233217772",
+        "18089805254217772"
+      ],
+      "container_id": "18089805269217772",
+      "media_id": "17989865214003612",
+      "verify": {
+        "id": "17989865214003612",
+        "permalink": "https://www.instagram.com/p/DZdxCt4kq4i/",
+        "media_type": "CAROUSEL_ALBUM",
+        "media_product_type": "FEED",
+        "timestamp": "2026-06-12T00:06:08+0000",
+        "username": "byagentx.ai",
+        "caption": "Tu web ya puede vender, no solo verse bonita.\n\nAgentX responde, califica y organiza prospectos desde web + WhatsApp + Stripe.\n\n👉 Prueba el agente en byagentx.ai"
+      }
+    },
+    "fb_photo_post": {
+      "photo_ids": [
+        "122115616298951743",
+        "122115616346951743",
+        "122115616394951743"
+      ],
+      "post_id": "979839645220711_122115616424951743",
+      "verify": {
+        "id": "979839645220711_122115616424951743",
+        "permalink_url": "https://www.facebook.com/122113356992951743/posts/122115616424951743",
+        "created_time": "2026-06-12T00:06:17+0000",
+        "message": "Tu web ya puede vender, no solo verse bonita.\n\nAgentX responde, califica y organiza prospectos desde web + WhatsApp + Stripe.\n\n👉 Prueba el agente en byagentx.ai"
+      }
+    },
+    "ig_reel": {
+      "container_id": "18089805287217772",
+      "media_id": "18052744166665399",
+      "verify": {
+        "id": "18052744166665399",
+        "permalink": "https://www.instagram.com/reel/DZdxIxtgv7_/",
+        "media_type": "VIDEO",
+        "media_product_type": "REELS",
+        "timestamp": "2026-06-12T00:07:24+0000",
+        "username": "byagentx.ai",
+        "caption": "Si no contestas rápido, el cliente se va.\n\nAgentX ayuda a responder, calificar y ordenar tus prospectos para que atiendas lo importante.\n\n👉 byagentx.ai"
+      }
+    },
+    "fb_video": {
+      "video_id": "1533983141616261",
+      "verify": {
+        "id": "1533983141616261",
+        "status": {
+          "video_status": "ready",
+          "uploading_phase": {
+            "status": "complete"
+          },
+          "processing_phase": {
+            "status": "complete"
+          },
+          "publishing_phase": {
+            "status": "complete",
+            "publish_status": "published",
+            "publish_time": "2026-06-12T00:07:30+0000"
+          }
+        },
+        "permalink_url": "/reel/1533983141616261/",
+        "created_time": "2026-06-12T00:07:30+0000"
+      }
+    }
+  },
+  "urls": {
+    "imgUrls": [
+      "https://byagentx.ai/assets/social/byagentx-campaign-stripe-ai-20260611/live/post1-web-vende.jpg",
+      "https://byagentx.ai/assets/social/byagentx-campaign-stripe-ai-20260611/live/post2-contesta-califica-cobra.jpg",
+      "https://byagentx.ai/assets/social/byagentx-campaign-stripe-ai-20260611/live/post3-de-mensaje-a-pago.jpg"
+    ],
+    "videoUrl": "https://byagentx.ai/assets/social/byagentx-campaign-stripe-ai-20260611/live/byagentx-de-mensaje-a-pago-reel.mp4"
+  },
+  "preflight": {
+    "page": {
+      "id": "979839645220711",
+      "name": "Agentx",
+      "instagram_business_account": {
+        "id": "17841436533155984",
+        "username": "byagentx.ai"
+      }
+    },
+    "ig": {
+      "id": "17841436533155984",
+      "username": "byagentx.ai",
+      "media_count": 28
+    }
+  },
+  "finished_at": "2026-06-12T00:07:50.077Z"
+}
