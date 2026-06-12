@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "before": {
+    "id": "120251177749410242",
+    "name": "MX | Dueños y negocios | Lead Form | FB+IG | 14D | MXN3500",
+    "status": "ACTIVE",
+    "effective_status": "ACTIVE",
+    "start_time": "2026-05-23T00:13:12+0000",
+    "end_time": "2026-06-05T23:58:12+0000",
+    "lifetime_budget": "460000",
+    "budget_remaining": "100822"
+  },
+  "update": {
+    "success": true
+  },
+  "after": {
+    "id": "120251177749410242",
+    "name": "MX | Dueños y negocios | Lead Form | FB+IG | 14D | MXN3500",
+    "status": "ACTIVE",
+    "effective_status": "ACTIVE",
+    "start_time": "2026-05-23T00:13:12+0000",
+    "end_time": "2026-06-26T01:53:32+0000",
+    "lifetime_budget": "460000",
+    "budget_remaining": "100822"
+  },
+  "updated_at": "2026-06-12T01:53:33.649Z"
+}

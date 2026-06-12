@@ -1,0 +1,63 @@
+{
+  "started_at": "2026-06-12T02:03:17.791Z",
+  "adsetId": "120251177749410242",
+  "formId": "982676407504550",
+  "videoUrl": "https://byagentx.ai/assets/social/byagentx-campaign-stripe-ai-20260611/live/byagentx-de-mensaje-a-pago-reel.mp4",
+  "beforeAdset": {
+    "id": "120251177749410242",
+    "name": "MX | Dueños y negocios | Lead Form | FB+IG | 14D | MXN3500",
+    "status": "ACTIVE",
+    "effective_status": "ACTIVE",
+    "lifetime_budget": "460000",
+    "budget_remaining": "100822",
+    "campaign_id": "120251177749230242"
+  },
+  "advideo": {
+    "id": "2055756114980239",
+    "status": {
+      "id": "2055756114980239",
+      "status": {
+        "video_status": "processing",
+        "processing_progress": 0,
+        "uploading_phase": {
+          "status": "complete"
+        },
+        "processing_phase": {
+          "status": "in_progress"
+        },
+        "publishing_phase": {
+          "status": "not_started"
+        }
+      },
+      "permalink_url": "/120248858389680242/videos/2055756114980239/?idorvanity=120248858389680242"
+    }
+  },
+  "creative": {
+    "id": "1288585026788789"
+  },
+  "ad": {
+    "id": "120252660376110242"
+  },
+  "verifyAd": {
+    "id": "120252660376110242",
+    "name": "ByAgentX | De mensaje a pago | Video | 2026-06-12",
+    "status": "ACTIVE",
+    "effective_status": "IN_PROCESS",
+    "configured_status": "ACTIVE",
+    "adset_id": "120251177749410242",
+    "campaign_id": "120251177749230242",
+    "creative": {
+      "id": "1288585026788789",
+      "name": "ByAgentX | De mensaje a pago | Video | 2026-06-12 2026-06-11-d246c42fc5fe63d2bc2445d2eda0dccc"
+    }
+  },
+  "afterAdset": {
+    "id": "120251177749410242",
+    "name": "MX | Dueños y negocios | Lead Form | FB+IG | 14D | MXN3500",
+    "status": "ACTIVE",
+    "effective_status": "ACTIVE",
+    "lifetime_budget": "460000",
+    "budget_remaining": "100822",
+    "campaign_id": "120251177749230242"
+  }
+}
