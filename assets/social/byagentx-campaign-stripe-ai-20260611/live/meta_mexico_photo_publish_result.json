@@ -1,0 +1,29 @@
+{
+  "imageUrl": "https://byagentx.ai/assets/social/byagentx-campaign-stripe-ai-20260611/live/byagentx-vamos-mexico.png",
+  "caption": "En ByAgentX vamos México 🇲🇽\n\nTu negocio siempre contesta, incluso cuando tú estás viendo el partido.\n\n👉 byagentx.ai",
+  "started_at": "2026-06-12T02:06:41.819Z",
+  "ig": {
+    "container_id": "18089816705217772",
+    "status": {
+      "id": "18089816705217772",
+      "status_code": "FINISHED",
+      "status": "Finished: Media has been uploaded and it is ready to be published."
+    },
+    "media_id": "17871376650654123",
+    "verify": {
+      "id": "17871376650654123",
+      "permalink": "https://www.instagram.com/p/DZd-2d3nN2Y/",
+      "media_type": "IMAGE",
+      "media_product_type": "FEED",
+      "timestamp": "2026-06-12T02:06:47+0000",
+      "username": "byagentx.ai",
+      "caption": "En ByAgentX vamos México 🇲🇽\n\nTu negocio siempre contesta, incluso cuando tú estás viendo el partido.\n\n👉 byagentx.ai"
+    }
+  },
+  "fb": {
+    "photo_id": "122115622538951743",
+    "post_id": "979839645220711_122115622556951743",
+    "verify_error": "GET /979839645220711_122115622556951743 400 {\"error\":{\"message\":\"(#12) deprecate_post_aggregated_fields_for_attachement is deprecated for versions v3.3 and higher\",\"type\":\"OAuthException\",\"code\":12,\"fbtrace_id\":\"ArNXdfJK0xmPB5LS9S5K97N\"}}"
+  },
+  "finished_at": "2026-06-12T02:06:57.213Z"
+}
