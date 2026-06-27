@@ -652,6 +652,7 @@
     .featured-metric-label { font-size: 0.82rem; color: var(--text-2); }
 
     /* ─── TIMELINE ─────────────────────────────────────────────────── */
+    .timeline-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .timeline { position: relative; padding-left: 32px; margin-top: 48px; }
     .timeline::before {
       content: '';
@@ -953,6 +954,13 @@
       .testimonial-quote { font-size: 1rem; }
       .hero { padding: 60px 0 50px; }
       section { padding: 60px 0; }
+      .timeline-layout { grid-template-columns: 1fr; gap: 24px; }
+      .timeline { margin-top: 8px; padding-left: 24px; }
+      .timeline::before { left: 8px; }
+      .tl-item::before { left: -22px; }
+      .client-profile > *, .mockup-section > *, .timeline-layout > *, .before-after > * { min-width: 0; max-width: 100%; }
+      .challenge-list, .challenge-item, .client-card { min-width: 0; max-width: 100%; }
+      h1, h2, .section-desc, .challenge-title, .challenge-desc { overflow-wrap: break-word; word-break: normal; }
     }
   </style>
 </head>
@@ -972,8 +980,8 @@
         <button class="lang-btn active" onclick="setLang('es')">ES</button>
         <button class="lang-btn" onclick="setLang('en')">EN</button>
       </div>
-      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_nav" class="btn-nav" data-lang="es" data-track="tidycal_click" data-location="case_study_nav">Agendar sesión →</a>
-      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_nav" class="btn-nav" data-lang="en" data-track="tidycal_click" data-location="case_study_nav">Book session →</a>
+      <a href="index.html#ia-demo" class="btn-nav" data-lang="es" data-track="regina_chat_click" data-location="case_study_nav">Hablar con Regina →</a>
+      <a href="index.html#ia-demo" class="btn-nav" data-lang="en" data-track="regina_chat_click" data-location="case_study_nav">Talk to Regina →</a>
     </div>
   </div>
 </nav>
@@ -1411,7 +1419,7 @@
 <!-- ─── TIMELINE ─────────────────────────────────────────────────── -->
 <section>
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+    <div class="timeline-layout">
       <div>
         <div class="section-label label-blue" data-lang="es">Implementación</div>
         <div class="section-label label-blue" data-lang="en">Implementation</div>
@@ -1490,9 +1498,9 @@
   <div style="max-width: 600px; margin: 0 auto;">
     <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:#7c5cfc; margin-bottom:16px;">¿LISTO PARA EMPEZAR?</div>
     <h2 style="font-size: 2rem; font-weight:700; margin-bottom:16px;">¿Tu negocio podría tener resultados similares?</h2>
-    <p style="color:#888; margin-bottom:32px; font-size:1.1rem;">Cada negocio es diferente. Cuéntanos tu caso y te decimos exactamente qué se puede automatizar.</p>
-    <a href="index.html#pricing" style="display:inline-block; background:linear-gradient(135deg,#7c5cfc,#5b8af5); color:#fff; font-weight:600; padding:16px 40px; border-radius:12px; text-decoration:none; font-size:1rem; margin-right:12px;" data-track="pricing_click" data-location="case_study_mid_cta">Ver planes y precios →</a>
-    <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_mid_cta" style="display:inline-block; border:1px solid rgba(255,255,255,0.15); color:#fff; font-weight:500; padding:16px 32px; border-radius:12px; text-decoration:none; font-size:1rem;" data-track="tidycal_click" data-location="case_study_mid_cta">Agendar con Joaquin →</a>
+    <p style="color:#888; margin-bottom:32px; font-size:1.1rem;">Cada negocio es diferente. Regina te hace una demo, califica tu caso y te dice exactamente qué ruta conviene cotizar.</p>
+    <a href="index.html#precios" style="display:inline-block; background:linear-gradient(135deg,#7c5cfc,#5b8af5); color:#fff; font-weight:600; padding:16px 40px; border-radius:12px; text-decoration:none; font-size:1rem; margin-right:12px;" data-track="pricing_click" data-location="case_study_mid_cta">Ver paquetes →</a>
+    <a href="index.html#ia-demo" style="display:inline-block; border:1px solid rgba(255,255,255,0.15); color:#fff; font-weight:500; padding:16px 32px; border-radius:12px; text-decoration:none; font-size:1rem;" data-track="regina_chat_click" data-location="case_study_mid_cta">Cotizar con Regina →</a>
   </div>
 </section>
 
@@ -1505,17 +1513,17 @@
     <div class="section-label label-purple" style="display: inline-block;" data-lang="en">Ready to automate?</div>
     <h2 data-lang="es">Tu negocio merece operar <span style="background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">24/7 sin agotarse</span></h2>
     <h2 data-lang="en">Your business deserves to operate <span style="background: var(--gradient-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">24/7 without burning out</span></h2>
-    <p data-lang="es">Hablemos 15 minutos. Te mostramos exactamente cómo funcionaría para tu negocio — sin compromiso.</p>
-    <p data-lang="en">Let's talk for 15 minutes. We'll show you exactly how it would work for your business — no commitment.</p>
+    <p data-lang="es">Habla con Regina. Te muestra cómo funcionaría para tu negocio, califica el caso y te lleva a cotización, pago o handoff humano.</p>
+    <p data-lang="en">Talk to Regina. She shows how it would work for your business, qualifies the case, and routes you to quote, payment, or human handoff.</p>
     <div class="cta-buttons">
-      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_final_cta" class="btn-primary" data-lang="es" data-track="tidycal_click" data-location="case_study_final_cta">
-        <span>📅</span> Agendar con Joaquin
+      <a href="index.html#ia-demo" class="btn-primary" data-lang="es" data-track="regina_chat_click" data-location="case_study_final_cta">
+        <span>💬</span> Hablar con Regina
       </a>
-      <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_final_cta" class="btn-primary" data-lang="en" data-track="tidycal_click" data-location="case_study_final_cta">
-        <span>📅</span> Book with Joaquin
+      <a href="index.html#ia-demo" class="btn-primary" data-lang="en" data-track="regina_chat_click" data-location="case_study_final_cta">
+        <span>💬</span> Talk to Regina
       </a>
-      <a href="https://byagentx.ai#pricing" class="btn-secondary" data-lang="es" data-track="pricing_click" data-location="case_study_final_cta">Ver planes y precios →</a>
-      <a href="https://byagentx.ai#pricing" class="btn-secondary" data-lang="en" data-track="pricing_click" data-location="case_study_final_cta">See pricing →</a>
+      <a href="https://byagentx.ai#precios" class="btn-secondary" data-lang="es" data-track="pricing_click" data-location="case_study_final_cta">Ver paquetes →</a>
+      <a href="https://byagentx.ai#precios" class="btn-secondary" data-lang="en" data-track="pricing_click" data-location="case_study_final_cta">See packages →</a>
     </div>
     <div class="cta-trust">
       <div class="trust-item"><span class="trust-icon">⚡</span> <span data-lang="es">Setup en 7 días</span><span data-lang="en">7-day setup</span></div>
@@ -1536,7 +1544,7 @@
         <a href="https://byagentx.ai" data-lang="en">Home</a>
         <a href="https://byagentx.ai#casos" data-lang="es">Casos</a>
         <a href="https://byagentx.ai#cases" data-lang="en">Cases</a>
-        <a href="https://tidycal.com/jmco177/ai-systems-implementation-session?utm_source=byagentx&utm_medium=website&utm_campaign=case_study_footer" data-track="tidycal_click" data-location="case_study_footer">Contacto</a>
+        <a href="index.html#ia-demo" data-track="regina_chat_click" data-location="case_study_footer">Regina</a>
       </div>
       <div class="footer-copy">© 2025 AgentX · byagentx.ai</div>
     </div>

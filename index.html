@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgentX — Sistema de ventas IA en 72 horas</title>
-  <meta name="description" content="AgentX crea páginas web premium, agentes IA y automatización comercial para convertir web y WhatsApp en ventas. Diagnóstico Express desde $3,500 MXN." />
+  <title>AgentX — Bot de ventas IA con Regina para web y WhatsApp</title>
+  <meta name="description" content="ByAgentX instala un bot de ventas IA con Regina: demo en web, calificación, cotización, cierre, WhatsApp, CRM/Sheets y pagos. Diagnóstico Express desde $3,500 MXN." />
   <link rel="canonical" href="https://byagentx.ai/" />
   <link rel="alternate" hreflang="es-MX" href="https://byagentx.ai/" />
   <link rel="alternate" hreflang="x-default" href="https://byagentx.ai/" />
+  <link rel="sitemap" type="application/xml" href="https://byagentx.ai/sitemap.xml" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AgentX" />
   <meta property="og:url" content="https://byagentx.ai/" />
-  <meta property="og:title" content="AgentX — Tu sistema de ventas IA en 72 horas" />
-  <meta property="og:description" content="Páginas web premium, agentes IA y automatización para vender por WhatsApp y web. Entrada desde Diagnóstico Express." />
+  <meta property="og:title" content="ByAgentX — Bot de ventas IA con Regina" />
+  <meta property="og:description" content="Regina hace demo, califica, cotiza y cierra leads desde web, WhatsApp, CRM/Sheets y pagos." />
   <meta property="og:image" content="https://byagentx.ai/assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#0c0c0c" />
@@ -28,7 +29,7 @@
     gtag('config', 'G-PD11FZ1DHM');
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"AgentX","url":"https://byagentx.ai/","image":"https://byagentx.ai/assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg","description":"Páginas web premium, agentes IA para WhatsApp/web y automatización comercial para negocios en México.","priceRange":"MXN $$","areaServed":{"@type":"Country","name":"Mexico"},"availableLanguage":["Spanish","English"],"serviceType":["AI websites","Landing pages","WhatsApp automation","Web chat agents","CRM automation","Payment automation","Lead follow-up automation"],"sameAs":["https://byagentx.ai/"]}
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"AgentX","url":"https://byagentx.ai/","image":"https://byagentx.ai/assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg","description":"Bot de ventas IA con Regina para demo, calificación, cotización, cierre, WhatsApp/web, CRM y pagos para negocios en México.","priceRange":"MXN $$","areaServed":{"@type":"Country","name":"Mexico"},"availableLanguage":["Spanish","English"],"serviceType":["AI websites","Landing pages","WhatsApp automation","Web chat agents","CRM automation","Payment automation","Lead follow-up automation"],"sameAs":["https://byagentx.ai/"]}
   </script>
   <style>
     :root{--bg:#0c0c0c;--ink:#f8fbff;--soft:#dce7ee;--muted:#9eacb7;--line:rgba(255,255,255,.13);--green:#42f59b;--cyan:#46d8ff;--blue:#5b8cff;--violet:#a16bff;--gold:#ffd36e;--max:1180px;--ease:cubic-bezier(.22,1,.36,1);font-family:"Inter",system-ui,sans-serif}
@@ -97,6 +98,8 @@
     @media(max-width:759px){.chat-form{grid-template-columns:1fr}.chat-submit{min-height:46px}.chat-body{min-height:300px;padding:14px}.msg{max-width:92%;font-size:14px}.agent-panel,.case-card{padding:20px}.asset-stage{min-height:300px}.asset-node.n1{left:5%;top:9%;width:150px}.asset-node.n2{right:5%;top:38%;width:158px}.asset-node.n3{left:8%;bottom:10%;width:184px}.wa-fab{right:12px;bottom:12px;padding:11px 12px}.wa-fab span{display:none}.wa-fab svg{width:30px;height:30px}}
     @media(prefers-reduced-motion:reduce){.asset-stage:before,.asset-node{animation:none!important}.wa-fab{transition:none!important}}
 
+    .sales-comparison{display:grid;gap:18px;align-items:stretch}.comparison-card{padding:26px;border-radius:32px}.comparison-card h3{margin:0 0 14px;font-size:26px;letter-spacing:-.04em}.comparison-card ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}.comparison-card li{color:#c5d2da;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.045);border-radius:16px;padding:10px 12px}.comparison-card.regina{border-color:rgba(66,245,155,.28)}.comparison-card.regina li{color:#eafff3;border-color:rgba(66,245,155,.18);background:rgba(66,245,155,.075)}@media(min-width:860px){.sales-comparison{grid-template-columns:1fr 1fr}}
+
 
     /* Real 3D top-tier layer: Three.js core + GSAP scroll orchestration */
     .real-3d-stage{position:absolute;inset:0;width:100%;height:100%;z-index:2;opacity:.94;mix-blend-mode:screen;filter:drop-shadow(0 0 34px rgba(66,245,155,.16));pointer-events:none}
@@ -119,6 +122,9 @@
     @media(min-width:760px){.template-grid-lines{display:block}.hamburger{display:none}.hero-grid{grid-template-columns:.98fr 1.02fr}}
     @media(max-width:759px){main#top{padding-top:74px}.hero{min-height:auto;padding:76px 0 54px}.nav{padding:8px 0}.nav-inner{position:relative}.mobile-cta{display:none}.hamburger{display:grid;position:absolute;position:fixed;right:18px;top:14px;transform:none;z-index:130;display:grid!important;grid-template-rows:auto auto auto;background:rgba(94,210,156,.18);border-color:rgba(94,210,156,.36);box-shadow:0 0 22px rgba(94,210,156,.14)}.hamburger span{background:#f7fff9}.liquid-glass-card{width:178px;height:178px;border-radius:26px;padding:16px;transform:translateY(-28px);margin-bottom:-10px}.liquid-glass-card h2{font-size:17px}.template-headline{font-size:clamp(40px,12vw,54px);line-height:.96;max-width:340px}.lead{font-size:14px}.hero-ellipse-glow{top:88px;width:110vw}.hero-actions .btn{min-height:50px}.cinematic-product{display:none}.section-head h2,.minimal-copy h2,.cta-box h2{font-size:clamp(30px,10.4vw,42px);line-height:1.05;letter-spacing:-.035em;max-width:calc(100vw - 36px);overflow-wrap:break-word;word-break:normal}.section-head p,.minimal-copy p{max-width:calc(100vw - 36px)}}
 
+    /* QA hardening: keep mobile decorative layers from contributing to body scroll width */
+    @media(max-width:759px){.bg-video{left:0!important;right:auto!important;width:100vw!important;transform:none!important}.real-3d-stage{left:0!important;right:0!important;width:100%!important;transform:none!important}.orb{display:none!important}.mobile-menu-overlay{left:0!important;right:0!important;width:100vw!important;transform:none!important}.marquee-wrap{max-width:100vw;contain:paint;overflow:hidden}.cards,.price-grid,.proof,.split{overflow:hidden}.cards:before,.price-grid:before,.proof:before,.split:before{inset:0!important}.hero .agentx-motion-field,.motion-depth{max-width:100vw;contain:paint}}
+
   </style>
 </head>
 <body>
@@ -128,10 +134,10 @@
   <header class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="AgentX inicio"><span class="mark"><img src="assets/higgsfield/byagentx-agentx-emblem-192.png" alt="" loading="eager" /></span><span class="brand-word">AgentX</span></a>
-      <nav class="nav-links" aria-label="Principal"><a href="#websites">Websites</a><a href="#sistema">Sistema</a><a href="#ia-demo">IA demo</a><a href="#proof">Demos</a><a href="#precios">Precios</a></nav>
+      <nav class="nav-links" aria-label="Principal"><a href="#websites">Websites</a><a href="#sistema">Sistema</a><a href="#ia-demo">Regina demo</a><a href="#diferencia">Diferencia</a><a href="#precios">Precios</a></nav>
       <button class="hamburger" id="mobileMenuToggle" type="button" aria-label="Abrir menú" aria-controls="mobileMenuOverlay" aria-expanded="false"><span></span><span></span><b>Menú</b></button>
-      <a class="nav-cta btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="nav" data-offer="regina_chat">Hablar con nuestro agente de ventas</a>
-      <a class="mobile-cta" href="#ia-demo" data-track="regina_chat_click" data-location="mobile_nav" data-offer="regina_chat">Ventas</a>
+      <a class="nav-cta btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="nav" data-offer="regina_chat">Probar demo con Regina</a>
+      <a class="mobile-cta" href="#ia-demo" data-track="regina_chat_click" data-location="mobile_nav" data-offer="regina_chat">Regina</a>
     </div>
   </header>
   <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true">
@@ -142,7 +148,7 @@
       <a href="#ia-demo">IA DEMO</a>
       <a href="#proof">DEMOS</a>
       <a href="#precios">PRECIOS</a>
-      <a href="#contacto">CONTACTO</a>
+      <a href="#diferencia">DIFERENCIA</a><a href="#contacto">CONTACTO</a>
     </nav>
   </div>
 
@@ -165,13 +171,13 @@
             <h2>Hecho por operadores <em>human + AI</em></h2>
             <p>Web premium, agente de ventas y seguimiento conectado en un solo sistema.</p>
           </div>
-          <span class="eyebrow"><i class="dot"></i> Sistema de ventas IA</span>
-          <h1 class="template-headline"><span class="hline">Tu sistema</span><span class="hline">de ventas IA<span class="green-period">.</span></span></h1>
-          <p class="lead">Primera versión operativa en 72 horas hábiles: web premium, agente IA en web/WhatsApp y seguimiento conectado para convertir atención en conversaciones calificadas.</p>
-          <div class="hero-actions"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="hero" data-offer="regina_chat">Hablar con nuestro agente de ventas →</a><a class="btn ghost" href="#proof" data-track="internal_click" data-location="hero" data-offer="demo">Ver demos</a><a class="btn gold" href="#precios" data-track="pricing_click" data-location="hero" data-offer="pricing">Precios</a></div>
+          <span class="eyebrow"><i class="dot"></i> Bot de ventas IA + Regina</span>
+          <h1 class="template-headline"><span class="hline">Tu bot de ventas IA</span><span class="hline">con Regina cerrando<span class="green-period">.</span></span></h1>
+          <p class="lead">Regina hace la demo, califica al lead, recomienda el paquete, cotiza y empuja el cierre por web, WhatsApp, CRM/Sheets y pagos. Primera versión operativa en 72 horas hábiles.</p>
+          <div class="hero-actions"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="hero" data-offer="regina_chat" data-regina-prompt="Hola Regina, quiero ver una demo y saber qué paquete me conviene.">Probar demo con Regina →</a><a class="btn ghost" href="#proof" data-track="internal_click" data-location="hero" data-offer="demo">Ver demos</a><a class="btn gold" href="#precios" data-track="pricing_click" data-location="hero" data-offer="pricing">Cotizar</a></div>
           <div class="tiny">Desde $3,500 MXN · Diagnóstico Express abonable · Implementación desde $14,900 MXN</div>
           <div class="guarantee-note">72h de implementación inicial garantizada, sujeto a accesos, contenido mínimo y aprobación rápida del cliente.</div>
-          <div class="focus-row" aria-label="Servicios clave"><span>Websites / landings</span><span>Agente web + WhatsApp</span><span>CRM / pagos / seguimiento</span><span>Atención México + LATAM</span></div>
+          <div class="focus-row" aria-label="Servicios clave"><span>Websites / landings</span><span>Regina web + WhatsApp</span><span>Demo / cotización / cierre</span><span>CRM / pagos / seguimiento</span></div>
         </div>
         <aside class="product liquid cinematic-product" aria-label="Video conceptual AgentX: humano e IA conectando">
           <div class="window-top"><div class="traffic"><i class="r"></i><i class="y"></i><i class="g"></i></div><span>ByAgentX motion system</span><span id="clock">live</span></div>
@@ -194,7 +200,7 @@
         <div class="section-head reveal"><span class="label">Lo que hacemos</span><h2>Menos piezas sueltas. Más sistema.</h2><p>Diseñamos la presencia web y la conectamos con conversación, datos y seguimiento.</p></div>
         <div class="cards">
           <article class="card liquid reveal"><div class="card-icon">01</div><h3>Websites premium</h3><p>Landing pages y sitios mobile-first con copy claro, CTAs, tracking y estructura para vender.</p></article>
-          <article class="card liquid reveal"><div class="card-icon">02</div><h3>Agentes IA</h3><p>WhatsApp y web chat que responden dudas, capturan datos y escalan a humano.</p></article>
+          <article class="card liquid reveal"><div class="card-icon">02</div><h3>Regina en web + WhatsApp</h3><p>La agente de ventas hace demos, responde dudas, califica, cotiza y escala a humano cuando conviene.</p></article>
           <article class="card liquid reveal"><div class="card-icon">03</div><h3>Automatización</h3><p>CRM/Sheets, Gmail, Stripe, webhooks y reportes sin operación manual pesada.</p></article>
         </div>
       </div>
@@ -202,7 +208,7 @@
 
     <section id="sistema">
       <div class="container split">
-        <div class="minimal-copy reveal"><span class="label">Motion + operación</span><h2>Tu página se vuelve el inicio del pipeline.</h2><p>El usuario no solo lee: pregunta, tu agente de ventas responde dudas, captura datos y empuja el siguiente paso comercial.</p><div class="hero-actions"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="system" data-offer="regina_chat">Probar agente de ventas →</a></div></div>
+        <div class="minimal-copy reveal"><span class="label">Motion + operación</span><h2>Tu página se vuelve el inicio del pipeline.</h2><p>El usuario no solo lee: Regina conversa, muestra el sistema, entiende el problema, cotiza la ruta correcta y deja el cierre listo.</p><div class="hero-actions"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="system" data-offer="regina_chat" data-regina-prompt="Hola Regina, quiero una demo del sistema de ventas IA.">Probar demo con Regina →</a></div></div>
         <div class="bubble-canvas liquid reveal" aria-label="Sistema conectado"><div class="orbit"><div class="center-orb">AgentX<br>System</div><span>Website</span><span>WhatsApp</span><span>CRM</span><span>Payments</span></div></div>
       </div>
     </section>
@@ -210,39 +216,49 @@
 
     <section id="ia-demo">
       <div class="container">
-        <div class="section-head reveal"><span class="label">Agente de ventas en la página</span><h2>Nuestro agente de ventas habla directo con tus clientes.</h2><p>Prueba la experiencia real: el visitante pregunta aquí mismo, recibe respuestas a sus dudas y avanza al siguiente paso comercial.</p></div>
+        <div class="section-head reveal"><span class="label">Regina en la página</span><h2>Regina hace la demo, cotiza y empuja el cierre.</h2><p>Prueba la experiencia real: el visitante pregunta aquí mismo, Regina responde, califica el negocio, recomienda paquete y lo mueve a pago, WhatsApp o handoff humano.</p></div>
         <div class="ai-demo-grid">
           <div class="chat-demo reveal" aria-label="Demo de chat IA AgentX">
-            <div class="chat-top"><div class="agent-badge"><span class="agent-avatar">A</span><span>Agente de ventas · AgentX</span></div><span class="live-pill"><i></i> live</span></div>
+            <div class="chat-top"><div class="agent-badge"><span class="agent-avatar">R</span><span>Regina · Agente de ventas AgentX</span></div><span class="live-pill"><i></i> live</span></div>
             <div class="chat-body" id="agentChatDemo" aria-live="polite">
-              <div class="msg bot">Hola, soy el agente de ventas de AgentX. Escríbeme qué negocio tienes y qué quieres automatizar; te respondo aquí mismo.</div>
+              <div class="msg bot">Hola, soy Regina de AgentX. Puedo hacerte una demo, entender tu negocio, cotizar el paquete correcto y ayudarte a cerrar el siguiente paso.</div>
             </div>
             <div class="chat-actions" aria-label="Preguntas de demo">
-              <button class="prompt-chip" type="button" data-demo-prompt="Tengo un restaurante y quiero responder pedidos por WhatsApp.">Restaurante</button>
-              <button class="prompt-chip" type="button" data-demo-prompt="Tengo un negocio de servicios y quiero responder dudas de clientes.">Servicios</button>
-              <button class="prompt-chip" type="button" data-demo-prompt="¿Cuánto cuesta implementar un agente de ventas en mi web y WhatsApp?">Precio</button>
+              <button class="prompt-chip" type="button" data-demo-prompt="Hola Regina, tengo un restaurante y quiero ver cómo vendería por WhatsApp.">Demo restaurante</button>
+              <button class="prompt-chip" type="button" data-demo-prompt="Hola Regina, tengo un negocio de servicios. Califica mi caso y dime qué paquete conviene.">Calificar mi caso</button>
+              <button class="prompt-chip" type="button" data-demo-prompt="Hola Regina, quiero cotización para web, WhatsApp, CRM y pagos.">Cotizar</button>
             </div>
             <form class="chat-form" id="reginaChatForm">
-              <input class="chat-input" id="reginaChatInput" name="message" autocomplete="off" placeholder="Escribe aquí: tengo un negocio de..." aria-label="Mensaje para nuestro agente de ventas" />
+              <input class="chat-input" id="reginaChatInput" name="message" autocomplete="off" placeholder="Escribe aquí: Regina, quiero cotizar..." aria-label="Mensaje para Regina, agente de ventas" />
               <button class="chat-submit" type="submit">Enviar</button>
             </form>
-            <div class="chat-fallback">Si prefieres WhatsApp, <a href="https://wa.me/18148592269?text=Hola%2C%20quiero%20cotizar%20un%20sistema%20IA%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="regina_chat_fallback" data-offer="whatsapp_contact">nuestro agente también te atiende aquí</a>. WhatsApp internacional, atención en México y LATAM.</div>
+            <div class="chat-fallback">Si prefieres WhatsApp, <a href="https://wa.me/18148592269?text=Hola%20Regina%2C%20quiero%20una%20demo%20y%20cotizaci%C3%B3n%20de%20ByAgentX." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="regina_chat_fallback" data-offer="whatsapp_contact">Regina también te atiende aquí</a>. WhatsApp internacional, atención en México y LATAM.</div>
           </div>
           <div class="agent-panel liquid reveal">
             <span class="label">Lo que hace detrás</span>
-            <h3>Nuestro agente responde dudas antes del humano.</h3>
-            <p>El valor no es un botón externo. Es conversación: responder dudas, entender el problema, recomendar paquete y dejar seguimiento claro.</p>
+            <h3>Regina responde, cotiza y sabe cuándo escalar.</h3>
+            <p>El valor no es un botón externo. Es conversación comercial: demo, calificación, paquete recomendado, pago o handoff con contexto.</p>
             <div class="pipeline">
-              <div class="pipeline-step"><i>1</i><div><strong>Captura contexto</strong><small>Nombre, necesidad, presupuesto e intención.</small></div><em>Lead</em></div>
-              <div class="pipeline-step"><i>2</i><div><strong>Recomienda siguiente paso</strong><small>Paquete, cotización, pago o handoff.</small></div><em>Acción</em></div>
-              <div class="pipeline-step"><i>3</i><div><strong>Deja trazabilidad</strong><small>Registro para CRM, Sheets, alertas o reportes.</small></div><em>Ops</em></div>
+              <div class="pipeline-step"><i>1</i><div><strong>Califica intención</strong><small>Giro, canal, urgencia, presupuesto y problema.</small></div><em>Lead</em></div>
+              <div class="pipeline-step"><i>2</i><div><strong>Hace demo y cotiza</strong><small>Recomienda Diagnóstico, WhatsApp, Web + Chat o Stack.</small></div><em>Oferta</em></div>
+              <div class="pipeline-step"><i>3</i><div><strong>Cierra o entrega handoff</strong><small>Pago Stripe, WhatsApp, CRM/Sheets y contexto para humano.</small></div><em>Cierre</em></div>
             </div>
           </div>
         </div>
         <div class="conversion-strip reveal" aria-label="Prueba operacional AgentX">
-          <div class="metric-card"><b>Agente</b><span>atiende en web</span><small>Responde dudas y preguntas sin depender de un formulario.</small></div>
-          <div class="metric-card"><b>3 rutas</b><span>web · WhatsApp · pagos</span><small>Landing, agente y operación conectada sin promesas vagas.</small></div>
-          <div class="metric-card"><b>Demos</b><span>rutas navegables</span><small>Revisas sistemas reales antes de contratar.</small></div>
+          <div class="metric-card"><b>Regina</b><span>atiende en web</span><small>Hace demo, califica y responde sin depender de formularios.</small></div>
+          <div class="metric-card"><b>4 rutas</b><span>web · WhatsApp · CRM · pagos</span><small>Conversación, cotización y cierre conectados al pipeline.</small></div>
+          <div class="metric-card"><b>Cierre</b><span>sin perder contexto</span><small>Si requiere humano, Regina entrega resumen y siguiente paso.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferencia">
+      <div class="container">
+        <div class="section-head reveal"><span class="label">Chatbot básico vs Regina</span><h2>Chatbot básico responde. Regina mueve el pipeline.</h2><p>La diferencia no es tener una burbuja de chat. Es que la conversación termine en demo, cotización, pago o handoff claro.</p></div>
+        <div class="sales-comparison">
+          <article class="comparison-card liquid reveal"><h3>Chatbot básico</h3><ul><li>Contesta FAQs sin criterio comercial.</li><li>No sabe cuándo cotizar o escalar.</li><li>No conecta bien CRM, pagos ni seguimiento.</li><li>Deja al lead esperando otro formulario.</li></ul></article>
+          <article class="comparison-card liquid regina reveal"><h3>Regina / ByAgentX</h3><ul><li>Hace demo según el giro del negocio.</li><li>Califica intención, urgencia y presupuesto.</li><li>Recomienda paquete y cotiza el siguiente paso.</li><li>Ruta a Stripe, WhatsApp, CRM/Sheets o handoff humano.</li></ul></article>
         </div>
       </div>
     </section>
@@ -262,39 +278,39 @@
             <div class="asset-orb"></div>
             <div class="asset-node n1"><b>Lead entra</b><small>web / Meta / WhatsApp</small></div>
             <div class="asset-node n2"><b>IA responde</b><small>dudas + intención</small></div>
-            <div class="asset-node n3"><b>Equipo cierra</b><small>cita / pago / seguimiento</small></div>
+            <div class="asset-node n3"><b>Regina cierra</b><small>cotización / pago / handoff</small></div>
           </div>
         </div>
-        <div class="proof reveal"><a href="portfolio.html" data-track="portfolio_click" data-location="proof" data-offer="portfolio"><span>Portafolio<small>websites, piezas y referencias</small></span><b>→</b></a><a href="https://rickipollo.mx/" target="_blank" rel="noopener noreferrer" data-track="demo_click" data-location="proof" data-offer="restaurant_demo"><span>Ricki Pollo<small>sitio + menú + WhatsApp</small></span><b>→</b></a><a href="#precios" data-track="pricing_click" data-location="proof" data-offer="stripe_mxn"><span>Pagos Stripe<small>links directos en MXN</small></span><b>→</b></a></div>
+        <div class="proof reveal"><a href="portfolio.html" data-track="portfolio_click" data-location="proof" data-offer="portfolio"><span>Portafolio<small>websites, piezas y referencias</small></span><b>→</b></a><a href="https://rickipollo.mx/" target="_blank" rel="noopener noreferrer" data-track="demo_click" data-location="proof" data-offer="restaurant_demo"><span>Ricki Pollo<small>sitio + menú + WhatsApp</small></span><b>→</b></a><a href="#precios" data-track="pricing_click" data-location="proof" data-offer="stripe_mxn"><span>Cierre con Regina<small>Stripe, WhatsApp o handoff</small></span><b>→</b></a></div>
         <div class="proof-logo-row reveal" aria-label="Rutas que AgentX puede conectar"><div class="proof-logo">Web<small>landing / sitio</small></div><div class="proof-logo">WhatsApp<small>respuesta + captura</small></div><div class="proof-logo">CRM<small>Sheets / pipeline</small></div><div class="proof-logo">Pagos<small>Stripe / invoice</small></div></div>
       </div>
     </section>
 
     <section id="precios">
       <div class="container">
-        <div class="section-head reveal"><span class="label">Precios</span><h2>Empieza con diagnóstico o implementación.</h2><p>Si todavía no estás listo para un setup completo, empezamos con un diagnóstico abonable. Si ya tienes claro el alcance, implementamos el sistema.</p></div>
+        <div class="section-head reveal"><span class="label">Precios</span><h2>Regina cotiza el paquete correcto antes de cerrar.</h2><p>Los precios son claros, pero el cierre pasa por Regina: hace demo, valida alcance, recomienda ruta y te manda pago seguro o handoff humano.</p></div>
         <div class="price-grid">
-          <article class="price-card liquid diagnostic reveal"><span class="badge">Entrada abonable</span><h3>Diagnóstico Express IA</h3><p>Para entender rápido qué sistema vendería más en tu negocio antes de pagar un setup completo.</p><div class="price">$3,500 <small>MXN único</small></div><div class="setup">Se abona si contratas en 7 días</div><ul><li>Auditoría web + WhatsApp</li><li>Mapa de automatización recomendado</li><li>Demo IA con contexto de tu negocio</li><li>Entrega en 48h</li></ul><a class="btn gold" href="https://buy.stripe.com/4gM7sK4cL5dZ5negl45J606" target="_blank" rel="noopener noreferrer" data-track="stripe_click" data-location="pricing" data-offer="diagnostico_express" data-plan="diagnostico_express">Pagar diagnóstico en Stripe →</a></article>
-          <article class="price-card liquid featured reveal"><span class="badge">Implementación</span><h3>WhatsApp Starter</h3><p>Para negocios que pierden leads por responder tarde.</p><div class="price">$14,900 <small>MXN setup</small></div><div class="setup">+ $3,999 MXN/mes</div><ul><li>Agente IA en WhatsApp 24/7</li><li>Captura de datos del lead</li><li>Registro a CRM / Sheets</li><li>Handoff a humano</li></ul><a class="btn primary" href="https://buy.stripe.com/6oU8wO24DgWH02U7Oy5J607" target="_blank" rel="noopener noreferrer" data-track="stripe_click" data-location="pricing" data-offer="whatsapp_starter" data-plan="whatsapp_starter">Pagar WhatsApp Starter →</a></article>
-          <article class="price-card liquid reveal"><span class="badge">Recomendado</span><h3>Web + Chat IA</h3><p>Para convertir tráfico móvil en conversación y oportunidad.</p><div class="price">$29,999 <small>MXN setup</small></div><div class="setup">+ $6,999 MXN/mes</div><ul><li>Motion website premium</li><li>Agente en web + WhatsApp</li><li>Tracking + CTAs</li><li>Implementación inicial 72h*</li></ul><a class="btn ghost" href="https://buy.stripe.com/6oUfZg6kTbCn8zqd8S5J608" target="_blank" rel="noopener noreferrer" data-track="stripe_click" data-location="pricing" data-offer="web_chat_ia" data-plan="web_chat_ia">Pagar Web + Chat IA →</a></article>
-          <article class="price-card liquid reveal"><span class="badge">Stack completo</span><h3>Automation Stack</h3><p>Nuestro paquete más completo para vender, posicionarte y automatizar seguimiento.</p><div class="price">$49,999 <small>MXN setup</small></div><div class="setup">+ $12,999 MXN/mes</div><ul><li>Página de internet interactiva</li><li>Agente de IA vendedor</li><li>Pipeline CRM + seguimiento</li><li>Reportes y alertas</li></ul><a class="btn ghost" href="https://buy.stripe.com/4gMeVc7oXdKvbLC0m65J609" target="_blank" rel="noopener noreferrer" data-track="stripe_click" data-location="pricing" data-offer="automation_stack" data-plan="automation_stack">Pagar Automation Stack →</a></article>
+          <article class="price-card liquid diagnostic reveal"><span class="badge">Entrada abonable</span><h3>Diagnóstico Express IA</h3><p>Para entender rápido qué sistema vendería más en tu negocio antes de pagar un setup completo.</p><div class="price">$3,500 <small>MXN único</small></div><div class="setup">Se abona si contratas en 7 días</div><ul><li>Auditoría web + WhatsApp</li><li>Mapa de automatización recomendado</li><li>Demo IA con contexto de tu negocio</li><li>Entrega en 48h</li></ul><a class="btn gold" href="#ia-demo" data-track="regina_quote_click" data-location="pricing" data-offer="diagnostico_express" data-plan="diagnostico_express" data-regina-prompt="Hola Regina, quiero empezar con Diagnóstico Express IA de $3,500 MXN.">Cotizar Diagnóstico con Regina →</a></article>
+          <article class="price-card liquid featured reveal"><span class="badge">Implementación</span><h3>WhatsApp Starter</h3><p>Para negocios que pierden leads por responder tarde.</p><div class="price">$14,900 <small>MXN setup</small></div><div class="setup">+ $3,999 MXN/mes</div><ul><li>Agente IA en WhatsApp 24/7</li><li>Captura de datos del lead</li><li>Registro a CRM / Sheets</li><li>Handoff a humano</li></ul><a class="btn primary" href="#ia-demo" data-track="regina_quote_click" data-location="pricing" data-offer="whatsapp_starter" data-plan="whatsapp_starter" data-regina-prompt="Hola Regina, quiero cotizar WhatsApp Starter para mi negocio.">Cotizar WhatsApp Starter →</a></article>
+          <article class="price-card liquid reveal"><span class="badge">Recomendado</span><h3>Web + Chat IA</h3><p>Para convertir tráfico móvil en conversación y oportunidad.</p><div class="price">$29,999 <small>MXN setup</small></div><div class="setup">+ $6,999 MXN/mes</div><ul><li>Motion website premium</li><li>Agente en web + WhatsApp</li><li>Tracking + CTAs</li><li>Implementación inicial 72h*</li></ul><a class="btn ghost" href="#ia-demo" data-track="regina_quote_click" data-location="pricing" data-offer="web_chat_ia" data-plan="web_chat_ia" data-regina-prompt="Hola Regina, quiero cotizar Web + Chat IA con landing, agente y seguimiento.">Cotizar Web + Chat IA →</a></article>
+          <article class="price-card liquid reveal"><span class="badge">Stack completo</span><h3>Automation Stack</h3><p>Nuestro paquete más completo para vender, posicionarte y automatizar seguimiento.</p><div class="price">$49,999 <small>MXN setup</small></div><div class="setup">+ $12,999 MXN/mes</div><ul><li>Página de internet interactiva</li><li>Agente de IA vendedor</li><li>Pipeline CRM + seguimiento</li><li>Reportes y alertas</li></ul><a class="btn ghost" href="#ia-demo" data-track="regina_quote_click" data-location="pricing" data-offer="automation_stack" data-plan="automation_stack" data-regina-prompt="Hola Regina, quiero cotizar Automation Stack con CRM, pagos, reportes y automatizaciones.">Cotizar Automation Stack →</a></article>
         </div>
-        <p class="tiny" style="margin-top:18px;text-align:center;color:#cfe8da">Pagos directos en pesos mexicanos vía Stripe. Los paquetes con mensualidad cobran el setup inicial + la primera mensualidad al iniciar.</p>
+        <p class="tiny" style="margin-top:18px;text-align:center;color:#cfe8da">Pagos en pesos mexicanos vía Stripe. Regina valida alcance antes de cerrar para evitar comprar el paquete equivocado.</p>
       </div>
     </section>
 
     <section id="contacto">
-      <div class="container"><div class="cta-box liquid reveal"><span class="eyebrow"><i class="dot"></i> Siguiente paso</span><h2>Habla con nuestro agente y aterriza tu ruta de ventas.</h2><p>Cuéntale tu giro, canal principal, volumen de mensajes y problema. Te orienta con Diagnóstico Express, implementación o cotización a medida.</p><div class="hero-actions" style="justify-content:center"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="final_cta" data-offer="regina_chat">Hablar con nuestro agente de ventas →</a><a class="btn ghost" href="portfolio.html" data-track="portfolio_click" data-location="final_cta" data-offer="portfolio">Ver portafolio</a></div></div></div>
+      <div class="container"><div class="cta-box liquid reveal"><span class="eyebrow"><i class="dot"></i> Siguiente paso</span><h2>Deja que Regina te haga la demo y cotice tu ruta.</h2><p>Cuéntale tu giro, canal principal, volumen de mensajes y problema. Regina califica, recomienda paquete, manda a pago o escala con contexto.</p><div class="hero-actions" style="justify-content:center"><a class="btn primary" href="#ia-demo" data-track="regina_chat_click" data-location="final_cta" data-offer="regina_chat" data-regina-prompt="Hola Regina, quiero una demo y cotización de ByAgentX.">Hablar con Regina →</a><a class="btn ghost" href="portfolio.html" data-track="portfolio_click" data-location="final_cta" data-offer="portfolio">Ver demos reales</a></div></div></div>
     </section>
   </main>
 
 
-  <a class="wa-fab" href="https://wa.me/18148592269?text=Hola%20AgentX%2C%20quiero%20cotizar%20un%20motion%20website%20con%20agente%20IA." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="floating_fab" data-offer="whatsapp_contact" aria-label="Hablar con ventas por WhatsApp">
+  <a class="wa-fab" href="https://wa.me/18148592269?text=Hola%20Regina%2C%20quiero%20una%20demo%20y%20cotizaci%C3%B3n%20de%20ByAgentX." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="floating_fab" data-offer="whatsapp_contact" aria-label="Hablar con ventas por WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#42f59b" d="M16.02 3.2A12.65 12.65 0 0 0 5.1 22.25L3.7 28.8l6.68-1.75A12.65 12.65 0 1 0 16.02 3.2Zm0 22.96c-1.91 0-3.77-.53-5.39-1.54l-.39-.24-3.96 1.04.84-3.86-.25-.4a10.26 10.26 0 1 1 9.16 5Zm5.63-7.7c-.31-.15-1.82-.9-2.1-1-.28-.1-.49-.15-.7.16-.2.3-.8.99-.98 1.2-.18.2-.36.23-.67.08-.31-.16-1.3-.48-2.48-1.53-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.47.14-.63.14-.14.31-.36.46-.54.15-.18.2-.31.31-.51.1-.2.05-.39-.03-.54-.08-.15-.7-1.68-.96-2.3-.25-.6-.51-.52-.7-.53l-.6-.01c-.2 0-.54.08-.82.39-.28.3-1.08 1.06-1.08 2.58s1.1 2.99 1.26 3.2c.15.2 2.17 3.31 5.25 4.64.73.32 1.31.51 1.75.65.74.23 1.41.2 1.94.12.59-.09 1.82-.74 2.08-1.46.26-.72.26-1.34.18-1.46-.08-.13-.28-.2-.59-.36Z"/></svg>
-    <span>Habla con ventas<small>MX + LATAM · WhatsApp internacional</small></span>
+    <span>Habla con Regina<small>Demo · cotización · cierre</small></span>
   </a>
 
-  <footer class="footer"><div class="container footer-inner"><div><strong>AgentX</strong><br>Páginas web premium, agentes IA para WhatsApp/web y automatización para vender.</div><div class="footer-links"><a href="portfolio.html">Portafolio</a><a href="restaurants.html">Restaurantes</a><a href="case-study.html">Caso</a><a href="#precios">Precios / pagar</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a></div></div></footer>
+  <footer class="footer"><div class="container footer-inner"><div><strong>AgentX</strong><br>Bot de ventas IA con Regina para demo, cotización, cierre, WhatsApp/web y automatización comercial.</div><div class="footer-links"><a href="portfolio.html">Portafolio</a><a href="restaurants.html">Restaurantes</a><a href="case-study.html">Caso</a><a href="#precios">Precios / cotizar</a><a href="privacy.html">Privacidad</a><a href="terms.html">Términos</a></div></div></footer>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
   <script>
@@ -343,7 +359,7 @@
       function appendChatMessage(role,text,extraClass){var box=document.getElementById('agentChatDemo');if(!box)return null;var m=document.createElement('div');m.className='msg '+role+(extraClass?' '+extraClass:'');m.textContent=text;box.appendChild(m);box.scrollTop=box.scrollHeight;return m;}
       function trackReginaChat(eventName,offer){var payload={event:eventName||'regina_web_chat',location:'embedded_chat',offer:offer||'message',timestamp:new Date().toISOString()};window.dataLayer=window.dataLayer||[];window.dataLayer.push(payload);if(typeof gtag==='function')gtag('event',payload.event,payload);}
       async function askRegina(message,offer){message=(message||'').trim();if(!message)return;var input=document.getElementById('reginaChatInput');var form=document.getElementById('reginaChatForm');var btn=form&&form.querySelector('button[type="submit"]');appendChatMessage('user',message);if(input)input.value='';if(btn)btn.disabled=true;var typing=appendChatMessage('bot','Nuestro agente está respondiendo…','typing');try{var res=await fetch('https://api.byagentx.ai/web-chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({visitor_id:getReginaVisitorId(),message:message,source:'byagentx.ai',page:location.href})});var data=await res.json();if(typing)typing.remove();appendChatMessage('bot',(data&&data.reply)||'Soy Regina de AgentX. ¿Qué negocio tienes y qué quieres automatizar primero?');trackReginaChat('regina_web_chat',offer||'message');}catch(e){if(typing)typing.remove();appendChatMessage('bot','Si el chat no carga, escríbenos por WhatsApp. Atendemos México y LATAM desde este número internacional: +1 415 523 8886.');trackReginaChat('regina_web_chat_fallback',offer||'message');}finally{if(btn)btn.disabled=false;if(input)input.focus();}}
-      function initAgentChatDemo(){var form=document.getElementById('reginaChatForm');var input=document.getElementById('reginaChatInput');if(form){form.addEventListener('submit',function(e){e.preventDefault();askRegina(input&&input.value,'typed_message');});}document.querySelectorAll('[data-demo-prompt]').forEach(function(btn){btn.addEventListener('click',function(){askRegina(btn.getAttribute('data-demo-prompt')||btn.textContent,'quick_prompt');});});document.querySelectorAll('a[href="#ia-demo"]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){var i=document.getElementById('reginaChatInput');if(i)i.focus();},450);});});}initAgentChatDemo();
+      function initAgentChatDemo(){var form=document.getElementById('reginaChatForm');var input=document.getElementById('reginaChatInput');if(form){form.addEventListener('submit',function(e){e.preventDefault();askRegina(input&&input.value,'typed_message');});}document.querySelectorAll('[data-demo-prompt]').forEach(function(btn){btn.addEventListener('click',function(){askRegina(btn.getAttribute('data-demo-prompt')||btn.textContent,'quick_prompt');});});document.querySelectorAll('[data-regina-prompt]').forEach(function(el){el.addEventListener('click',function(){var prompt=el.getAttribute('data-regina-prompt');if(prompt){setTimeout(function(){askRegina(prompt,el.dataset.offer||'cta_prompt');},520);}});});document.querySelectorAll('a[href="#ia-demo"]').forEach(function(a){a.addEventListener('click',function(){setTimeout(function(){var i=document.getElementById('reginaChatInput');if(i)i.focus();},450);});});}initAgentChatDemo();
       document.addEventListener('click',function(event){var el=event.target.closest('[data-track]'); if(!el) return; var payload={event:el.dataset.track,location:el.dataset.location||'',offer:el.dataset.offer||'',href:el.href||'',timestamp:new Date().toISOString()}; try{var recent=JSON.parse(localStorage.getItem('agentx_recent_events')||'[]');recent.unshift(payload);localStorage.setItem('agentx_recent_events',JSON.stringify(recent.slice(0,20)));}catch(e){} window.dataLayer=window.dataLayer||[];window.dataLayer.push(payload); if(typeof gtag==='function') gtag('event',payload.event,payload); if(typeof plausible==='function') plausible(payload.event,{props:payload});});
     })();
   </script>

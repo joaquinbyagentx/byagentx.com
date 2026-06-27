@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="es-MX" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — AgentX</title>
+  <title>Demos y sistemas reales — AgentX</title>
   <meta name="description" content="Proyectos y demos creados por AgentX: bots de WhatsApp, menús digitales, landing pages y más para negocios en México." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -586,12 +586,12 @@
   <!-- Mobile Nav Overlay -->
   <nav class="mobile-nav" id="mobileNav">
     <button class="mobile-nav-close" id="mobileNavClose">✕</button>
-    <a href="index.html" data-i18n="nav.features" onclick="closeMobileNav()">Features</a>
-    <a href="index.html#how" data-i18n="nav.how" onclick="closeMobileNav()">How it works</a>
-    <a href="case-study.html" data-i18n="nav.case-study" onclick="closeMobileNav()">Case Study</a>
+    <a href="index.html#websites" data-i18n="nav.features" onclick="closeMobileNav()">Websites</a>
+    <a href="index.html#sistema" data-i18n="nav.how" onclick="closeMobileNav()">Sistema</a>
+    <a href="case-study.html" data-i18n="nav.case-study" onclick="closeMobileNav()">Caso</a>
     <a href="portfolio.html" onclick="closeMobileNav()">Portfolio</a>
-    <a href="index.html#pricing" data-i18n="nav.pricing" onclick="closeMobileNav()">Pricing</a>
-    <a href="index.html#contact" data-i18n="nav.contact" onclick="closeMobileNav()">Contact</a>
+    <a href="index.html#precios" data-i18n="nav.pricing" onclick="closeMobileNav()">Precios</a>
+    <a href="index.html#ia-demo" data-i18n="nav.contact" onclick="closeMobileNav()">Regina</a>
   </nav>
 
   <!-- Navigation -->
@@ -604,18 +604,18 @@
         </a>
 
         <ul class="nav-links">
-          <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
-          <li><a href="index.html#how" data-i18n="nav.how">How it works</a></li>
-          <li><a href="case-study.html" data-i18n="nav.case-study">Case Study</a></li>
+          <li><a href="index.html#websites" data-i18n="nav.features">Websites</a></li>
+          <li><a href="index.html#sistema" data-i18n="nav.how">Sistema</a></li>
+          <li><a href="case-study.html" data-i18n="nav.case-study">Caso</a></li>
           <li><a href="portfolio.html" class="active">Portfolio</a></li>
-          <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
-          <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="index.html#precios" data-i18n="nav.pricing">Precios</a></li>
+          <li><a href="index.html#ia-demo" data-i18n="nav.contact">Regina</a></li>
         </ul>
 
         <div class="nav-actions">
           <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">ES</button>
-          <a href="index.html#pricing" class="nav-cta">
-            <span data-i18n="nav.cta">Get Started</span>
+          <a href="index.html#ia-demo" class="nav-cta">
+            <span data-i18n="nav.cta">Cotizar con Regina</span>
             <span>→</span>
           </a>
           <button class="hamburger" id="hamburger" aria-label="Menu" onclick="openMobileNav()">
@@ -633,24 +633,24 @@
     <div class="container">
       <div class="hero-badge">
         <span style="font-size:14px;">🚀</span>
-        <span data-i18n="portfolio.badge">Real projects, real results</span>
+        <span data-i18n="portfolio.badge">Demos operativos, sin humo</span>
       </div>
       <h1>
-        <span data-i18n="portfolio.title1">Our</span>
-        <span class="gradient-text" data-i18n="portfolio.title2"> Work</span>
+        <span data-i18n="portfolio.title1">Demos</span>
+        <span class="gradient-text" data-i18n="portfolio.title2"> y sistemas reales</span>
       </h1>
       <p data-i18n="portfolio.subtitle">
-        Demos, landing pages, menus, and AI bots built for real Mexican businesses.
+        Demos, landing pages, menús y bots de ventas creados para negocios reales en México.
       </p>
     </div>
   </section>
 
   <!-- ─── Filter Bar ────────────────────────────────────────────── -->
   <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all" data-i18n="portfolio.filter.all" onclick="filterProjects('all', this)">All</button>
-    <button class="filter-btn" data-filter="restaurant" data-i18n="portfolio.filter.restaurant" onclick="filterProjects('restaurant', this)">Restaurants</button>
-    <button class="filter-btn" data-filter="menu" data-i18n="portfolio.filter.menu" onclick="filterProjects('menu', this)">Digital Menus</button>
-    <button class="filter-btn" data-filter="research" data-i18n="portfolio.filter.research" onclick="filterProjects('research', this)">Market Research</button>
+    <button class="filter-btn active" data-filter="all" data-i18n="portfolio.filter.all" onclick="filterProjects('all', this)">Todos</button>
+    <button class="filter-btn" data-filter="restaurant" data-i18n="portfolio.filter.restaurant" onclick="filterProjects('restaurant', this)">Restaurantes</button>
+    <button class="filter-btn" data-filter="menu" data-i18n="portfolio.filter.menu" onclick="filterProjects('menu', this)">Menús digitales</button>
+    <button class="filter-btn" data-filter="research" data-i18n="portfolio.filter.research" onclick="filterProjects('research', this)">Investigación</button>
     <button class="filter-btn" data-filter="bot" data-i18n="portfolio.filter.bot" onclick="filterProjects('bot', this)">WhatsApp Bots</button>
   </div>
 
@@ -730,15 +730,15 @@
         </article>
 
         <!-- 7. AgentX — Trading Bot -->
-        <article class="project-card reveal" data-categories="bot">
+        <article class="project-card reveal hidden" data-categories="labs" aria-hidden="true" style="display:none">
           <div class="card-placeholder">📈</div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag" data-i18n="tag.trading">Trading</span>
-              <span class="tag teal" data-i18n="tag.bot">AI Bot</span>
+              <span class="tag" data-i18n="tag.trading">Labs</span>
+              <span class="tag teal" data-i18n="tag.bot">Interno</span>
             </div>
-            <h3 class="card-title" data-i18n="project.ax2.title">AgentX — AI Trading Bots</h3>
-            <p class="card-desc" data-i18n="project.ax2.desc">Automated AI trading bots that execute trades in milliseconds, analyze trends, and manage risk 24/7.</p>
+            <h3 class="card-title" data-i18n="project.ax2.title">AgentX Labs — trading interno</h3>
+            <p class="card-desc" data-i18n="project.ax2.desc">Proyecto de laboratorio interno; no forma parte del portafolio comercial principal.</p>
             <a href="trading.html" class="card-cta" target="_blank">
               <span data-i18n="portfolio.cta">See Demo</span> →
             </a>
@@ -764,11 +764,11 @@
           <span class="footer-tagline" data-i18n="footer.tagline">AI Automation for Businesses</span>
         </div>
         <div class="footer-links">
-          <a href="index.html#features" data-i18n="nav.features">Features</a>
-          <a href="index.html#how" data-i18n="nav.how">How it works</a>
-          <a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a>
-          <a href="case-study.html" data-i18n="footer.casestudy">Case Study</a>
-          <a href="mailto:joaquin@byagentx.ai" data-i18n="nav.contact">Contact</a>
+          <a href="index.html#websites" data-i18n="nav.features">Websites</a>
+          <a href="index.html#sistema" data-i18n="nav.how">Sistema</a>
+          <a href="index.html#precios" data-i18n="nav.pricing">Precios</a>
+          <a href="case-study.html" data-i18n="footer.casestudy">Caso</a>
+          <a href="index.html#ia-demo" data-i18n="nav.contact">Regina</a>
           <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
           <a href="terms.html" data-i18n="footer.terms">Terms of Service</a>
         </div>
@@ -782,16 +782,16 @@
     /* ── Translations ──────────────────────────────────────────── */
     const T = {
       en: {
-        "nav.features":   "Features",
-        "nav.how":        "How it works",
-        "nav.case-study": "Case Study",
-        "nav.pricing":    "Pricing",
-        "nav.contact":    "Contact",
-        "nav.cta":        "Get Started",
-        "portfolio.badge":    "Real projects, real results",
-        "portfolio.title1":   "Our",
-        "portfolio.title2":   " Work",
-        "portfolio.subtitle": "Demos, landing pages, menus, and AI bots built for real Mexican businesses.",
+        "nav.features":   "Websites",
+        "nav.how":        "Sistema",
+        "nav.case-study": "Caso",
+        "nav.pricing":    "Precios",
+        "nav.contact":    "Regina",
+        "nav.cta":        "Cotizar con Regina",
+        "portfolio.badge":    "Demos operativos, sin humo",
+        "portfolio.title1":   "Demos",
+        "portfolio.title2":   " y sistemas reales",
+        "portfolio.subtitle": "Demos, landing pages, menús y bots de ventas creados para negocios reales en México.",
         "portfolio.filter.all":        "All",
         "portfolio.filter.restaurant": "Restaurants",
         "portfolio.filter.menu":       "Digital Menus",
@@ -813,8 +813,8 @@
         "project.ss1.desc":  "Delivery catalog with 160 real dishes, photos and prices. Cart + WhatsApp bot integrated.",
         "project.sp1.title": "Market Analysis — Sushi in Puebla",
         "project.sp1.desc":  "Benchmark of Sushi Seven's competitors in Puebla. Analysis of pricing, digital presence, and differentiators.",
-        "project.ax2.title": "AgentX — AI Trading Bots",
-        "project.ax2.desc":  "Automated AI trading bots that execute trades in milliseconds, analyze trends, and manage risk 24/7.",
+        "project.ax2.title": "AgentX Labs — trading interno",
+        "project.ax2.desc":  "Proyecto de laboratorio interno; no forma parte del portafolio comercial principal de ByAgentX.",
         "tag.trading":      "Trading",
         "footer.tagline":   "AI Automation for Businesses",
         "footer.rights":    "All rights reserved.",
@@ -827,12 +827,12 @@
         "nav.how":        "Cómo funciona",
         "nav.case-study": "Caso de Estudio",
         "nav.pricing":    "Precios",
-        "nav.contact":    "Contacto",
-        "nav.cta":        "Empezar",
+        "nav.contact":    "Regina",
+        "nav.cta":        "Quote with Regina",
         "portfolio.badge":    "Proyectos reales, resultados reales",
-        "portfolio.title1":   "Nuestro",
-        "portfolio.title2":   " Portfolio",
-        "portfolio.subtitle": "Demos, landing pages, menús y bots de IA creados para negocios reales en México.",
+        "portfolio.title1":   "Demos",
+        "portfolio.title2":   " y sistemas reales",
+        "portfolio.subtitle": "Demos, landing pages, menús y bots de ventas creados para negocios reales en México.",
         "portfolio.filter.all":        "Todos",
         "portfolio.filter.restaurant": "Restaurantes",
         "portfolio.filter.menu":       "Menús Digitales",
@@ -856,8 +856,8 @@
         "project.rc1.desc":  "Análisis competitivo de 5 rosticerias en Cholula: precios, fortalezas, oportunidades de diferenciación.",
         "project.sp1.title": "Análisis de Mercado — Sushi en Puebla",
         "project.sp1.desc":  "Benchmark de competidores de Sushi Seven en Puebla. Análisis de precios, presencia digital y diferenciadores.",
-        "project.ax2.title": "AgentX — Bots de Trading con IA",
-        "project.ax2.desc":  "Bots de trading automatizados con IA que ejecutan operaciones en milisegundos, analizan tendencias y gestionan riesgos 24/7.",
+        "project.ax2.title": "AgentX Labs — trading interno",
+        "project.ax2.desc":  "Proyecto de laboratorio interno; no forma parte del portafolio comercial principal de ByAgentX.",
         "tag.trading":      "Trading",
         "footer.tagline":   "Automatización AI para Negocios",
         "footer.rights":    "Todos los derechos reservados.",
@@ -867,7 +867,7 @@
       }
     };
 
-    let currentLang = localStorage.getItem('agentx-lang') || 'en';
+    let currentLang = localStorage.getItem('agentx-lang') || 'es';
 
     function applyLang(lang) {
       const dict = T[lang];
