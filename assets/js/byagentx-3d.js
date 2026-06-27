@@ -132,6 +132,24 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
   pipeline.scale.setScalar(0.9);
 
   const target = { x: 0, y: 0, scroll: 0 };
+  const sceneState = { id: 'hero', progress: 0, paused: false, quality: 'high' };
+  const sceneProfiles = {
+    hero: { z: 7.05, groupY: 0, pipelineY: -0.14, pipelineScale: 0.9, rot: 1.0, glow: 1.0 },
+    offer: { z: 6.55, groupY: -0.05, pipelineY: 0.02, pipelineScale: 0.98, rot: 1.15, glow: 1.05 },
+    system: { z: 6.1, groupY: 0.08, pipelineY: 0.22, pipelineScale: 1.15, rot: 1.35, glow: 1.16 },
+    demo: { z: 5.85, groupY: 0.03, pipelineY: 0.34, pipelineScale: 1.25, rot: 1.55, glow: 1.22 },
+    comparison: { z: 6.35, groupY: -0.02, pipelineY: 0.18, pipelineScale: 1.05, rot: 1.25, glow: 1.06 },
+    proof: { z: 6.85, groupY: -0.08, pipelineY: 0.06, pipelineScale: 0.98, rot: 1.05, glow: 0.98 },
+    pricing: { z: 6.25, groupY: 0.05, pipelineY: 0.28, pipelineScale: 1.12, rot: 1.42, glow: 1.18 },
+    close: { z: 5.95, groupY: 0.1, pipelineY: 0.36, pipelineScale: 1.22, rot: 1.55, glow: 1.26 },
+  };
+  function clamp01(v) { return Math.max(0, Math.min(1, Number(v) || 0)); }
+  function setScene(id) { if (sceneProfiles[id]) sceneState.id = id; }
+  function setProgress(progress) { sceneState.progress = clamp01(progress); }
+  function setQuality(quality) { sceneState.quality = quality || sceneState.quality; }
+  function pause() { sceneState.paused = true; }
+  function resume() { sceneState.paused = false; }
+
   function resize() {
     const r = canvas.getBoundingClientRect();
     const w = Math.max(1, r.width || innerWidth);
@@ -182,10 +200,13 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
 
   function animate(time) {
     const t = time * 0.001;
-    const scroll = target.scroll;
-    group.rotation.y += (target.x * 0.25 + scroll * 1.1 + t * 0.08 - group.rotation.y) * 0.035;
+    const scroll = Math.max(target.scroll, sceneState.progress * 0.72);
+    const profile = sceneProfiles[sceneState.id] || sceneProfiles.hero;
+    if (sceneState.paused) { requestAnimationFrame(animate); return; }
+    group.rotation.y += (target.x * 0.25 + scroll * profile.rot + t * 0.08 - group.rotation.y) * 0.035;
     group.rotation.x += (-target.y * 0.16 + scroll * 0.42 - group.rotation.x) * 0.035;
     group.rotation.z = Math.sin(t * 0.35) * 0.04;
+    group.position.y += (profile.groupY - group.position.y) * 0.035;
     core.rotation.y = t * 0.18;
     core.rotation.x = t * 0.09;
     wire.rotation.y = -t * 0.12;
@@ -194,15 +215,30 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
     torusC.rotation.y = -t * 0.16;
     points.rotation.y = -t * 0.035;
     pipeline.rotation.y += (target.x * 0.08 - pipeline.rotation.y) * 0.04;
-    pipeline.position.y = -0.14 + scroll * 0.32;
-    camera.position.z += ((finePointer ? 7.05 : 7.8) - scroll * 1.05 - camera.position.z) * 0.035;
+    pipeline.position.y += (profile.pipelineY + scroll * 0.18 - pipeline.position.y) * 0.04;
+    pipeline.scale.lerp(new THREE.Vector3(profile.pipelineScale, profile.pipelineScale, profile.pipelineScale), 0.035);
+    camera.position.z += ((finePointer ? profile.z : profile.z + 0.75) - scroll * 0.62 - camera.position.z) * 0.035;
     camera.position.x += (target.x * 0.22 - camera.position.x) * 0.035;
     camera.position.y += (-target.y * 0.14 + 0.15 - camera.position.y) * 0.035;
-    key.intensity = 21 + Math.sin(t * 1.2) * 3;
+    key.intensity = (21 + Math.sin(t * 1.2) * 3) * profile.glow;
+    rim.intensity = 18 * profile.glow;
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
   }
   requestAnimationFrame(animate);
   document.documentElement.classList.add('real-3d-ready');
-  window.__agentx3d = { three: THREE.REVISION, gsap: gsap.version, scrollTrigger: !!ScrollTrigger, nodes: nodes.length, realGeometry: true };
+  window.__agentx3d = {
+    three: THREE.REVISION,
+    gsap: gsap.version,
+    scrollTrigger: !!ScrollTrigger,
+    nodes: nodes.length,
+    realGeometry: true,
+    narrativeApi: true,
+    setScene,
+    setProgress,
+    setQuality,
+    pause,
+    resume,
+    get state() { return { ...sceneState }; },
+  };
 }
