@@ -4,8 +4,8 @@
   var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var stages=[
     {id:'hero',selector:'#top',label:'Promesa',node:0},
-    {id:'offer',selector:'#websites',label:'Oferta',node:1},
-    {id:'system',selector:'#sistema',label:'Sistema',node:2},
+    {id:'offer',selector:'#sales-os',label:'Sistema',node:1},
+    {id:'system',selector:'#stack',label:'Stack',node:2},
     {id:'demo',selector:'#ia-demo',label:'Demo',node:2},
     {id:'comparison',selector:'#diferencia',label:'Diferencia',node:3},
     {id:'proof',selector:'#proof',label:'Prueba',node:3},
@@ -26,7 +26,7 @@
     field.appendChild(wrap);
   }
   function addSystemPulse(){
-    ['#sistema','#ia-demo','#precios','#contacto'].forEach(function(sel){var el=document.querySelector(sel);if(el&&!el.querySelector(':scope > .system-pulse')){var p=document.createElement('div');p.className='system-pulse';el.prepend(p);}});
+    ['#sales-os','#stack','#sistema','#ia-demo','#precios','#contacto'].forEach(function(sel){var el=document.querySelector(sel);if(el&&!el.querySelector(':scope > .system-pulse')){var p=document.createElement('div');p.className='system-pulse';el.prepend(p);}});
   }
   function setJourneyNode(index){
     activeNode=index;
@@ -96,12 +96,15 @@
     try{gsap.registerPlugin(ScrollTrigger);}catch(e){}
     root.classList.add('motion-pro-ready');
     gsap.from('.template-headline .hline',{y:34,opacity:0,filter:'blur(8px)',duration:0.9,stagger:0.12,ease:'power3.out',delay:0.08});
-    gsap.from('.eyebrow,.lead,.hero-regina-card,.hero-actions,.tiny,.guarantee-note,.focus-row',{y:18,opacity:0,duration:0.74,stagger:0.08,ease:'power3.out',delay:0.22});
+    gsap.from('.eyebrow,.lead,.agentx-dashboard,.hero-actions,.tiny,.guarantee-note,.focus-row',{y:18,opacity:0,duration:0.74,stagger:0.08,ease:'power3.out',delay:0.22});
+    gsap.from('.agentx-dashboard .dash-row,.agentx-dashboard .dash-chip,.agentx-dashboard .dash-score',{y:12,opacity:0,duration:0.55,stagger:0.045,ease:'power2.out',delay:0.46});
+    gsap.from('.os-step,.console-flow div',{y:18,opacity:0,duration:0.58,stagger:0.055,ease:'power2.out',scrollTrigger:{trigger:'#sales-os',start:'top 78%',once:true}});
+    gsap.from('.stack-card',{y:18,opacity:0,duration:0.55,stagger:0.045,ease:'power2.out',scrollTrigger:{trigger:'#stack',start:'top 78%',once:true}});
     gsap.utils.toArray('.comparison-card li').forEach(function(li,i){
       gsap.from(li,{x:li.closest('.regina')?18:-18,opacity:0,duration:0.48,ease:'power2.out',scrollTrigger:{trigger:li,start:'top 88%',once:true},delay:(i%4)*0.025});
     });
     gsap.from('.price-card',{y:24,opacity:0,stagger:0.08,duration:0.62,ease:'power2.out',scrollTrigger:{trigger:'#precios',start:'top 72%',once:true}});
-    gsap.to('.journey-node',{y:-3,stagger:0.08,ease:'power1.inOut',scrollTrigger:{trigger:'#sistema',start:'top 72%',end:'#ia-demo top',scrub:0.6}});
+    gsap.to('.journey-node',{y:-3,stagger:0.08,ease:'power1.inOut',scrollTrigger:{trigger:'#sales-os',start:'top 72%',end:'#ia-demo top',scrub:0.6}});
   }
 
   function initCountUps(){
@@ -137,7 +140,7 @@
     createJourney(); addSystemPulse(); initSmoothScroll(); initGsapNarrative(); initCountUps();
     root.classList.add('motion-site-ready');
     root.dataset.motionStage=active;
-    window.__agentxMotionSite={ready:true,version:'2026-07-motion-pro',stage:active,progress:0,node:0,reducedMotion:!!reduced,stages:stages.map(function(s){return s.id;})};
+    window.__agentxMotionSite={ready:true,version:'2026-07-saas-polish',stage:active,progress:0,node:0,reducedMotion:!!reduced,stages:stages.map(function(s){return s.id;})};
     update();
     window.addEventListener('scroll',request,{passive:true});
     window.addEventListener('resize',request,{passive:true});
