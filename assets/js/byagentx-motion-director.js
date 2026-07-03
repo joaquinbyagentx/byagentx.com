@@ -103,7 +103,10 @@
     gsap.utils.toArray('.comparison-card li').forEach(function(li,i){
       gsap.from(li,{x:li.closest('.regina')?18:-18,opacity:0,duration:0.48,ease:'power2.out',scrollTrigger:{trigger:li,start:'top 88%',once:true},delay:(i%4)*0.025});
     });
-    gsap.from('.price-card',{y:24,opacity:0,stagger:0.08,duration:0.62,ease:'power2.out',scrollTrigger:{trigger:'#precios',start:'top 72%',once:true}});
+    // Pricing is conversion-critical: cards must never depend on GSAP state to be visible.
+    // Keep subtle motion off this grid because ScrollTrigger can leave later cards at opacity:0
+    // when the pricing section is opened mid-scroll or restored from bfcache.
+    gsap.set('.price-card',{clearProps:'opacity,transform,translate,rotate,scale'});
     gsap.to('.journey-node',{y:-3,stagger:0.08,ease:'power1.inOut',scrollTrigger:{trigger:'#sales-os',start:'top 72%',end:'#ia-demo top',scrub:0.6}});
   }
 
