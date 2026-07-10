@@ -3,12 +3,13 @@ const gsap = window.gsap;
 const ScrollTrigger = window.ScrollTrigger;
 if (gsap && ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
 
-const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const richMotion = window.matchMedia && window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches;
+const saveData = !!(navigator.connection && navigator.connection.saveData);
 const finePointer = window.matchMedia && window.matchMedia('(pointer:fine)').matches;
 const canvas = document.getElementById('agentx3d');
 const hero = document.querySelector('.hero');
 
-if (!reduced && canvas && hero && gsap && ScrollTrigger) {
+if (richMotion && !saveData && canvas && hero && gsap && ScrollTrigger) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
   camera.position.set(0, 0.15, 7.2);
@@ -17,39 +18,39 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
   renderer.setClearColor(0x000000, 0);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.35;
+  renderer.toneMappingExposure = 1.12;
 
   const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
   const group = new THREE.Group();
   scene.add(group);
 
-  const green = new THREE.Color('#42f59b');
-  const cyan = new THREE.Color('#46d8ff');
-  const violet = new THREE.Color('#a16bff');
-  const gold = new THREE.Color('#ffd36e');
+  const green = new THREE.Color('#62e6b2');
+  const blue = new THREE.Color('#75a7ff');
+  const blueSoft = new THREE.Color('#91c2ff');
+  const gold = new THREE.Color('#f2bd79');
 
-  scene.add(new THREE.AmbientLight(0x88ffee, 0.38));
-  const key = new THREE.PointLight(0x42f59b, 24, 18);
+  scene.add(new THREE.AmbientLight(0xa8c9d8, 0.3));
+  const key = new THREE.PointLight(0x62e6b2, 18, 18);
   key.position.set(-3.5, 2.8, 5.5);
   scene.add(key);
-  const rim = new THREE.PointLight(0x46d8ff, 18, 14);
+  const rim = new THREE.PointLight(0x75a7ff, 14, 14);
   rim.position.set(3.4, -1.7, 4.8);
   scene.add(rim);
-  const violetLight = new THREE.PointLight(0xa16bff, 11, 13);
-  violetLight.position.set(1.8, 2.6, -2.2);
-  scene.add(violetLight);
+  const intelligenceLight = new THREE.PointLight(0x91c2ff, 7, 13);
+  intelligenceLight.position.set(1.8, 2.6, -2.2);
+  scene.add(intelligenceLight);
 
   const core = new THREE.Mesh(
     new THREE.IcosahedronGeometry(1.12, 4),
     new THREE.MeshPhysicalMaterial({
-      color: 0x09140f,
+      color: 0x091019,
       metalness: 0.72,
       roughness: 0.18,
       transmission: 0.28,
       thickness: 1.1,
       transparent: true,
       opacity: 0.66,
-      emissive: 0x123b28,
+      emissive: 0x12312a,
       emissiveIntensity: 0.42,
       clearcoat: 1,
       clearcoatRoughness: 0.1,
@@ -60,20 +61,20 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
 
   const wire = new THREE.Mesh(
     new THREE.IcosahedronGeometry(1.17, 2),
-    new THREE.MeshBasicMaterial({ color: 0x9fffe0, wireframe: true, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending })
+    new THREE.MeshBasicMaterial({ color: 0xb6d8d0, wireframe: true, transparent: true, opacity: 0.16, blending: THREE.AdditiveBlending })
   );
   group.add(wire);
 
-  const torusMat = new THREE.MeshBasicMaterial({ color: 0x42f59b, transparent: true, opacity: 0.34, blending: THREE.AdditiveBlending });
+  const torusMat = new THREE.MeshBasicMaterial({ color: 0x62e6b2, transparent: true, opacity: 0.26, blending: THREE.AdditiveBlending });
   const torusA = new THREE.Mesh(new THREE.TorusGeometry(1.75, 0.012, 10, 160), torusMat);
   torusA.rotation.x = Math.PI / 2.4;
   group.add(torusA);
   const torusB = new THREE.Mesh(new THREE.TorusGeometry(2.1, 0.01, 10, 180), torusMat.clone());
-  torusB.material.color = cyan;
+  torusB.material.color = blue;
   torusB.rotation.y = Math.PI / 2.8;
   group.add(torusB);
   const torusC = new THREE.Mesh(new THREE.TorusGeometry(1.48, 0.008, 10, 140), torusMat.clone());
-  torusC.material.color = violet;
+  torusC.material.color = blueSoft;
   torusC.rotation.set(Math.PI / 2.1, Math.PI / 3, 0);
   group.add(torusC);
 
@@ -88,7 +89,7 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
     const y = r * Math.sin(phi) * Math.sin(theta);
     const z = r * Math.cos(phi);
     positions.set([x, y, z], i * 3);
-    const c = i % 3 === 0 ? green : (i % 3 === 1 ? cyan : violet);
+    const c = i % 3 === 0 ? green : (i % 3 === 1 ? blue : blueSoft);
     colors.set([c.r, c.g, c.b], i * 3);
   }
   const pointGeo = new THREE.BufferGeometry();
@@ -106,7 +107,7 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
     new THREE.Vector3(0.92, -1.15, 0.45),
     new THREE.Vector3(2.8, -1.85, 0),
   ];
-  const nodeColors = [green, cyan, violet, gold];
+  const nodeColors = [green, blue, blueSoft, gold];
   const nodes = nodePositions.map((pos, i) => {
     const m = new THREE.Mesh(new THREE.SphereGeometry(0.15, 32, 16), nodeMat(nodeColors[i]));
     m.position.copy(pos);
@@ -126,7 +127,7 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
     }
   }
   const lineGeo = new THREE.BufferGeometry().setFromPoints(curvePoints);
-  const line = new THREE.Line(lineGeo, new THREE.LineBasicMaterial({ color: 0x8effdf, transparent: true, opacity: 0.42, blending: THREE.AdditiveBlending }));
+  const line = new THREE.Line(lineGeo, new THREE.LineBasicMaterial({ color: 0x9cc8ff, transparent: true, opacity: 0.34, blending: THREE.AdditiveBlending }));
   pipeline.add(line);
   pipeline.position.y = -0.14;
   pipeline.scale.setScalar(0.9);
@@ -228,8 +229,9 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
     camera.position.z += ((finePointer ? profile.z : profile.z + 0.75) - scroll * 0.62 - camera.position.z) * 0.035;
     camera.position.x += (target.x * 0.22 - camera.position.x) * 0.035;
     camera.position.y += (-target.y * 0.14 + 0.15 - camera.position.y) * 0.035;
-    key.intensity = (21 + Math.sin(t * 1.2) * 3) * profile.glow;
-    rim.intensity = 18 * profile.glow;
+    key.intensity = (16 + Math.sin(t * 1.2) * 2) * profile.glow;
+    rim.intensity = 13 * profile.glow;
+    intelligenceLight.intensity = 6.5 * profile.glow;
     renderer.render(scene, camera);
   }
   requestAnimationFrame(animate);
