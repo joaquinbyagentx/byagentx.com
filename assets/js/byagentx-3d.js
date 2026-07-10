@@ -19,7 +19,7 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.35;
 
-  const dpr = Math.min(window.devicePixelRatio || 1, 1.65);
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
   const group = new THREE.Group();
   scene.add(group);
 
@@ -133,6 +133,8 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
 
   const target = { x: 0, y: 0, scroll: 0 };
   const sceneState = { id: 'hero', progress: 0, paused: false, quality: 'high' };
+  const pipelineScaleTarget = new THREE.Vector3();
+  let lastFrameAt = 0;
   const sceneProfiles = {
     hero: { z: 7.05, groupY: 0, pipelineY: -0.14, pipelineScale: 0.9, rot: 1.0, glow: 1.0 },
     offer: { z: 6.55, groupY: -0.05, pipelineY: 0.02, pipelineScale: 0.98, rot: 1.15, glow: 1.05 },
@@ -180,11 +182,11 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
   });
   gsap.fromTo(nodes.map(n => n.scale), { x: 0.2, y: 0.2, z: 0.2 }, {
     x: 1.08, y: 1.08, z: 1.08, stagger: 0.18, ease: 'power2.out',
-    scrollTrigger: { trigger: '#sistema', start: 'top 75%', end: 'bottom 45%', scrub: true }
+    scrollTrigger: { trigger: '#como-opera', start: 'top 75%', end: 'bottom 45%', scrub: true }
   });
-  gsap.fromTo(['.orbit span', '.pipeline-step', '.asset-node'], { y: 16, opacity: 0.58 }, {
+  gsap.fromTo(['.stage-card', '.pipeline-step', '.asset-node'], { y: 16, opacity: 1 }, {
     y: 0, opacity: 1, stagger: 0.08, ease: 'power2.out',
-    scrollTrigger: { trigger: '#sistema', start: 'top 70%', end: '#proof top', scrub: 0.7 }
+    scrollTrigger: { trigger: '#como-opera', start: 'top 70%', end: '#casos top', scrub: 0.7 }
   });
   gsap.utils.toArray('.btn,.prompt-chip,.proof a,.price-card,.card').forEach((el) => {
     if (!finePointer) return;
@@ -199,10 +201,15 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
   });
 
   function animate(time) {
+    requestAnimationFrame(animate);
+    if (sceneState.paused || document.hidden) return;
+    const targetFps = (!finePointer || sceneState.quality === 'low') ? 30 : 40;
+    const frameInterval = 1000 / targetFps;
+    if (time - lastFrameAt < frameInterval) return;
+    lastFrameAt = time;
     const t = time * 0.001;
     const scroll = Math.max(target.scroll, sceneState.progress * 0.72);
     const profile = sceneProfiles[sceneState.id] || sceneProfiles.hero;
-    if (sceneState.paused) { requestAnimationFrame(animate); return; }
     group.rotation.y += (target.x * 0.25 + scroll * profile.rot + t * 0.08 - group.rotation.y) * 0.035;
     group.rotation.x += (-target.y * 0.16 + scroll * 0.42 - group.rotation.x) * 0.035;
     group.rotation.z = Math.sin(t * 0.35) * 0.04;
@@ -216,14 +223,14 @@ if (!reduced && canvas && hero && gsap && ScrollTrigger) {
     points.rotation.y = -t * 0.035;
     pipeline.rotation.y += (target.x * 0.08 - pipeline.rotation.y) * 0.04;
     pipeline.position.y += (profile.pipelineY + scroll * 0.18 - pipeline.position.y) * 0.04;
-    pipeline.scale.lerp(new THREE.Vector3(profile.pipelineScale, profile.pipelineScale, profile.pipelineScale), 0.035);
+    pipelineScaleTarget.setScalar(profile.pipelineScale);
+    pipeline.scale.lerp(pipelineScaleTarget, 0.035);
     camera.position.z += ((finePointer ? profile.z : profile.z + 0.75) - scroll * 0.62 - camera.position.z) * 0.035;
     camera.position.x += (target.x * 0.22 - camera.position.x) * 0.035;
     camera.position.y += (-target.y * 0.14 + 0.15 - camera.position.y) * 0.035;
     key.intensity = (21 + Math.sin(t * 1.2) * 3) * profile.glow;
     rim.intensity = 18 * profile.glow;
     renderer.render(scene, camera);
-    requestAnimationFrame(animate);
   }
   requestAnimationFrame(animate);
   document.documentElement.classList.add('real-3d-ready');
