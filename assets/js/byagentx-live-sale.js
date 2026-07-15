@@ -86,6 +86,8 @@
     stageNodes.forEach(function(node){
       node.classList.toggle('active', node.getAttribute('data-live-stage') === stageName);
     });
+    var consolePanel = form.closest('.live-console');
+    if (consolePanel) consolePanel.setAttribute('data-live-active-stage', stageName);
     var api = window.__agentx3d;
     if (api && typeof api.setScene === 'function') {
       try { api.setScene(sceneByStage[stageName] || 'hero'); } catch (e) {}
@@ -93,6 +95,11 @@
     if (api && typeof api.setProgress === 'function') {
       try { api.setProgress((stages.indexOf(stageName) + 1) / stages.length); } catch (e) {}
     }
+    try {
+      window.dispatchEvent(new CustomEvent('agentx:demo-stage', {
+        detail: { stage: stageName, index: stages.indexOf(stageName) }
+      }));
+    } catch (e) {}
   }
 
   function clearTimers() {
@@ -116,6 +123,8 @@
     setField('ruta', 'WhatsApp \u2192 AgentX \u2192 CRM \u2192 Cotizaci\u00f3n/Handoff');
     setField('status', message || 'Listo para ejecutar demo.');
     if (processBtn) processBtn.disabled = false;
+    var consolePanel = form.closest('.live-console');
+    if (consolePanel) consolePanel.setAttribute('data-live-active-stage', 'signal');
   }
 
   function getScenarioData() {

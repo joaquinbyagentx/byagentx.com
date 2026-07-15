@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-MX" data-visual-system="v2">
+<html lang="es-MX" data-visual-system="v3">
 <head>
   <meta charset="UTF-8" />
   <script>
@@ -22,6 +22,7 @@
   <meta property="og:image" content="https://byagentx.ai/assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#05070b" />
+  <meta name="agentx-build" content="motion3d-v3-20260715" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305070b'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='26' font-family='Arial' font-weight='800' fill='%2362e6b2'%3EAX%3C/text%3E%3C/svg%3E" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD11FZ1DHM"></script>
   <script>
@@ -632,16 +633,33 @@
       #agentx3d { opacity: .28; }
     }
   </style>
+  <link rel="stylesheet" href="assets/css/byagentx-motion-v3.css?v=20260715-motion3d-v3" />
 </head>
 <body>
   <div class="bg-shade" aria-hidden="true">
     <div class="bg-video-frame">
-      <video id="agentxBgVideo" class="bg-video" autoplay muted loop playsinline preload="metadata" poster="assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg" data-src="assets/higgsfield/byagentx-human-robot-fingertouch-global-bg.mp4"></video>
+      <video id="agentxBgVideo" class="bg-video" autoplay muted loop playsinline preload="none" poster="assets/higgsfield/byagentx-human-robot-fingertouch-global-poster.jpg" data-src="assets/higgsfield/byagentx-human-robot-fingertouch-global-bg.mp4"></video>
     </div>
     <div class="bg-orb bg-orb-signal"></div>
     <div class="bg-orb bg-orb-intelligence"></div>
     <div class="bg-orb bg-orb-human"></div>
     <div class="bg-grid"></div>
+    <div class="spatial-stage">
+      <canvas id="agentx3d" class="real-3d-stage"></canvas>
+      <div class="spatial-fallback">
+        <i class="fallback-core"></i>
+        <i class="fallback-orbit fallback-orbit-a"></i>
+        <i class="fallback-orbit fallback-orbit-b"></i>
+        <i class="fallback-orbit fallback-orbit-c"></i>
+      </div>
+      <div class="spatial-route">
+        <span data-spatial-route="web">Web</span>
+        <span data-spatial-route="whatsapp">WhatsApp</span>
+        <span data-spatial-route="crm">CRM</span>
+        <span data-spatial-route="payments">Payments</span>
+        <span data-spatial-route="human">Human</span>
+      </div>
+    </div>
     <div class="bg-grain"></div>
   </div>
 
@@ -678,24 +696,24 @@
     <section class="hero" data-motion-stage="hero">
       <div class="hero-stage" aria-hidden="true">
         <div class="hero-glow"></div>
-        <canvas id="agentx3d" class="real-3d-stage"></canvas>
       </div>
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="pill">AGENTX / AI SALES OS</span>
-          <h1>Tu sistema de ventas, operado por IA.</h1>
-          <p>Web, WhatsApp, CRM y pagos conectados para responder, calificar, cotizar y escalar a humano.</p>
+          <h1><span>Tu sistema de ventas IA.</span><em>Siempre en acción.</em></h1>
+          <p>Responde, califica, cotiza y da seguimiento desde web y WhatsApp. AgentX conecta CRM, pagos y handoff humano.</p>
+          <div class="hero-sequence mono" aria-label="Secuencia operativa">SIGNAL <i>→</i> UNDERSTAND <i>→</i> DECIDE <i>→</i> ACT</div>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#hero-demo" data-track="live_sale_demo_click" data-location="hero" data-offer="live_sale_demo">Ver una venta en vivo</a>
             <a class="btn btn-ghost" href="#sistema" data-track="system_explore_click" data-location="hero" data-offer="system">Explorar el sistema</a>
           </div>
-          <div class="module-row">Web · WhatsApp · CRM · Payments · Human handoff</div>
+          <div class="module-row"><span>Website</span><i></i><span>WhatsApp</span><i></i><span>CRM</span><i></i><span>Payments</span><i></i><span>Human handoff</span></div>
         </div>
 
         <aside id="hero-demo" class="panel live-console" aria-label="Consola de demo operacional">
           <div class="live-top">
-            <strong>Consola de Venta en Vivo</strong>
-            <span class="mono">DEMO INTERACTIVA</span>
+            <strong><i class="live-status-dot"></i> AgentX OS / Lead activo</strong>
+            <span class="mono">OPERACIÓN EN VIVO</span>
           </div>
           <p class="live-note">Simulación interactiva del flujo comercial: observa cómo AgentX convierte una señal en una siguiente acción.</p>
           <div class="live-choices" role="group" aria-label="Escenarios de ejemplo">
@@ -740,17 +758,26 @@
     <section id="sistema" data-motion-stage="offer">
       <div class="container">
         <div class="section-head">
-          <span class="pill">Un sistema conectado</span>
-          <h2>AgentX conecta tus canales de venta en una sola operación.</h2>
-          <p>Web, WhatsApp, intelligence, CRM, pagos y handoff humano con el mismo contexto comercial.</p>
+          <span class="pill">01 / El sistema</span>
+          <h2>Una sola operación.<br/>Cada señal conectada.</h2>
+          <p>AgentX mantiene el contexto comercial desde el primer clic hasta el pago o handoff.</p>
         </div>
-        <div class="card-grid">
-          <article class="card"><h3>Web</h3><p>Landing y sitio preparados para conversión con tracking y CTA claros.</p></article>
-          <article class="card"><h3>WhatsApp</h3><p>Atención inicial, calificación y continuidad sin perder conversaciones.</p></article>
-          <article class="card"><h3>Intelligence</h3><p>Lee intención, urgencia y señales para recomendar la ruta correcta.</p></article>
-          <article class="card"><h3>CRM</h3><p>Registro automático de leads, estado y siguiente acción comercial.</p></article>
-          <article class="card"><h3>Payments</h3><p>Cotización y paso a pago cuando el lead está listo para avanzar.</p></article>
-          <article class="card"><h3>Human handoff</h3><p>Escala a humano con resumen y contexto para cerrar más rápido.</p></article>
+        <div class="card-grid system-bento">
+          <figure class="system-media motion-media">
+            <img src="assets/round5/byagentx-hero-operator-v2.webp" width="1350" height="900" loading="eager" fetchpriority="high" decoding="async" alt="Operador revisando el flujo comercial de AgentX en una interfaz de ventas" />
+            <figcaption>
+              <span class="mono">AGENTX / OPERATIONS</span>
+              <strong>Señal recibida. Siguiente acción lista.</strong>
+            </figcaption>
+            <div class="media-event media-event-a"><i></i><span>WhatsApp</span><b>Lead calificado</b></div>
+            <div class="media-event media-event-b"><i></i><span>CRM</span><b>Contexto sincronizado</b></div>
+          </figure>
+          <article class="card" data-module="web"><span class="card-index mono">01</span><h3>Web</h3><p>Conversión, tracking y CTA claros.</p></article>
+          <article class="card" data-module="whatsapp"><span class="card-index mono">02</span><h3>WhatsApp</h3><p>Atención y continuidad sin perder conversaciones.</p></article>
+          <article class="card" data-module="intelligence"><span class="card-index mono">03</span><h3>Intelligence</h3><p>Intención, urgencia y recomendación de ruta.</p></article>
+          <article class="card" data-module="crm"><span class="card-index mono">04</span><h3>CRM</h3><p>Lead, estado y siguiente acción registrados.</p></article>
+          <article class="card" data-module="payments"><span class="card-index mono">05</span><h3>Payments</h3><p>Cotización y pago cuando el lead está listo.</p></article>
+          <article class="card" data-module="human"><span class="card-index mono">06</span><h3>Human handoff</h3><p>Resumen y contexto para cerrar más rápido.</p></article>
         </div>
       </div>
     </section>
@@ -758,15 +785,23 @@
     <section id="como-opera" data-motion-stage="system">
       <div class="container">
         <div class="section-head">
-          <span class="pill">Cómo opera AgentX</span>
+          <span class="pill">02 / Motor de decisión</span>
           <h2>Signal → Understand → Decide → Act</h2>
-          <p>La narrativa operativa: detectar oportunidad, entender necesidad, decidir oferta y ejecutar la acción correcta.</p>
+          <p>Un pipeline visible para detectar oportunidad, entender la necesidad y ejecutar el siguiente paso correcto.</p>
+        </div>
+        <div class="operation-rail" role="region" aria-label="Pipeline AgentX: Website, WhatsApp, CRM, Payments y Human handoff" tabindex="0">
+          <div class="operation-line"><i></i></div>
+          <span><b>01</b>Website</span>
+          <span><b>02</b>WhatsApp</span>
+          <span><b>03</b>CRM</span>
+          <span><b>04</b>Payments</span>
+          <span><b>05</b>Human</span>
         </div>
         <div class="operate-grid">
-          <article class="stage-card"><b>Signal</b><h3>Entrada de señal</h3><p>Lead desde web, WhatsApp o campaña con contexto inicial del negocio.</p></article>
-          <article class="stage-card"><b>Understand</b><h3>Lectura comercial</h3><p>Interpreta intención, urgencia, presupuesto y canal preferido.</p></article>
-          <article class="stage-card"><b>Decide</b><h3>Decisión de oferta</h3><p>Asigna Diagnóstico, Starter, Web + Chat IA o Automation Stack según fit.</p></article>
-          <article class="stage-card"><b>Act</b><h3>Ejecución</h3><p>Actualiza CRM, prepara cotización y habilita handoff humano cuando aplica.</p></article>
+          <article class="stage-card" data-operation-step="signal"><span class="stage-number mono">01</span><b>Signal</b><h3>Detecta la oportunidad.</h3><p>Lead desde web, WhatsApp o campaña con contexto inicial.</p></article>
+          <article class="stage-card" data-operation-step="understand"><span class="stage-number mono">02</span><b>Understand</b><h3>Lee el contexto.</h3><p>Interpreta intención, urgencia, presupuesto y canal preferido.</p></article>
+          <article class="stage-card" data-operation-step="decide"><span class="stage-number mono">03</span><b>Decide</b><h3>Elige la ruta.</h3><p>Asigna oferta y siguiente acción comercial según fit.</p></article>
+          <article class="stage-card" data-operation-step="act"><span class="stage-number mono">04</span><b>Act</b><h3>Ejecuta.</h3><p>Actualiza CRM, prepara cotización y habilita handoff humano.</p></article>
         </div>
       </div>
     </section>
@@ -774,9 +809,9 @@
     <section id="casos" data-motion-stage="proof">
       <div class="container">
         <div class="section-head">
-          <span class="pill">Prueba operacional</span>
-          <h2>Regina demuestra la operación; AgentX es el sistema completo.</h2>
-          <p>Regina es una implementación demo de AgentX. También puedes validar una implementación operativa con Ricki Pollo y revisar el portafolio.</p>
+          <span class="pill">03 / Prueba operacional</span>
+          <h2>Ve el sistema trabajar.<br/>Luego pruébalo.</h2>
+          <p>Regina es una implementación demo de AgentX. Ricki Pollo y el portafolio muestran trabajo navegable.</p>
         </div>
         <div class="case-grid">
           <div class="panel chat-demo" id="ia-demo" data-motion-stage="demo" aria-label="Demo de chat IA AgentX">
@@ -800,6 +835,10 @@
           </div>
 
           <div class="panel agent-panel">
+            <figure class="case-media motion-media">
+              <img src="assets/round5/byagentx-dashboard-proof-v1.webp" width="1350" height="900" loading="lazy" decoding="async" alt="Panel operativo de ventas con pipeline y señales de seguimiento" />
+              <figcaption class="mono"><i></i>SISTEMA OPERATIVO</figcaption>
+            </figure>
             <span class="pill">Implementación operativa</span>
             <h3>Ricki Pollo + portafolio</h3>
             <p>Caso operativo navegable con sitio y flujo comercial conectado. Úsalo como referencia de implementación real.</p>
@@ -826,7 +865,7 @@
     <section id="precios" data-motion-stage="pricing">
       <div class="container">
         <div class="section-head">
-          <span class="pill">Configuraciones AgentX</span>
+          <span class="pill">04 / Configuraciones AgentX</span>
           <h2>Elige la configuración correcta para tu etapa.</h2>
           <p>Precios públicos en MXN con rutas de WhatsApp y demo para validar alcance antes de implementar.</p>
         </div>
@@ -895,9 +934,9 @@
     <section id="contacto" data-motion-stage="close">
       <div class="container">
         <div class="panel cta-box">
-          <span class="pill">Siguiente paso</span>
-          <h2>Activa AgentX con una demo operacional y ruta de cierre.</h2>
-          <p>Empieza con Regina para validar flujo y luego escalamos a implementación completa o WhatsApp directo según tu operación.</p>
+          <span class="pill">05 / Siguiente paso</span>
+          <h2>Tu próxima venta ya dejó una señal.</h2>
+          <p>Prueba AgentX con Regina o abre WhatsApp. Validamos el flujo antes de implementar.</p>
           <div class="hero-actions" style="justify-content:center;">
             <a class="btn btn-primary" href="#ia-demo" data-track="regina_chat_click" data-location="final_cta" data-offer="regina_chat" data-regina-prompt="Hola, quiero una demo y cotización de ByAgentX.">Probar AgentX con Regina</a>
             <a class="btn btn-ghost" href="https://wa.me/18148592269?text=Hola%2C%20quiero%20una%20demo%20y%20cotizaci%C3%B3n%20de%20ByAgentX." target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-location="final_cta_whatsapp" data-offer="whatsapp_contact">Hablar por WhatsApp</a>
@@ -932,27 +971,45 @@
       var backgroundMedia = window.matchMedia
         ? window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)')
         : null;
+      var mediaConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      window.__agentxMediaPolicy = {
+        ready: false,
+        videoEligible: false,
+        videoAttached: false,
+        videoPlaying: false,
+        source: bgVideo ? bgVideo.dataset.src || '' : ''
+      };
       function syncBackgroundVideo(){
         if (!bgVideo) return;
+        var saveData = !!(mediaConnection && mediaConnection.saveData);
+        var eligible = !!(backgroundMedia && backgroundMedia.matches && !saveData);
+        window.__agentxMediaPolicy.ready = true;
+        window.__agentxMediaPolicy.videoEligible = eligible;
         if (document.hidden) {
           bgVideo.pause();
+          window.__agentxMediaPolicy.videoPlaying = false;
           return;
         }
-        var saveData = !!(navigator.connection && navigator.connection.saveData);
-        if (backgroundMedia && backgroundMedia.matches && !saveData && bgVideo.dataset.src) {
+        if (eligible && bgVideo.dataset.src) {
           bgVideo.muted = true;
           if (bgVideo.getAttribute('src') !== bgVideo.dataset.src) {
             bgVideo.src = bgVideo.dataset.src;
             bgVideo.load();
           }
           var playback = bgVideo.play();
-          if (playback && typeof playback.catch === 'function') playback.catch(function(){});
+          window.__agentxMediaPolicy.videoAttached = true;
+          window.__agentxMediaPolicy.videoPlaying = true;
+          if (playback && typeof playback.catch === 'function') playback.catch(function(){
+            window.__agentxMediaPolicy.videoPlaying = false;
+          });
         } else {
           bgVideo.pause();
           if (bgVideo.hasAttribute('src')) {
             bgVideo.removeAttribute('src');
             bgVideo.load();
           }
+          window.__agentxMediaPolicy.videoAttached = false;
+          window.__agentxMediaPolicy.videoPlaying = false;
         }
       }
       syncBackgroundVideo();
@@ -963,6 +1020,9 @@
         } else if (typeof backgroundMedia.addListener === 'function') {
           backgroundMedia.addListener(syncBackgroundVideo);
         }
+      }
+      if (mediaConnection && typeof mediaConnection.addEventListener === 'function') {
+        mediaConnection.addEventListener('change', syncBackgroundVideo);
       }
 
       var toggle = document.getElementById('mobileMenuToggle');
@@ -1072,17 +1132,75 @@
       });
     })();
   </script>
-  <script src="assets/vendor/lenis/lenis.min.js?v=20260709-flagship"></script>
+  <script src="assets/vendor/lenis/lenis.min.js?v=20260715-motion3d-v3"></script>
   <script src="assets/vendor/gsap/gsap.min.js"></script>
   <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
   <script type="module">
-    const agentxRichMotion = window.matchMedia?.('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches;
-    const agentxSaveData = !!navigator.connection?.saveData;
-    if (agentxRichMotion && !agentxSaveData) {
-      import('./assets/js/byagentx-3d.js?v=20260710-visual-v2');
-    }
+    const richQuery = window.matchMedia?.('(min-width: 900px) and (prefers-reduced-motion: no-preference)');
+    const dataConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    let modulePromise = null;
+    let moduleNamespace = null;
+    let mountedApi = null;
+
+    const policyState = () => ({
+      desktop: !!richQuery?.matches,
+      saveData: !!dataConnection?.saveData,
+      eligible: !!richQuery?.matches && !dataConnection?.saveData
+    });
+
+    const publishPolicyFallback = (status, reason) => {
+      window.__agentx3d = {
+        version: '20260715-motion3d-v3',
+        status,
+        reason,
+        realGeometry: false,
+        sceneReady: false,
+        siteWide: true,
+        narrativeApi: false,
+        policy: policyState()
+      };
+      document.documentElement.dataset.agentx3d = status;
+    };
+
+    const sync3DPolicy = async () => {
+      const policy = policyState();
+      if (!policy.eligible) {
+        if (mountedApi?.realGeometry && typeof mountedApi.destroy === 'function') mountedApi.destroy();
+        mountedApi = null;
+        publishPolicyFallback('policy-disabled', policy.saveData ? 'save-data' : 'viewport-or-reduced-motion');
+        return;
+      }
+
+      if (mountedApi?.realGeometry) {
+        if (document.hidden) mountedApi.pause?.();
+        else mountedApi.resume?.();
+        return;
+      }
+
+      publishPolicyFallback('loading', 'dynamic-import');
+      try {
+        if (!modulePromise) modulePromise = import('./assets/js/byagentx-3d.js?v=20260715-motion3d-v3');
+        moduleNamespace = moduleNamespace || await modulePromise;
+        if (!policyState().eligible) {
+          publishPolicyFallback('policy-disabled', 'policy-changed-before-mount');
+          return;
+        }
+        mountedApi = moduleNamespace.mountAgentX3D({ canvas: document.getElementById('agentx3d') });
+      } catch (error) {
+        mountedApi = null;
+        publishPolicyFallback('fallback', 'webgl-or-module-error');
+        console.error('[AgentX 3D] Fallback activo:', error);
+      }
+    };
+
+    window.__agentx3dController = { sync: sync3DPolicy, policyState };
+    if (typeof richQuery?.addEventListener === 'function') richQuery.addEventListener('change', sync3DPolicy);
+    else if (typeof richQuery?.addListener === 'function') richQuery.addListener(sync3DPolicy);
+    if (dataConnection && typeof dataConnection.addEventListener === 'function') dataConnection.addEventListener('change', sync3DPolicy);
+    document.addEventListener('visibilitychange', sync3DPolicy);
+    sync3DPolicy();
   </script>
-  <script src="assets/js/byagentx-motion-director.js?v=20260709-flagship" defer></script>
-  <script src="assets/js/byagentx-live-sale.js?v=20260709-flagship" defer></script>
+  <script src="assets/js/byagentx-motion-director.js?v=20260715-motion3d-v3" defer></script>
+  <script src="assets/js/byagentx-live-sale.js?v=20260715-motion3d-v3" defer></script>
 </body>
 </html>
