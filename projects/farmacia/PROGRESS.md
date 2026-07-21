@@ -57,7 +57,7 @@ Interaction model:
 
 ## Phase 5 — Desktop/mobile/reduced-motion QA — COMPLETE
 
-- Served the exact nested route locally at `http://127.0.0.1:8877/labs/healthspan/` and received HTTP 200.
+- Served the exact nested route locally at `http://127.0.0.1:8877/projects/farmacia/` and received HTTP 200.
 - Playwright QA passed at 1440×1000 desktop, 390×844 mobile, 320×700 mobile, and 1440×1000 with reduced motion.
 - Every viewport reported zero horizontal overflow, zero console errors, zero page errors, zero failed HTTP responses, all 13 rendered images loaded, no forms/inputs, and no external runtime resources.
 - Verified interactive program switching, concept-dialog open/close, Spanish toggle and translated disclosure, mobile navigation open/close, and reduced-motion reveal behavior.
