@@ -8,7 +8,7 @@
   const languageButtons = [...document.querySelectorAll('[data-lang]')];
   const programButtons = [...document.querySelectorAll('[data-program]')];
   const dialog = document.querySelector('#concept-dialog');
-  let language = 'en';
+  let language = 'es';
 
   const programCopy = {
     metabolic: {
@@ -141,7 +141,7 @@
     });
 
     document.title = language === 'es'
-      ? 'Mereon — Un concepto de salud de ByAgentX'
+      ? 'Mereon — Un concepto de salud y longevidad de ByAgentX'
       : 'Mereon — A ByAgentX healthspan concept';
 
     const currentProgram = programButtons.find((button) => button.classList.contains('is-active'))?.dataset.program || 'metabolic';
@@ -211,6 +211,5 @@
     window.addEventListener('resize', setBannerHeight, { passive: true });
   }
 
-  setBannerHeight();
-  setProgram('metabolic');
+  setLanguage('es');
 })();
