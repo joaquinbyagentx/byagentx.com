@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#23382f">
-  <meta name="description" content="Explora Mereon, una demostración de ByAgentX con catálogo ilustrativo de bienestar y un agente de ventas interactivo que no almacena ni transmite datos.">
+  <meta name="description" content="Explora Mereon, una demostración de ByAgentX con programas ilustrativos de peso y metabolismo, longevidad y bienestar, carrito local y navegación comercial.">
   <title>Mereon — Tienda demo de bienestar por ByAgentX</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+<!-- Configure WhatsApp here only. Expected format: E.164 country code + number, digits only, without + or spaces. Keep empty until a real destination is approved. -->
+<body data-whatsapp-number="">
   <a class="skip-link" href="#main">Saltar al contenido principal</a>
 
   <div class="demo-banner" id="demo-banner" role="note">
     <span class="demo-banner__badge">Demo ByAgentX</span>
-    <p>Mereon es una demostración, no una farmacia, tienda activa ni proveedor médico. No vende, prescribe, almacena ni transmite datos.</p>
+    <p>Mereon es una demostración, no una farmacia, tienda activa ni proveedor médico. No vende, prescribe ni procesa pagos o datos personales.</p>
   </div>
 
   <header class="site-header" id="site-header">
@@ -33,6 +34,9 @@
       <a href="#resenas">Reseñas</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
+    <button class="header-cart" type="button" data-cart-open aria-label="Abrir carrito, 0 artículos">
+      <svg class="header-cart__icon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M6.5 8.5h11l1 12h-13l1-12Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M9 9V6.5a3 3 0 0 1 6 0V9" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><span class="header-cart__label">Carrito</span><span class="cart-badge" data-cart-count hidden>0</span>
+    </button>
     <button class="header-agent" type="button" data-agent-open>Encuentra tu opción</button>
   </header>
 
@@ -40,174 +44,49 @@
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <img class="hero__image" src="assets/images/hero-guided-shopping.webp" width="1024" height="576" fetchpriority="high" alt="Mujer adulta ficticia abre un paquete sencillo con textiles y ramas verdes en una cocina luminosa">
       <div class="hero__content">
-        <p class="eyebrow">Bienestar mensual, mejor explicado</p>
-        <h1 id="hero-title">Tu próxima rutina, sin perderte en el catálogo.</h1>
-        <p class="hero__lede">Explora programas demo con precios claros y deja que nuestro agente te ayude a comparar por objetivo, estilo y presupuesto.</p>
+        <p class="eyebrow">Pérdida de peso, metabolismo y longevidad</p>
+        <h1 id="hero-title">Bienestar que encaja en tu ritmo.</h1>
+        <p class="hero__lede">Explora programas demo para objetivos de peso, metabolismo, longevidad y bienestar. Compara, arma tu carrito y revisa tu selección sin pago ni datos sensibles.</p>
         <div class="hero__actions">
           <button class="button button--primary" type="button" data-agent-open>Hablar con el agente</button>
           <a class="button button--light" href="#catalogo">Explorar catálogo</a>
         </div>
         <div class="hero__price">
-          <strong>Desde $39</strong><span>USD / mes · precio ilustrativo</span>
+          <strong>Desde $39</strong><span>USD · precio ilustrativo</span>
         </div>
       </div>
     </section>
 
     <section class="benefit-strip" aria-label="Beneficios de la experiencia demo">
-      <article><strong>Selección guiada</strong><span>Compara sin cuestionarios clínicos.</span></article>
-      <article><strong>Precios visibles</strong><span>Sin cargos ocultos ni pago real.</span></article>
-      <article><strong>Entrega discreta</strong><span>Presentación ilustrativa, sin envíos.</span></article>
-      <article><strong>Soporte continuo</strong><span>Un vistazo al portal y acompañamiento.</span></article>
+      <article><strong>Peso y metabolismo primero</strong><span>Rutas de hábitos y bienestar metabólico.</span></article>
+      <article><strong>Precios visibles</strong><span>Un solo precio demo por programa.</span></article>
+      <article><strong>Carrito local</strong><span>Tu selección persiste en este navegador.</span></article>
+      <article><strong>Sin checkout</strong><span>Sin pago, envío ni formularios clínicos.</span></article>
     </section>
 
     <section class="catalog section" id="catalogo" aria-labelledby="catalog-title">
       <div class="section-heading section-heading--split">
         <div>
-          <p class="eyebrow">Catálogo demo</p>
-          <h2 id="catalog-title">Una ruta para cada prioridad.</h2>
+          <p class="eyebrow">Catálogo demo · 12 programas</p>
+          <h2 id="catalog-title">Pérdida de peso y metabolismo, en primer plano.</h2>
         </div>
-        <p>Programas ficticios con mensualidades ilustrativas. Elige una categoría o pídele al agente una recomendación comercial sin compartir información sensible.</p>
+        <p>Una selección ficticia para explorar hábitos, longevidad y bienestar sin promesas clínicas. Los precios son ilustrativos y el carrito no procesa compras.</p>
       </div>
 
       <div class="category-filters" role="group" aria-label="Filtrar catálogo por categoría">
         <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Todo</button>
-        <button type="button" class="filter" data-filter="metabolic" aria-pressed="false">Metabólico</button>
-        <button type="button" class="filter" data-filter="longevity" aria-pressed="false">Péptidos y longevidad</button>
+        <button type="button" class="filter filter--priority" data-filter="metabolic" aria-pressed="false">Pérdida de peso y metabolismo</button>
+        <button type="button" class="filter" data-filter="longevity" aria-pressed="false">Anti-aging y longevidad</button>
+        <button type="button" class="filter" data-filter="wellness" aria-pressed="false">Bienestar integral</button>
+        <button type="button" class="filter" data-filter="sleep" aria-pressed="false">Sueño y estrés</button>
         <button type="button" class="filter" data-filter="recovery" aria-pressed="false">Recuperación</button>
-        <button type="button" class="filter" data-filter="mens" aria-pressed="false">Salud masculina</button>
-        <button type="button" class="filter" data-filter="womens" aria-pressed="false">Salud femenina</button>
         <button type="button" class="filter" data-filter="hair" aria-pressed="false">Cabello y piel</button>
-        <button type="button" class="filter" data-filter="wellness" aria-pressed="false">Bienestar diario</button>
       </div>
 
       <p class="catalog-status" id="catalog-status" aria-live="polite">12 opciones demo</p>
-
-      <div class="product-grid" id="product-grid">
-        <article class="product-card product-card--featured" id="product-brio-metabolic" data-category="metabolic" data-product="brio-metabolic">
-          <div class="product-card__media">
-            <img src="assets/images/catalog-metabolic-essentials.webp" width="1024" height="1024" loading="lazy" alt="Pouch verde, frasco de cerámica, botella de agua, cuaderno y vegetales sobre piedra clara">
-            <span class="product-card__tag">Más elegido</span>
-          </div>
-          <div class="product-card__body">
-            <p class="product-card__category">Apoyo metabólico</p>
-            <h3>Brío Metabólico</h3>
-            <p class="product-card__fit">Mejor para: estructura y seguimiento semanal.</p>
-            <ul><li>Guía de hábitos mensual</li><li>Tablero de progreso ilustrativo</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$129 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="metabolic" data-product-name="Brío Metabólico">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-metabolic-essentials" data-category="metabolic" data-product="metabolic-essentials">
-          <div class="product-card__media"><img src="assets/images/program-metabolic.webp" width="1024" height="576" loading="lazy" alt="Mujer adulta ficticia prepara alimentos coloridos en una cocina luminosa"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Apoyo metabólico</p><h3>Base Metabólica</h3>
-            <p class="product-card__fit">Mejor para: comenzar con una rutina simple.</p>
-            <ul><li>Planificador de comidas</li><li>Revisión mensual demo</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$89 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="metabolic" data-product-name="Base Metabólica">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-longevity-compass" data-category="longevity" data-product="longevity-compass">
-          <div class="product-card__media"><img src="assets/images/catalog-longevity-editorial.webp" width="1024" height="1024" loading="lazy" alt="Vaso ámbar, paquete crema, piedra mineral, tela borgoña y romero en una composición abstracta"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Péptidos y longevidad</p><h3>Brújula Longevidad</h3>
-            <p class="product-card__fit">Mejor para: navegar evidencia y prioridades.</p>
-            <ul><li>Contenido educativo curado</li><li>Mapa de preguntas para un profesional</li></ul>
-            <p class="product-card__note">No incluye sustancias ni protocolos.</p>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$149 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="longevity" data-product-name="Brújula Longevidad">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-cellular-rhythm" data-category="longevity" data-product="cellular-rhythm">
-          <div class="product-card__media"><img src="assets/images/program-longevity.webp" width="1024" height="576" loading="lazy" alt="Recipientes abstractos de vidrio azul y transparente sobre una superficie mineral"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Péptidos y longevidad</p><h3>Ritmo Vital</h3>
-            <p class="product-card__fit">Mejor para: hábitos de sueño, energía y constancia.</p>
-            <ul><li>Biblioteca de bienestar</li><li>Ritual diario configurable</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$99 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="longevity" data-product-name="Ritmo Vital">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-recovery-reset" data-category="recovery" data-product="recovery-reset">
-          <div class="product-card__media"><img src="assets/images/catalog-recovery-kit.webp" width="1024" height="1024" loading="lazy" alt="Bloque de corcho, banda de ejercicio, botella, toalla y bolsa borgoña sobre piedra clara"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Recuperación y rendimiento</p><h3>Recovery Reset</h3>
-            <p class="product-card__fit">Mejor para: recuperar ritmo entre semanas exigentes.</p>
-            <ul><li>Sesiones guiadas de movilidad</li><li>Calendario de recuperación</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$79 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="recovery" data-product-name="Recovery Reset">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-mobility-daily" data-category="recovery" data-product="mobility-daily">
-          <div class="product-card__media"><img src="assets/images/program-recovery.webp" width="1024" height="576" loading="lazy" alt="Hombre adulto ficticio realiza un estiramiento de movilidad en un estudio tranquilo"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Recuperación y rendimiento</p><h3>Movilidad Diaria</h3>
-            <p class="product-card__fit">Mejor para: una rutina breve y accesible.</p>
-            <ul><li>Rutinas de 10 minutos</li><li>Biblioteca de movimiento</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$45 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="recovery" data-product-name="Movilidad Diaria">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-mens-balance" data-category="mens" data-product="mens-balance">
-          <div class="product-card__media"><img src="assets/images/program-mens.webp" width="1024" height="576" loading="lazy" alt="Hombre adulto ficticio observa la costa al amanecer"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Salud masculina</p><h3>Balance Hombre</h3>
-            <p class="product-card__fit">Mejor para: bienestar cotidiano con privacidad.</p>
-            <ul><li>Ruta educativa personalizada</li><li>Preguntas para consulta profesional</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$89 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="mens" data-product-name="Balance Hombre">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-womens-rhythm" data-category="womens" data-product="womens-rhythm">
-          <div class="product-card__media"><img src="assets/images/program-womens.webp" width="1024" height="576" loading="lazy" alt="Dos mujeres adultas ficticias conversan en una sala cálida y luminosa"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Salud femenina</p><h3>Ritmo Mujer</h3>
-            <p class="product-card__fit">Mejor para: organizar prioridades por etapa de vida.</p>
-            <ul><li>Contenido de bienestar por temas</li><li>Agenda de autocuidado</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$99 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="womens" data-product-name="Ritmo Mujer">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-hair-skin-ritual" data-category="hair" data-product="hair-skin-ritual">
-          <div class="product-card__media"><img src="assets/images/program-hair-skin.webp" width="1024" height="576" loading="lazy" alt="Mujer adulta ficticia con cabello natural junto a una ventana con luz suave"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Cabello y piel</p><h3>Ritual Cabello + Piel</h3>
-            <p class="product-card__fit">Mejor para: constancia y cuidado cotidiano.</p>
-            <ul><li>Rutina mensual editable</li><li>Guía de seguimiento visual</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$59 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="hair" data-product-name="Ritual Cabello + Piel">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-daily-foundation" data-category="wellness" data-product="daily-foundation">
-          <div class="product-card__media"><img src="assets/images/catalog-daily-wellness.webp" width="1024" height="1024" loading="lazy" alt="Bolsa color apricot, cuaderno, antifaz, taza y esferas de madera sobre piedra clara"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Bienestar diario</p><h3>Base Diaria</h3>
-            <p class="product-card__fit">Mejor para: empezar con poco presupuesto.</p>
-            <ul><li>Planificador semanal</li><li>Rutinas de sueño y pausa</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$39 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="wellness" data-product-name="Base Diaria">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-sleep-calm" data-category="wellness" data-product="sleep-calm">
-          <div class="product-card__media"><img src="assets/images/discreet-package.webp" width="1024" height="576" loading="lazy" alt="Paquete sencillo sin marca con bolsa crema, papel verde y tarjeta azul en blanco"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Bienestar diario</p><h3>Sueño + Calma</h3>
-            <p class="product-card__fit">Mejor para: crear un cierre del día consistente.</p>
-            <ul><li>Audios de relajación demo</li><li>Diario nocturno</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$49 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="wellness" data-product-name="Sueño + Calma">Consultar opción</button></div>
-          </div>
-        </article>
-
-        <article class="product-card" id="product-performance-club" data-category="recovery" data-product="performance-club">
-          <div class="product-card__media"><img src="assets/images/catalog-recovery-kit.webp" width="1024" height="1024" loading="lazy" alt="Accesorios neutros de movilidad y recuperación presentados sobre piedra clara"></div>
-          <div class="product-card__body">
-            <p class="product-card__category">Recuperación y rendimiento</p><h3>Performance Club</h3>
-            <p class="product-card__fit">Mejor para: variedad y acompañamiento guiado.</p>
-            <ul><li>Calendario de entrenamiento</li><li>Revisión mensual de rutina</li></ul>
-            <div class="product-card__footer"><p><span>Precio demo</span><strong>$119 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="recovery" data-product-name="Performance Club">Consultar opción</button></div>
-          </div>
-        </article>
-      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <noscript><p class="catalog-noscript">Activa JavaScript para ver el catálogo interactivo y usar el carrito. Esta demostración no procesa pagos.</p></noscript>
+      <p class="cart-feedback" id="cart-feedback" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
 
     <section class="compare section" id="comparar" aria-labelledby="compare-title">
@@ -222,8 +101,8 @@
           <tbody>
             <tr><th scope="row">Biblioteca mensual</th><td>Incluida</td><td>Incluida</td><td>Incluida</td></tr>
             <tr><th scope="row">Planificador personalizable</th><td>Básico</td><td>Completo</td><td>Completo</td></tr>
-            <tr><th scope="row">Revisión de rutina</th><td>—</td><td>Mensual demo</td><td>Semanal demo</td></tr>
-            <tr><th scope="row">Rango ilustrativo</th><td>$39–59</td><td>$79–99</td><td>$119–149</td></tr>
+            <tr><th scope="row">Material de planificación</th><td>Inicial</td><td>Ampliado</td><td>Completo</td></tr>
+            <tr><th scope="row">Rango ilustrativo</th><td>$39–59</td><td>$69–99</td><td>$119–129</td></tr>
           </tbody>
         </table>
       </section>
@@ -241,8 +120,8 @@
       <div class="agent-preview" aria-hidden="true">
         <div class="agent-preview__top"><span>M</span><div><strong>Asesor Mereon</strong><small>Demo local · disponible ahora</small></div></div>
         <div class="agent-preview__message">¿Qué te gustaría priorizar en tu rutina?</div>
-        <div class="agent-preview__choices"><span>Bienestar metabólico</span><span>Recuperación</span><span>Longevidad</span></div>
-        <div class="agent-preview__result"><small>Coincidencia demo</small><strong>Base Metabólica</strong><span>Una ruta simple para empezar.</span></div>
+        <div class="agent-preview__choices"><span>Pérdida de peso</span><span>Sueño y estrés</span><span>Longevidad</span></div>
+        <div class="agent-preview__result"><small>Coincidencia demo</small><strong>Peso + Bienestar</strong><span>Una ruta de hábitos para explorar.</span></div>
       </div>
     </section>
 
@@ -254,8 +133,8 @@
       <ol class="journey-grid">
         <li><span>01</span><h3>Explora</h3><p>Filtra por prioridad, precio y estilo de acompañamiento.</p></li>
         <li><span>02</span><h3>Compara</h3><p>Entiende qué cambia entre una ruta esencial, guiada o integral.</p></li>
-        <li><span>03</span><h3>Decide</h3><p>Visita una opción recomendada sin registro, pago ni promesas clínicas.</p></li>
-        <li><span>04</span><h3>Acompaña</h3><p>Visualiza cómo portal, entrega y soporte podrían mantener claridad.</p></li>
+        <li><span>03</span><h3>Arma</h3><p>Añade programas a un carrito local, ajusta cantidades y revisa el total demo.</p></li>
+        <li><span>04</span><h3>Conecta</h3><p>Visualiza el futuro puente a WhatsApp, inactivo hasta configurar un número real.</p></li>
       </ol>
     </section>
 
@@ -316,9 +195,10 @@
     <section class="faq section" id="preguntas" aria-labelledby="faq-title">
       <div class="section-heading section-heading--split"><div><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Antes de explorar.</h2></div><p>Respuestas breves sobre precios, recomendaciones y límites de esta experiencia interactiva.</p></div>
       <div class="faq-list">
-        <details><summary><span>¿Los precios son reales?</span><span aria-hidden="true">+</span></summary><p>No. Son mensualidades ilustrativas para demostrar jerarquía comercial, comparación y recomendaciones dentro de la página.</p></details>
+        <details><summary><span>¿Los precios son reales?</span><span aria-hidden="true">+</span></summary><p>No. Son importes ilustrativos por programa para demostrar jerarquía comercial, comparación y recomendaciones dentro de la página.</p></details>
         <details><summary><span>¿Qué hace el agente de ventas?</span><span aria-hidden="true">+</span></summary><p>Relaciona objetivo, preferencia y presupuesto con opciones del catálogo demo. Funciona localmente y no envía respuestas a ningún servidor.</p></details>
-        <details><summary><span>¿Puedo comprar o registrarme?</span><span aria-hidden="true">+</span></summary><p>No. Las acciones llevan a una opción recomendada o al catálogo; no existe pago, cuenta, formulario de contacto ni envío.</p></details>
+        <details><summary><span>¿Puedo comprar o pagar aquí?</span><span aria-hidden="true">+</span></summary><p>No. Puedes armar y guardar un carrito demo en este navegador, pero no existe pago, cuenta, formulario de contacto ni envío.</p></details>
+        <details><summary><span>¿El carrito envía algo por WhatsApp?</span><span aria-hidden="true">+</span></summary><p>Todavía no. El número está pendiente de configuración. Cuando exista un destino real y validado, el botón preparará un mensaje con la selección; nunca cobrará ni solicitará datos médicos.</p></details>
         <details><summary><span>¿El agente puede decirme qué tratamiento necesito?</span><span aria-hidden="true">+</span></summary><p>No. Puede orientar sobre categorías y programas demo. Diagnóstico, elegibilidad, medicamentos y decisiones de tratamiento corresponden a un profesional autorizado.</p></details>
         <details><summary><span>¿Qué pasa si escribo una emergencia?</span><span aria-hidden="true">+</span></summary><p>El agente detiene la orientación comercial y dirige a servicios de emergencia locales o atención profesional inmediata.</p></details>
         <details><summary><span>¿Las personas y reseñas son reales?</span><span aria-hidden="true">+</span></summary><p>No. Los perfiles y reseñas están identificados localmente como contenido ficticio o ilustrativo de demostración.</p></details>
@@ -326,17 +206,34 @@
     </section>
 
     <section class="closing" aria-labelledby="closing-title">
-      <p class="eyebrow eyebrow--light">Tu ruta empieza aquí</p><h2 id="closing-title">Haz que elegir se sienta sencillo.</h2>
-      <p>Prueba una conversación comercial segura o recorre las doce opciones del catálogo.</p>
-      <div><button class="button button--mint" type="button" data-agent-open>Encontrar mi opción</button><a class="button button--ghost" href="#catalogo">Ver todo el catálogo</a></div>
+      <p class="eyebrow eyebrow--light">Tu selección, a tu ritmo</p><h2 id="closing-title">Arma tu carrito demo con claridad.</h2>
+      <p>Explora los doce programas, ajusta cantidades y revisa el total. WhatsApp seguirá inactivo hasta que exista un número real configurado.</p>
+      <div><a class="button button--mint" href="#catalogo">Explorar programas</a><button class="button button--ghost" type="button" data-cart-open>Revisar carrito <span class="cart-badge cart-badge--light" data-cart-count hidden>0</span></button></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div><a class="brand brand--footer" href="#inicio" aria-label="Ir al inicio de Mereon"><span class="brand__mark" aria-hidden="true"><span></span></span><span class="brand__word">Mereon</span></a><p>Una demostración de comercio conversacional creada por ByAgentX.</p></div>
     <nav aria-label="Navegación de pie de página"><a href="#catalogo">Catálogo</a><a href="#comparar">Comparar</a><a href="#como-funciona">Experiencia</a><a href="#preguntas">Preguntas</a></nav>
-    <p class="site-footer__meta"><span>© 2026 ByAgentX</span><span>Contenido y precios ilustrativos · Sin transacciones</span></p>
+    <p class="site-footer__meta"><span>© 2026 ByAgentX</span><span>Contenido y precios ilustrativos · Carrito local · Sin pagos</span></p>
   </footer>
+
+  <div class="cart-overlay" data-cart-overlay hidden></div>
+  <aside class="shopping-cart" id="shopping-cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-describedby="cart-description" hidden>
+    <header class="shopping-cart__header">
+      <div><p class="eyebrow">Selección demo</p><h2 id="cart-title">Tu carrito</h2></div>
+      <button type="button" class="panel-close" data-cart-close aria-label="Cerrar carrito">×</button>
+    </header>
+    <p class="shopping-cart__intro" id="cart-description">Revisa programas y cantidades. No se procesa pago, envío ni información personal.</p>
+    <div class="cart-items" id="cart-items" aria-live="polite"></div>
+    <footer class="cart-summary">
+      <div class="cart-total"><span>Subtotal / total demo</span><strong id="cart-subtotal">$0 USD</strong></div>
+      <p class="cart-total__note">Importe ilustrativo · sin impuestos, envío ni cobro</p>
+      <button class="cart-checkout" id="cart-checkout" type="button">WhatsApp próximamente</button>
+      <p class="cart-whatsapp-status" id="cart-whatsapp-status" role="status" aria-live="polite">Número pendiente de configurar. Puedes seguir revisando tu carrito.</p>
+      <button class="cart-continue" type="button" data-cart-close>Seguir explorando</button>
+    </footer>
+  </aside>
 
   <div class="agent-overlay" data-agent-overlay hidden></div>
   <aside class="sales-agent" id="sales-agent" role="dialog" aria-modal="true" aria-labelledby="agent-title" hidden>
