@@ -1,102 +1,135 @@
 {
-  "project": "Mereon healthspan concept demo",
+  "project": "Mereon conversational commerce demo",
   "generatedAt": "2026-07-21",
   "generator": {
-    "requested": "GPT Image 2 through image_generate",
+    "requested": "OpenAI GPT Image 2 through image_generate",
     "actualTool": "Hermes image_generate",
     "actualBackendObserved": "FAL.ai FLUX 2 Klein 9B",
-    "note": "The active image_generate tool reported FAL.ai/FLUX rather than GPT Image 2. The model is not selectable per call. Every major image was still created through image_generate; this mismatch is recorded as a blocker rather than hidden."
+    "note": "The active image_generate tool reports FAL.ai/FLUX and exposes no per-call model selector. The mismatch is recorded rather than misrepresented. One rejected hero generation containing pseudo-labels and a device logo was kept out of production."
   },
   "optimization": {
     "productionFormat": "WebP",
-    "quality": 82,
+    "quality": "82 for the original editorial set; 84 for the commerce additions",
     "method": 6,
-    "sourceLocation": "/tmp/healthspan-sources (outside production)",
+    "rawMasters": [
+      "/tmp/healthspan-sources",
+      "/tmp/farmacia-commerce-masters"
+    ],
+    "rawMastersCommitted": false,
     "colorMode": "RGB"
   },
   "assets": [
     {
-      "file": "assets/images/hero-care-studio.webp",
-      "purpose": "Flagship hero editorial care-studio scene",
-      "promptSummary": "Fictional adult client and clinician reviewing a neutral tablet in a mineral-toned care studio; asymmetric warm editorial composition; no brands, labels, medication, procedures, or text.",
+      "purpose": "Flagship conversational-commerce hero",
+      "promptSummary": "Fictional Latina adult opening a plain kraft parcel containing linen and greenery in a warm architectural home; large sage negative space; no text, logos, products, medication, devices, procedures, or transformation framing.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/hero-guided-shopping.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/clinician-amara.webp",
-      "purpose": "Fictional demo clinician portrait: Amara Reed",
-      "promptSummary": "Fictional Black woman clinician, plain navy jacket, window-lit premium consultation room, natural editorial portrait; no credentials, badge, text, logos, or devices. A focused image-to-image cleanup removed pseudo-text embroidery while preserving the intended portrait.",
+      "purpose": "Metabolic catalog still life",
+      "promptSummary": "Unbranded sage pouch, blank ceramic jar, water bottle, blank journal, citrus, and greens on cream stone; no labels, logos, medication, pills, or devices.",
+      "dimensions": "1024x1024",
+      "outputPath": "assets/images/catalog-metabolic-essentials.webp",
+      "status": "generated, visually reviewed, optimized"
+    },
+    {
+      "purpose": "Longevity catalog still life",
+      "promptSummary": "Abstract amber glass, plain cream parcel, mineral stone, burgundy linen, and rosemary; no text, medication, vial/injection cues, devices, or seals.",
+      "dimensions": "1024x1024",
+      "outputPath": "assets/images/catalog-longevity-editorial.webp",
+      "status": "generated, visually reviewed, optimized"
+    },
+    {
+      "purpose": "Recovery catalog still life",
+      "promptSummary": "Exercise band, cork mobility block, plain reusable bottle, towel, and burgundy pouch on pale stone; no text, logos, medication, supplements, or medical devices.",
+      "dimensions": "1024x1024",
+      "outputPath": "assets/images/catalog-recovery-kit.webp",
+      "status": "generated, visually reviewed, optimized"
+    },
+    {
+      "purpose": "Supportive daily-wellness catalog still life",
+      "promptSummary": "Apricot pouch, blank journal, tea, sage eye mask, wooden massage spheres, and linen on travertine; no text, logos, medication, pills, or medical devices.",
+      "dimensions": "1024x1024",
+      "outputPath": "assets/images/catalog-daily-wellness.webp",
+      "status": "generated, visually reviewed, optimized"
+    },
+
+    {
+      "purpose": "Fictional demo team portrait: Amara Reed",
+      "promptSummary": "Fictional Black woman in plain navy tailoring, naturally lit editorial portrait; no credentials, badge, text, logos, or devices.",
       "dimensions": "576x1024",
+      "outputPath": "assets/images/clinician-amara.webp",
       "status": "generated, edited to remove pseudo-text, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/clinician-mateo.webp",
-      "purpose": "Fictional demo clinician portrait: Mateo Silva",
-      "promptSummary": "Fictional mature male clinician in charcoal jacket, warm pale-oak consultation setting, natural editorial portrait; no credentials, badge, text, or devices.",
+      "purpose": "Fictional demo team portrait: Mateo Silva",
+      "promptSummary": "Fictional mature man in charcoal tailoring in a warm consultation setting; no credentials, badge, text, logos, or devices.",
       "dimensions": "576x1024",
+      "outputPath": "assets/images/clinician-mateo.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/clinician-lin.webp",
-      "purpose": "Fictional demo clinician portrait: Lin Park",
-      "promptSummary": "Fictional East Asian woman clinician in forest-green tailoring, cobalt accent and pale textured wall, natural editorial portrait; no credentials, badge, text, or devices.",
+      "purpose": "Fictional demo team portrait: Lin Park",
+      "promptSummary": "Fictional East Asian woman in forest-green tailoring against a pale textured wall; no credentials, badge, text, logos, or devices.",
       "dimensions": "576x1024",
+      "outputPath": "assets/images/clinician-lin.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/program-metabolic.webp",
-      "purpose": "Metabolic health program card",
-      "promptSummary": "Adult woman preparing a balanced meal in a quiet modern kitchen; candid editorial lifestyle scene without scales, medication, labels, or transformation cues.",
+      "purpose": "Metabolic category lifestyle image",
+      "promptSummary": "Fictional adult preparing a balanced meal in a bright kitchen; no scales, medication, labels, or transformation cues.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/program-metabolic.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/program-longevity.webp",
-      "purpose": "Peptides and longevity editorial story",
-      "promptSummary": "Abstract photographic science still life with cobalt and clear glass, mineral stone, mint textile, and refracted light; no medication, syringes, vials, diagrams, labels, or text.",
+      "purpose": "Longevity category abstract image",
+      "promptSummary": "Abstract cobalt and clear glass, mineral stone, mint textile, and refracted light; no medication, syringes, labels, diagrams, or text.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/program-longevity.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/program-recovery.webp",
-      "purpose": "Recovery and performance program card",
-      "promptSummary": "Adult man completing a controlled mobility stretch in a sunlit architectural studio; calm editorial motion without branding, supplements, procedures, or transformation cues.",
+      "purpose": "Recovery category lifestyle image",
+      "promptSummary": "Fictional adult completing a controlled mobility stretch in a sunlit studio; no branding, supplements, procedures, or transformation cues.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/program-recovery.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/program-mens.webp",
-      "purpose": "Men's health program card",
-      "promptSummary": "Fictional mature man on a quiet coastal overlook, reflective natural expression, premium editorial crop; no products, logos, or outcome framing.",
+      "purpose": "Men's wellness category lifestyle image",
+      "promptSummary": "Fictional mature man on a coastal overlook with a reflective expression; no products, logos, claims, or outcome framing.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/program-mens.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/program-womens.webp",
-      "purpose": "Women's health program card",
-      "promptSummary": "Two fictional adult women of different ages and backgrounds in candid conversation in a bright mineral-toned room; no products, procedures, or text.",
+      "purpose": "Women's wellness category lifestyle image",
+      "promptSummary": "Two fictional adult women of different ages in candid conversation in a mineral-toned room; no products, procedures, or text.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/program-womens.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/program-hair-skin.webp",
-      "purpose": "Hair and skin program card",
-      "promptSummary": "Fictional South Asian woman in soft window-lit profile with natural textured hair and unretouched skin; no products, procedures, text, or before-and-after framing.",
+      "purpose": "Hair and skin category lifestyle image",
+      "promptSummary": "Fictional adult woman with natural textured hair and unretouched skin in soft window light; no products, procedures, text, or before/after framing.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/program-hair-skin.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/reviews-community.webp",
-      "purpose": "Sample-review section editorial image",
-      "promptSummary": "Three diverse fictional adults in supportive conversation around a communal table; no clinicians, labels, readable screen content, or outcome cues.",
+      "purpose": "Illustrative-review editorial image",
+      "promptSummary": "Three diverse fictional adults in conversation around a communal table; no clinician framing, labels, readable screens, or outcome cues.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/reviews-community.webp",
       "status": "generated, visually reviewed, optimized"
     },
     {
-      "file": "assets/images/discreet-package.webp",
       "purpose": "Discreet-delivery concept still life",
-      "promptSummary": "Generic unbranded recycled box, cream pouch, mint tissue, and blank cobalt card on limestone; no medication, address, label, logo, or text.",
+      "promptSummary": "Generic recycled box, cream pouch, mint tissue, and blank cobalt card on limestone; no medication, address, label, logo, or text.",
       "dimensions": "1024x576",
+      "outputPath": "assets/images/discreet-package.webp",
       "status": "generated, visually reviewed, optimized"
     }
   ]

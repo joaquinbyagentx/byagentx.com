@@ -3,437 +3,356 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101b24">
-  <meta name="description" content="Mereon es un concepto no operativo de ByAgentX que explora una experiencia digital serena de salud y longevidad, con orientación clínica y límites claros. No se venden productos ni se recopilan datos médicos.">
-  <title>Mereon — Un concepto de salud y longevidad de ByAgentX</title>
+  <meta name="theme-color" content="#23382f">
+  <meta name="description" content="Explora Mereon, una demostración de ByAgentX con catálogo ilustrativo de bienestar y un agente de ventas interactivo que no almacena ni transmite datos.">
+  <title>Mereon — Tienda demo de bienestar por ByAgentX</title>
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main" data-en="Skip to main content" data-es="Saltar al contenido principal">Saltar al contenido principal</a>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
 
   <div class="demo-banner" id="demo-banner" role="note">
-    <span class="demo-banner__dot" aria-hidden="true"></span>
-    <p data-en="ByAgentX concept demo — not a healthcare provider, pharmacy, prescription service, or active offer. No products are sold and no medical data is collected."
-       data-es="Demostración conceptual de ByAgentX: no es un proveedor de salud, farmacia, servicio de recetas ni una oferta activa. No se venden productos ni se recopilan datos médicos.">Demostración conceptual de ByAgentX: no es un proveedor de salud, farmacia, servicio de recetas ni una oferta activa. No se venden productos ni se recopilan datos médicos.</p>
+    <span class="demo-banner__badge">Demo ByAgentX</span>
+    <p>Mereon es una demostración, no una farmacia, tienda activa ni proveedor médico. No vende, prescribe, almacena ni transmite datos.</p>
   </div>
 
   <header class="site-header" id="site-header">
-    <a class="brand" href="#top" aria-label="Inicio de Mereon" data-aria-en="Mereon home" data-aria-es="Inicio de Mereon">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio de Mereon">
       <span class="brand__mark" aria-hidden="true"><span></span></span>
       <span class="brand__word">Mereon</span>
-      <span class="brand__concept" data-en="concept" data-es="concepto">concepto</span>
     </a>
-
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir navegación" data-aria-en="Open navigation" data-aria-es="Abrir navegación">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir navegación">
       <span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
-
-    <nav class="primary-nav" id="primary-nav" aria-label="Navegación principal" data-aria-en="Primary navigation" data-aria-es="Navegación principal">
-      <a href="#care" data-en="Care paths" data-es="Programas">Programas</a>
-      <a href="#journey" data-en="How it could work" data-es="Cómo podría funcionar">Cómo podría funcionar</a>
-      <a href="#clinicians" data-en="Demo team" data-es="Equipo ficticio">Equipo ficticio</a>
-      <a href="#safety" data-en="Safety" data-es="Seguridad">Seguridad</a>
-      <a href="#faq" data-en="FAQ" data-es="Preguntas">Preguntas</a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Navegación principal">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#comparar">Comparar</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#resenas">Reseñas</a>
+      <a href="#preguntas">Preguntas</a>
     </nav>
-
-    <div class="language-switch" role="group" aria-label="Idioma" data-aria-en="Language" data-aria-es="Idioma">
-      <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      <button type="button" data-lang="es" aria-pressed="true">ES</button>
-    </div>
+    <button class="header-agent" type="button" data-agent-open>Encuentra tu opción</button>
   </header>
 
-  <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero__content reveal">
-        <p class="eyebrow" data-en="A future care studio, thoughtfully imagined" data-es="Un futuro estudio de cuidado, imaginado con atención">Un futuro estudio de cuidado, imaginado con atención</p>
-        <h1 id="hero-title" data-en="Health decisions deserve more room to breathe."
-            data-es="Las decisiones sobre tu salud merecen más espacio.">Las decisiones sobre tu salud merecen más espacio.</h1>
-        <p class="hero__lede" data-en="Mereon explores what a calm online experience for metabolic health, longevity, recovery, and everyday wellbeing could feel like, with careful guidance and clear boundaries built in."
-           data-es="Mereon explora cómo podría sentirse una experiencia digital serena para salud metabólica, longevidad, recuperación y bienestar cotidiano, con orientación cuidadosa y límites claros desde el inicio.">Mereon explora cómo podría sentirse una experiencia digital serena para salud metabólica, longevidad, recuperación y bienestar cotidiano, con orientación cuidadosa y límites claros desde el inicio.</p>
+  <main id="main" tabindex="-1">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <img class="hero__image" src="assets/images/hero-guided-shopping.webp" width="1024" height="576" fetchpriority="high" alt="Mujer adulta ficticia abre un paquete sencillo con textiles y ramas verdes en una cocina luminosa">
+      <div class="hero__content">
+        <p class="eyebrow">Bienestar mensual, mejor explicado</p>
+        <h1 id="hero-title">Tu próxima rutina, sin perderte en el catálogo.</h1>
+        <p class="hero__lede">Explora programas demo con precios claros y deja que nuestro agente te ayude a comparar por objetivo, estilo y presupuesto.</p>
         <div class="hero__actions">
-          <button class="button button--primary" type="button" data-demo-open data-en="Explore the concept" data-es="Explorar el concepto">Explorar el concepto</button>
-          <a class="button button--text" href="#care" data-en="Browse proposed care paths" data-es="Ver programas propuestos">Ver programas propuestos</a>
+          <button class="button button--primary" type="button" data-agent-open>Hablar con el agente</button>
+          <a class="button button--light" href="#catalogo">Explorar catálogo</a>
         </div>
-        <p class="hero__fine" data-en="No signup. No questionnaire. This demo never asks for health or contact information."
-           data-es="Sin registro ni cuestionario. Esta demostración nunca solicita información médica ni de contacto.">Sin registro ni cuestionario. Esta demostración nunca solicita información médica ni de contacto.</p>
+        <div class="hero__price">
+          <strong>Desde $39</strong><span>USD / mes · precio ilustrativo</span>
+        </div>
       </div>
-      <figure class="hero__media reveal reveal--late">
-        <img src="assets/images/hero-care-studio.webp" width="1024" height="576" fetchpriority="high"
-             alt="Dos adultos ficticios revisan una tableta sin contenido en una mesa de piedra clara dentro de un estudio moderno y cálido"
-             data-alt-en="Two fictional adults reviewing a blank tablet together at a pale stone table in a warm modern studio"
-             data-alt-es="Dos adultos ficticios revisan una tableta sin contenido en una mesa de piedra clara dentro de un estudio moderno y cálido">
-        <figcaption>
-          <span data-en="A proposed experience, shown with fictional people" data-es="Una experiencia propuesta, mostrada con personas ficticias">Una experiencia propuesta, mostrada con personas ficticias</span>
-          <span aria-hidden="true">01 / 12</span>
-        </figcaption>
-      </figure>
     </section>
 
-    <section class="boundary-strip" aria-label="Límites del concepto" data-aria-en="Concept boundaries" data-aria-es="Límites del concepto">
-      <div><span aria-hidden="true">○</span><p data-en="No active medical service" data-es="Sin servicio médico activo">Sin servicio médico activo</p></div>
-      <div><span aria-hidden="true">○</span><p data-en="No product sales or checkout" data-es="Sin ventas ni pagos">Sin ventas ni pagos</p></div>
-      <div><span aria-hidden="true">○</span><p data-en="No personal data collection" data-es="Sin recopilación de datos personales">Sin recopilación de datos personales</p></div>
+    <section class="benefit-strip" aria-label="Beneficios de la experiencia demo">
+      <article><strong>Selección guiada</strong><span>Compara sin cuestionarios clínicos.</span></article>
+      <article><strong>Precios visibles</strong><span>Sin cargos ocultos ni pago real.</span></article>
+      <article><strong>Entrega discreta</strong><span>Presentación ilustrativa, sin envíos.</span></article>
+      <article><strong>Soporte continuo</strong><span>Un vistazo al portal y acompañamiento.</span></article>
     </section>
 
-    <section class="section care" id="care" aria-labelledby="care-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-en="One front door, several conversations" data-es="Una sola entrada, varias conversaciones">Una sola entrada, varias conversaciones</p>
-        <h2 id="care-title" data-en="Care paths that start with context, not a catalog."
-            data-es="Programas que comienzan con contexto, no con un catálogo.">Programas que comienzan con contexto, no con un catálogo.</h2>
-        <p data-en="These are proposed program areas for a future service. They are not available treatments, and selecting one only changes this page."
-           data-es="Estas son áreas propuestas para un posible servicio futuro. No son tratamientos disponibles; al elegir una solo cambia el contenido de esta página.">Estas son áreas propuestas para un posible servicio futuro. No son tratamientos disponibles; al elegir una solo cambia el contenido de esta página.</p>
-      </div>
-
-      <div class="programs" role="group" aria-label="Programas propuestos" data-aria-en="Proposed care paths" data-aria-es="Programas propuestos">
-        <button class="program-card is-active reveal" type="button" data-program="metabolic" aria-pressed="true">
-          <img src="assets/images/program-metabolic.webp" width="1024" height="576" loading="lazy" alt="Una mujer adulta ficticia prepara una comida colorida en una cocina luminosa" data-alt-en="A fictional adult woman preparing a colorful meal in a bright kitchen" data-alt-es="Una mujer adulta ficticia prepara una comida colorida en una cocina luminosa">
-          <span class="program-card__meta">01</span>
-          <span class="program-card__name" data-en="Metabolic health" data-es="Salud metabólica">Salud metabólica</span>
-        </button>
-        <button class="program-card reveal" type="button" data-program="longevity" aria-pressed="false">
-          <img src="assets/images/program-longevity.webp" width="1024" height="576" loading="lazy" alt="Una naturaleza muerta científica con vidrio azul cobalto y transparente sobre piedra mineral" data-alt-en="A cobalt and clear glass science still life on mineral stone" data-alt-es="Una naturaleza muerta científica con vidrio azul cobalto y transparente sobre piedra mineral">
-          <span class="program-card__meta">02</span>
-          <span class="program-card__name" data-en="Peptides &amp; longevity" data-es="Péptidos y longevidad">Péptidos y longevidad</span>
-        </button>
-        <button class="program-card reveal" type="button" data-program="recovery" aria-pressed="false">
-          <img src="assets/images/program-recovery.webp" width="1024" height="576" loading="lazy" alt="Un hombre adulto ficticio realiza un estiramiento de movilidad controlado en un estudio tranquilo" data-alt-en="A fictional adult man doing a controlled mobility stretch in a quiet studio" data-alt-es="Un hombre adulto ficticio realiza un estiramiento de movilidad controlado en un estudio tranquilo">
-          <span class="program-card__meta">03</span>
-          <span class="program-card__name" data-en="Recovery &amp; performance" data-es="Recuperación y rendimiento">Recuperación y rendimiento</span>
-        </button>
-        <button class="program-card reveal" type="button" data-program="mens" aria-pressed="false">
-          <img src="assets/images/program-mens.webp" width="1024" height="576" loading="lazy" alt="Un hombre adulto ficticio observa con calma la costa al amanecer" data-alt-en="A fictional adult man standing calmly near the coast at sunrise" data-alt-es="Un hombre adulto ficticio observa con calma la costa al amanecer">
-          <span class="program-card__meta">04</span>
-          <span class="program-card__name" data-en="Men's health" data-es="Salud masculina">Salud masculina</span>
-        </button>
-        <button class="program-card reveal" type="button" data-program="womens" aria-pressed="false">
-          <img src="assets/images/program-womens.webp" width="1024" height="576" loading="lazy" alt="Dos mujeres adultas ficticias de distintas edades conversan en una sala cálida" data-alt-en="Two fictional adult women of different ages talking in a warm living room" data-alt-es="Dos mujeres adultas ficticias de distintas edades conversan en una sala cálida">
-          <span class="program-card__meta">05</span>
-          <span class="program-card__name" data-en="Women's health" data-es="Salud femenina">Salud femenina</span>
-        </button>
-        <button class="program-card reveal" type="button" data-program="hair" aria-pressed="false">
-          <img src="assets/images/program-hair-skin.webp" width="1024" height="576" loading="lazy" alt="Una mujer adulta ficticia con cabello de textura natural junto a una ventana con luz suave" data-alt-en="A fictional adult woman with natural textured hair in soft window light" data-alt-es="Una mujer adulta ficticia con cabello de textura natural junto a una ventana con luz suave">
-          <span class="program-card__meta">06</span>
-          <span class="program-card__name" data-en="Hair &amp; skin" data-es="Cabello y piel">Cabello y piel</span>
-        </button>
-      </div>
-
-      <div class="program-detail reveal" id="program-detail" aria-live="polite">
+    <section class="catalog section" id="catalogo" aria-labelledby="catalog-title">
+      <div class="section-heading section-heading--split">
         <div>
-          <p class="program-detail__label" id="program-detail-label">Proposed program 01</p>
-          <h3 id="program-detail-title">Metabolic health</h3>
+          <p class="eyebrow">Catálogo demo</p>
+          <h2 id="catalog-title">Una ruta para cada prioridad.</h2>
         </div>
-        <p id="program-detail-copy">A future conversation could look at goals, history, daily patterns, and appropriate next steps before any treatment is discussed.</p>
-        <button class="text-link" type="button" data-demo-open id="program-detail-action">See what this demo means <span aria-hidden="true">↗</span></button>
+        <p>Programas ficticios con mensualidades ilustrativas. Elige una categoría o pídele al agente una recomendación comercial sin compartir información sensible.</p>
+      </div>
+
+      <div class="category-filters" role="group" aria-label="Filtrar catálogo por categoría">
+        <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Todo</button>
+        <button type="button" class="filter" data-filter="metabolic" aria-pressed="false">Metabólico</button>
+        <button type="button" class="filter" data-filter="longevity" aria-pressed="false">Péptidos y longevidad</button>
+        <button type="button" class="filter" data-filter="recovery" aria-pressed="false">Recuperación</button>
+        <button type="button" class="filter" data-filter="mens" aria-pressed="false">Salud masculina</button>
+        <button type="button" class="filter" data-filter="womens" aria-pressed="false">Salud femenina</button>
+        <button type="button" class="filter" data-filter="hair" aria-pressed="false">Cabello y piel</button>
+        <button type="button" class="filter" data-filter="wellness" aria-pressed="false">Bienestar diario</button>
+      </div>
+
+      <p class="catalog-status" id="catalog-status" aria-live="polite">12 opciones demo</p>
+
+      <div class="product-grid" id="product-grid">
+        <article class="product-card product-card--featured" id="product-brio-metabolic" data-category="metabolic" data-product="brio-metabolic">
+          <div class="product-card__media">
+            <img src="assets/images/catalog-metabolic-essentials.webp" width="1024" height="1024" loading="lazy" alt="Pouch verde, frasco de cerámica, botella de agua, cuaderno y vegetales sobre piedra clara">
+            <span class="product-card__tag">Más elegido</span>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__category">Apoyo metabólico</p>
+            <h3>Brío Metabólico</h3>
+            <p class="product-card__fit">Mejor para: estructura y seguimiento semanal.</p>
+            <ul><li>Guía de hábitos mensual</li><li>Tablero de progreso ilustrativo</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$129 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="metabolic" data-product-name="Brío Metabólico">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-metabolic-essentials" data-category="metabolic" data-product="metabolic-essentials">
+          <div class="product-card__media"><img src="assets/images/program-metabolic.webp" width="1024" height="576" loading="lazy" alt="Mujer adulta ficticia prepara alimentos coloridos en una cocina luminosa"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Apoyo metabólico</p><h3>Base Metabólica</h3>
+            <p class="product-card__fit">Mejor para: comenzar con una rutina simple.</p>
+            <ul><li>Planificador de comidas</li><li>Revisión mensual demo</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$89 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="metabolic" data-product-name="Base Metabólica">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-longevity-compass" data-category="longevity" data-product="longevity-compass">
+          <div class="product-card__media"><img src="assets/images/catalog-longevity-editorial.webp" width="1024" height="1024" loading="lazy" alt="Vaso ámbar, paquete crema, piedra mineral, tela borgoña y romero en una composición abstracta"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Péptidos y longevidad</p><h3>Brújula Longevidad</h3>
+            <p class="product-card__fit">Mejor para: navegar evidencia y prioridades.</p>
+            <ul><li>Contenido educativo curado</li><li>Mapa de preguntas para un profesional</li></ul>
+            <p class="product-card__note">No incluye sustancias ni protocolos.</p>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$149 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="longevity" data-product-name="Brújula Longevidad">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-cellular-rhythm" data-category="longevity" data-product="cellular-rhythm">
+          <div class="product-card__media"><img src="assets/images/program-longevity.webp" width="1024" height="576" loading="lazy" alt="Recipientes abstractos de vidrio azul y transparente sobre una superficie mineral"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Péptidos y longevidad</p><h3>Ritmo Vital</h3>
+            <p class="product-card__fit">Mejor para: hábitos de sueño, energía y constancia.</p>
+            <ul><li>Biblioteca de bienestar</li><li>Ritual diario configurable</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$99 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="longevity" data-product-name="Ritmo Vital">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-recovery-reset" data-category="recovery" data-product="recovery-reset">
+          <div class="product-card__media"><img src="assets/images/catalog-recovery-kit.webp" width="1024" height="1024" loading="lazy" alt="Bloque de corcho, banda de ejercicio, botella, toalla y bolsa borgoña sobre piedra clara"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Recuperación y rendimiento</p><h3>Recovery Reset</h3>
+            <p class="product-card__fit">Mejor para: recuperar ritmo entre semanas exigentes.</p>
+            <ul><li>Sesiones guiadas de movilidad</li><li>Calendario de recuperación</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$79 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="recovery" data-product-name="Recovery Reset">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-mobility-daily" data-category="recovery" data-product="mobility-daily">
+          <div class="product-card__media"><img src="assets/images/program-recovery.webp" width="1024" height="576" loading="lazy" alt="Hombre adulto ficticio realiza un estiramiento de movilidad en un estudio tranquilo"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Recuperación y rendimiento</p><h3>Movilidad Diaria</h3>
+            <p class="product-card__fit">Mejor para: una rutina breve y accesible.</p>
+            <ul><li>Rutinas de 10 minutos</li><li>Biblioteca de movimiento</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$45 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="recovery" data-product-name="Movilidad Diaria">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-mens-balance" data-category="mens" data-product="mens-balance">
+          <div class="product-card__media"><img src="assets/images/program-mens.webp" width="1024" height="576" loading="lazy" alt="Hombre adulto ficticio observa la costa al amanecer"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Salud masculina</p><h3>Balance Hombre</h3>
+            <p class="product-card__fit">Mejor para: bienestar cotidiano con privacidad.</p>
+            <ul><li>Ruta educativa personalizada</li><li>Preguntas para consulta profesional</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$89 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="mens" data-product-name="Balance Hombre">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-womens-rhythm" data-category="womens" data-product="womens-rhythm">
+          <div class="product-card__media"><img src="assets/images/program-womens.webp" width="1024" height="576" loading="lazy" alt="Dos mujeres adultas ficticias conversan en una sala cálida y luminosa"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Salud femenina</p><h3>Ritmo Mujer</h3>
+            <p class="product-card__fit">Mejor para: organizar prioridades por etapa de vida.</p>
+            <ul><li>Contenido de bienestar por temas</li><li>Agenda de autocuidado</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$99 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="womens" data-product-name="Ritmo Mujer">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-hair-skin-ritual" data-category="hair" data-product="hair-skin-ritual">
+          <div class="product-card__media"><img src="assets/images/program-hair-skin.webp" width="1024" height="576" loading="lazy" alt="Mujer adulta ficticia con cabello natural junto a una ventana con luz suave"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Cabello y piel</p><h3>Ritual Cabello + Piel</h3>
+            <p class="product-card__fit">Mejor para: constancia y cuidado cotidiano.</p>
+            <ul><li>Rutina mensual editable</li><li>Guía de seguimiento visual</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$59 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="hair" data-product-name="Ritual Cabello + Piel">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-daily-foundation" data-category="wellness" data-product="daily-foundation">
+          <div class="product-card__media"><img src="assets/images/catalog-daily-wellness.webp" width="1024" height="1024" loading="lazy" alt="Bolsa color apricot, cuaderno, antifaz, taza y esferas de madera sobre piedra clara"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Bienestar diario</p><h3>Base Diaria</h3>
+            <p class="product-card__fit">Mejor para: empezar con poco presupuesto.</p>
+            <ul><li>Planificador semanal</li><li>Rutinas de sueño y pausa</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$39 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="wellness" data-product-name="Base Diaria">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-sleep-calm" data-category="wellness" data-product="sleep-calm">
+          <div class="product-card__media"><img src="assets/images/discreet-package.webp" width="1024" height="576" loading="lazy" alt="Paquete sencillo sin marca con bolsa crema, papel verde y tarjeta azul en blanco"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Bienestar diario</p><h3>Sueño + Calma</h3>
+            <p class="product-card__fit">Mejor para: crear un cierre del día consistente.</p>
+            <ul><li>Audios de relajación demo</li><li>Diario nocturno</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$49 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="wellness" data-product-name="Sueño + Calma">Consultar opción</button></div>
+          </div>
+        </article>
+
+        <article class="product-card" id="product-performance-club" data-category="recovery" data-product="performance-club">
+          <div class="product-card__media"><img src="assets/images/catalog-recovery-kit.webp" width="1024" height="1024" loading="lazy" alt="Accesorios neutros de movilidad y recuperación presentados sobre piedra clara"></div>
+          <div class="product-card__body">
+            <p class="product-card__category">Recuperación y rendimiento</p><h3>Performance Club</h3>
+            <p class="product-card__fit">Mejor para: variedad y acompañamiento guiado.</p>
+            <ul><li>Calendario de entrenamiento</li><li>Revisión mensual de rutina</li></ul>
+            <div class="product-card__footer"><p><span>Precio demo</span><strong>$119 <small>/ mes</small></strong></p><button type="button" data-agent-open data-goal="recovery" data-product-name="Performance Club">Consultar opción</button></div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="longevity" id="longevity" aria-labelledby="longevity-title">
-      <div class="longevity__image reveal">
-        <img src="assets/images/program-longevity.webp" width="1024" height="576" loading="lazy" alt="Recipientes abstractos de vidrio transparente y azul cobalto dispuestos bajo la luz, sin etiquetas médicas" data-alt-en="Abstract clear and cobalt glass vessels arranged in sunlight with no medical labels" data-alt-es="Recipientes abstractos de vidrio transparente y azul cobalto dispuestos bajo la luz, sin etiquetas médicas">
+    <section class="compare section" id="comparar" aria-labelledby="compare-title">
+      <div class="section-heading section-heading--split">
+        <div><p class="eyebrow">Compara de un vistazo</p><h2 id="compare-title">El nivel de guía que te acomoda.</h2></div>
+        <p>Las rutas cambian por profundidad de contenido y acompañamiento dentro de esta demostración; ninguna determina decisiones médicas.</p>
       </div>
-      <div class="longevity__content reveal">
-        <p class="eyebrow eyebrow--light" data-en="Peptides &amp; longevity, without the hype" data-es="Péptidos y longevidad, sin exageraciones">Péptidos y longevidad, sin exageraciones</p>
-        <h2 id="longevity-title" data-en="A serious topic needs a careful room."
-            data-es="Un tema serio necesita un espacio cuidadoso.">Un tema serio necesita un espacio cuidadoso.</h2>
-        <p data-en="A future Mereon experience could help people review goals, available evidence, uncertainty, and safer alternatives with a licensed provider. It would not begin with a protocol or a promise."
-           data-es="Una futura experiencia de Mereon podría ayudar a revisar objetivos, evidencia disponible, incertidumbre y alternativas más seguras con un profesional autorizado. No comenzaría con un protocolo ni con una promesa.">Una futura experiencia de Mereon podría ayudar a revisar objetivos, evidencia disponible, incertidumbre y alternativas más seguras con un profesional autorizado. No comenzaría con un protocolo ni con una promesa.</p>
-        <ul class="quiet-list">
-          <li data-en="Evidence and regulatory status can vary by substance and intended use."
-              data-es="La evidencia y el estatus regulatorio pueden variar según la sustancia y el uso previsto.">La evidencia y el estatus regulatorio pueden variar según la sustancia y el uso previsto.</li>
-          <li data-en="Some proposed uses may be investigational, unsupported, or inappropriate for an individual."
-              data-es="Algunos usos propuestos pueden ser experimentales, no estar respaldados o no ser adecuados para una persona.">Algunos usos propuestos pueden ser experimentales, no estar respaldados o no ser adecuados para una persona.</li>
-          <li data-en="Any real treatment decision would require individual review by a licensed provider."
-              data-es="Cualquier decisión real de tratamiento requeriría una evaluación individual por parte de un profesional autorizado.">Cualquier decisión real de tratamiento requeriría una evaluación individual por parte de un profesional autorizado.</li>
-        </ul>
-        <a class="button button--light" href="#safety" data-en="Read the safety boundaries" data-es="Leer los límites de seguridad">Leer los límites de seguridad</a>
+      <section class="compare-table-wrap" tabindex="0" aria-label="Tabla comparativa desplazable">
+        <table class="compare-table">
+          <caption class="sr-only">Comparación de niveles demo</caption>
+          <thead><tr><th scope="col">Incluye</th><th scope="col">Esencial</th><th scope="col">Guiado</th><th scope="col">Integral</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Biblioteca mensual</th><td>Incluida</td><td>Incluida</td><td>Incluida</td></tr>
+            <tr><th scope="row">Planificador personalizable</th><td>Básico</td><td>Completo</td><td>Completo</td></tr>
+            <tr><th scope="row">Revisión de rutina</th><td>—</td><td>Mensual demo</td><td>Semanal demo</td></tr>
+            <tr><th scope="row">Rango ilustrativo</th><td>$39–59</td><td>$79–99</td><td>$119–149</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <button class="button button--primary" type="button" data-agent-open>Comparar conmigo</button>
+    </section>
+
+    <section class="agent-feature" aria-labelledby="agent-feature-title">
+      <div class="agent-feature__copy">
+        <p class="eyebrow eyebrow--light">Agente de ventas demo</p>
+        <h2 id="agent-feature-title">Tres preguntas. Opciones claras.</h2>
+        <p>Cuéntale tu objetivo, el tipo de guía que prefieres y tu presupuesto. El agente compara el catálogo local, explica el ajuste y te lleva directo a la opción.</p>
+        <ul><li>No solicita diagnóstico ni historial médico.</li><li>No guarda respuestas ni usa una API externa.</li><li>Separa navegación comercial de decisiones clínicas.</li></ul>
+        <button class="button button--mint" type="button" data-agent-open>Probar el agente</button>
+      </div>
+      <div class="agent-preview" aria-hidden="true">
+        <div class="agent-preview__top"><span>M</span><div><strong>Asesor Mereon</strong><small>Demo local · disponible ahora</small></div></div>
+        <div class="agent-preview__message">¿Qué te gustaría priorizar en tu rutina?</div>
+        <div class="agent-preview__choices"><span>Bienestar metabólico</span><span>Recuperación</span><span>Longevidad</span></div>
+        <div class="agent-preview__result"><small>Coincidencia demo</small><strong>Base Metabólica</strong><span>Una ruta simple para empezar.</span></div>
       </div>
     </section>
 
-    <section class="section journey" id="journey" aria-labelledby="journey-title">
-      <div class="section-heading section-heading--wide reveal">
-        <p class="eyebrow" data-en="How a future experience could work" data-es="Cómo podría funcionar una experiencia futura">Cómo podría funcionar una experiencia futura</p>
-        <h2 id="journey-title" data-en="Designed to slow down the right moments."
-            data-es="Diseñada para dar tiempo a los momentos importantes.">Diseñada para dar tiempo a los momentos importantes.</h2>
+    <section class="journey section" id="como-funciona" aria-labelledby="journey-title">
+      <div class="section-heading section-heading--split">
+        <div><p class="eyebrow">Del descubrimiento al seguimiento</p><h2 id="journey-title">Una experiencia conectada de principio a fin.</h2></div>
+        <p>La demostración enseña cómo una marca podría acompañar la compra sin convertir una conversación comercial en una consulta médica.</p>
       </div>
-      <ol class="journey-list">
-        <li class="reveal">
-          <span class="journey-list__number">01</span>
-          <div>
-            <h3 data-en="Understand the boundaries" data-es="Entender los límites">Entender los límites</h3>
-            <p data-en="See what a future service could and could not address before sharing personal information."
-               data-es="Conocer qué podría y qué no podría atender un servicio futuro antes de compartir información personal.">Conocer qué podría y qué no podría atender un servicio futuro antes de compartir información personal.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="journey-list__number">02</span>
-          <div>
-            <h3 data-en="Complete a secure clinical intake" data-es="Completar una evaluación clínica segura">Completar una evaluación clínica segura</h3>
-            <p data-en="If the service launches, intake would happen in a separate, validated clinical system. This demo has no intake form."
-               data-es="Si el servicio llegara a operar, la evaluación ocurriría en un sistema clínico separado y validado. Esta demostración no tiene formulario médico.">Si el servicio llegara a operar, la evaluación ocurriría en un sistema clínico separado y validado. Esta demostración no tiene formulario médico.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="journey-list__number">03</span>
-          <div>
-            <h3 data-en="Meet an appropriately licensed provider" data-es="Hablar con un profesional debidamente autorizado">Hablar con un profesional debidamente autorizado</h3>
-            <p data-en="A licensed provider would independently review eligibility, discuss options and risks, and decide whether any care is appropriate."
-               data-es="Un profesional autorizado evaluaría la elegibilidad de forma independiente, explicaría opciones y riesgos y decidiría si algún cuidado es apropiado.">Un profesional autorizado evaluaría la elegibilidad de forma independiente, explicaría opciones y riesgos y decidiría si algún cuidado es apropiado.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="journey-list__number">04</span>
-          <div>
-            <h3 data-en="Stay connected, if care begins" data-es="Mantener el contacto si comienza la atención">Mantener el contacto si comienza la atención</h3>
-            <p data-en="A real service would need clear follow-up, questions, side-effect escalation, records, and continuity pathways."
-               data-es="Un servicio real necesitaría seguimiento claro, atención de dudas, escalamiento de efectos adversos, expedientes y continuidad.">Un servicio real necesitaría seguimiento claro, atención de dudas, escalamiento de efectos adversos, expedientes y continuidad.</p>
-          </div>
-        </li>
+      <ol class="journey-grid">
+        <li><span>01</span><h3>Explora</h3><p>Filtra por prioridad, precio y estilo de acompañamiento.</p></li>
+        <li><span>02</span><h3>Compara</h3><p>Entiende qué cambia entre una ruta esencial, guiada o integral.</p></li>
+        <li><span>03</span><h3>Decide</h3><p>Visita una opción recomendada sin registro, pago ni promesas clínicas.</p></li>
+        <li><span>04</span><h3>Acompaña</h3><p>Visualiza cómo portal, entrega y soporte podrían mantener claridad.</p></li>
       </ol>
     </section>
 
-    <section class="section clinicians" id="clinicians" aria-labelledby="clinicians-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-en="A human model of care" data-es="Un modelo de cuidado humano">Un modelo de cuidado humano</p>
-        <h2 id="clinicians-title" data-en="Meet the team we invented to test the experience."
-            data-es="Conoce al equipo que inventamos para probar la experiencia.">Conoce al equipo que inventamos para probar la experiencia.</h2>
-        <p data-en="These people, names, roles, and biographies are fictional. No real clinicians are affiliated with this concept."
-           data-es="Estas personas, nombres, funciones y biografías son ficticios. Ningún profesional real está afiliado a este concepto.">Estas personas, nombres, funciones y biografías son ficticios. Ningún profesional real está afiliado a este concepto.</p>
+    <section class="service-experience" aria-labelledby="service-title">
+      <div class="service-experience__intro">
+        <p class="eyebrow eyebrow--light">Después de elegir</p>
+        <h2 id="service-title">La confianza vive en los detalles.</h2>
+        <p>Una presentación coherente del portal, la entrega y el soporte hace visible la experiencia completa sin fingir que la operación ya existe.</p>
       </div>
-      <div class="clinician-grid">
-        <article class="clinician-card reveal">
-          <div class="clinician-card__image"><img src="assets/images/clinician-amara.webp" width="576" height="1024" loading="lazy" alt="Retrato de Amara Reed, profesional clínica ficticia de demostración" data-alt-en="Portrait of Amara Reed, a fictional demo clinician" data-alt-es="Retrato de Amara Reed, profesional clínica ficticia de demostración"></div>
-          <p class="demo-label" data-en="Fictional demo clinician" data-es="Perfil clínico ficticio de demostración">Perfil clínico ficticio de demostración</p>
-          <h3>Amara Reed</h3>
-          <p class="clinician-card__role" data-en="Proposed care lead" data-es="Líder de atención propuesta">Líder de atención propuesta</p>
-          <p data-en="A concept profile focused on listening, shared decisions, and making risk conversations easier to understand."
-             data-es="Un perfil conceptual centrado en escuchar, tomar decisiones compartidas y hacer que las conversaciones sobre riesgos sean más comprensibles.">Un perfil conceptual centrado en escuchar, tomar decisiones compartidas y hacer que las conversaciones sobre riesgos sean más comprensibles.</p>
+      <div class="service-grid">
+        <article class="portal-card">
+          <div class="portal-card__bar"><span>Mereon / Mi rutina</span><span class="status-dot">Vista demo</span></div>
+          <div class="portal-card__body">
+            <p>Buenos días</p><h3>Todo lo importante, en un solo lugar.</h3>
+            <div class="portal-task"><span>01</span><div><strong>Tu foco de esta semana</strong><small>Revisa una rutina de 10 minutos</small></div></div>
+            <div class="portal-task"><span>02</span><div><strong>Contenido guardado</strong><small>3 guías para explorar</small></div></div>
+            <button type="button" disabled>Portal ilustrativo</button>
+          </div>
         </article>
-        <article class="clinician-card reveal">
-          <div class="clinician-card__image"><img src="assets/images/clinician-mateo.webp" width="576" height="1024" loading="lazy" alt="Retrato de Mateo Silva, profesional clínico ficticio de demostración" data-alt-en="Portrait of Mateo Silva, a fictional demo clinician" data-alt-es="Retrato de Mateo Silva, profesional clínico ficticio de demostración"></div>
-          <p class="demo-label" data-en="Fictional demo clinician" data-es="Perfil clínico ficticio de demostración">Perfil clínico ficticio de demostración</p>
-          <h3>Mateo Silva</h3>
-          <p class="clinician-card__role" data-en="Proposed metabolic-care lead" data-es="Líder propuesto de atención metabólica">Líder propuesto de atención metabólica</p>
-          <p data-en="A concept profile built around whole-person history, sustainable routines, and clear expectations before any intervention."
-             data-es="Un perfil conceptual basado en la historia integral de la persona, rutinas sostenibles y expectativas claras antes de cualquier intervención.">Un perfil conceptual basado en la historia integral de la persona, rutinas sostenibles y expectativas claras antes de cualquier intervención.</p>
+        <article class="delivery-card">
+          <img src="assets/images/discreet-package.webp" width="1024" height="576" loading="lazy" alt="Caja y bolsa sencillas sin marca con papel verde y tarjeta azul en blanco sobre piedra clara">
+          <div><p class="eyebrow">Presentación discreta</p><h3>Simple por fuera. Claro por dentro.</h3><p>Una vista editorial de empaque y seguimiento. No representa un envío, producto o promesa de entrega real.</p></div>
         </article>
-        <article class="clinician-card reveal">
-          <div class="clinician-card__image"><img src="assets/images/clinician-lin.webp" width="576" height="1024" loading="lazy" alt="Retrato de Lin Park, profesional clínica ficticia de demostración" data-alt-en="Portrait of Lin Park, a fictional demo clinician" data-alt-es="Retrato de Lin Park, profesional clínica ficticia de demostración"></div>
-          <p class="demo-label" data-en="Fictional demo clinician" data-es="Perfil clínico ficticio de demostración">Perfil clínico ficticio de demostración</p>
-          <h3>Lin Park</h3>
-          <p class="clinician-card__role" data-en="Proposed recovery-care lead" data-es="Líder propuesta de recuperación">Líder propuesta de recuperación</p>
-          <p data-en="A concept profile focused on recovery context, appropriate referrals, and progress that is not reduced to a single number."
-             data-es="Un perfil conceptual centrado en el contexto de recuperación, las referencias adecuadas y un progreso que no se reduce a una sola cifra.">Un perfil conceptual centrado en el contexto de recuperación, las referencias adecuadas y un progreso que no se reduce a una sola cifra.</p>
+        <article class="support-card">
+          <p class="eyebrow">Soporte pensado</p><h3>Respuestas donde las necesitas.</h3>
+          <div><span>Chat de navegación</span><strong>Inmediato en la demo</strong></div>
+          <div><span>Centro de contenidos</span><strong>Siempre visible</strong></div>
+          <div><span>Decisiones médicas</span><strong>Con profesional autorizado</strong></div>
+          <button class="text-button" type="button" data-agent-open>Preguntar al agente <span aria-hidden="true">→</span></button>
         </article>
       </div>
     </section>
 
-    <section class="experience" id="experience" aria-labelledby="experience-title">
-      <div class="experience__intro reveal">
-        <p class="eyebrow" data-en="The quiet infrastructure" data-es="La infraestructura silenciosa">La infraestructura silenciosa</p>
-        <h2 id="experience-title" data-en="Support should feel present, not intrusive."
-            data-es="El acompañamiento debe sentirse presente, no invasivo.">El acompañamiento debe sentirse presente, no invasivo.</h2>
+    <section class="team section" id="equipo" aria-labelledby="team-title">
+      <div class="section-heading section-heading--split">
+        <div><p class="eyebrow">Un equipo que se siente humano</p><h2 id="team-title">Orientación con criterio editorial.</h2></div>
+        <p>Estos perfiles muestran cómo podría presentarse un equipo diverso y cercano dentro de una experiencia comercial responsable.</p>
       </div>
-      <div class="experience__grid">
-        <article class="portal-concept reveal">
-          <div class="portal-concept__top">
-            <p>Mereon / <span data-en="portal concept" data-es="concepto de portal">concepto de portal</span></p>
-            <span class="status-chip" data-en="Not connected" data-es="Sin conexión">Sin conexión</span>
-          </div>
-          <div class="portal-concept__body">
-            <div class="portal-greeting">
-              <span data-en="Good morning" data-es="Buenos días">Buenos días</span>
-              <strong data-en="Your next conversation is clear." data-es="Tu próxima conversación está clara.">Tu próxima conversación está clara.</strong>
-            </div>
-            <div class="portal-row">
-              <span aria-hidden="true">01</span>
-              <div><strong data-en="Review your care notes" data-es="Revisa tus notas de atención">Revisa tus notas de atención</strong><small data-en="Concept interface only" data-es="Solo interfaz conceptual">Solo interfaz conceptual</small></div>
-            </div>
-            <div class="portal-row">
-              <span aria-hidden="true">02</span>
-              <div><strong data-en="Prepare a question" data-es="Prepara una pregunta">Prepara una pregunta</strong><small data-en="Nothing is saved here" data-es="Nada se guarda aquí">Nada se guarda aquí</small></div>
-            </div>
-            <div class="portal-note">
-              <p data-en="A real portal would require validated privacy, security, accessibility, record, and response workflows before use."
-                 data-es="Un portal real requeriría procesos validados de privacidad, seguridad, accesibilidad, expedientes y respuesta antes de utilizarse.">Un portal real requeriría procesos validados de privacidad, seguridad, accesibilidad, expedientes y respuesta antes de utilizarse.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="delivery-concept reveal">
-          <img src="assets/images/discreet-package.webp" width="1024" height="576" loading="lazy" alt="Una caja genérica sin marca, una bolsa color crema, papel verde menta y una tarjeta azul en blanco sobre piedra clara" data-alt-en="A generic unbranded cardboard box, cream pouch, mint tissue, and blank blue card on pale stone" data-alt-es="Una caja genérica sin marca, una bolsa color crema, papel verde menta y una tarjeta azul en blanco sobre piedra clara">
-          <div>
-            <p class="demo-label" data-en="Future delivery concept" data-es="Concepto de entrega futura">Concepto de entrega futura</p>
-            <h3 data-en="Plain packaging. Clear expectations."
-                data-es="Empaque sencillo. Expectativas claras.">Empaque sencillo. Expectativas claras.</h3>
-            <p data-en="If an eligible future service includes fulfillment, the experience should explain the sender, contents, timing, storage, and support before anything ships. This concept promises none of those services today."
-               data-es="Si un servicio futuro elegible incluyera envíos, la experiencia debería explicar remitente, contenido, tiempos, almacenamiento y soporte antes de enviar algo. Este concepto no promete hoy ninguno de esos servicios.">Si un servicio futuro elegible incluyera envíos, la experiencia debería explicar remitente, contenido, tiempos, almacenamiento y soporte antes de enviar algo. Este concepto no promete hoy ninguno de esos servicios.</p>
-          </div>
-        </article>
+      <div class="team-grid">
+        <article class="team-card"><img src="assets/images/clinician-amara.webp" width="576" height="1024" loading="lazy" alt="Retrato de Amara Reed, perfil ficticio de demostración"><div><span class="context-label">Perfil ficticio de demostración</span><h3>Amara Reed</h3><p class="team-card__role">Diseño de experiencia de cuidado</p><p>Enfocada en hacer que cada siguiente paso se sienta claro, humano y fácil de comparar.</p></div></article>
+        <article class="team-card"><img src="assets/images/clinician-mateo.webp" width="576" height="1024" loading="lazy" alt="Retrato de Mateo Silva, perfil ficticio de demostración"><div><span class="context-label">Perfil ficticio de demostración</span><h3>Mateo Silva</h3><p class="team-card__role">Contenido de bienestar metabólico</p><p>Convierte temas complejos en rutas de navegación accesibles, sin adelantar decisiones clínicas.</p></div></article>
+        <article class="team-card"><img src="assets/images/clinician-lin.webp" width="576" height="1024" loading="lazy" alt="Retrato de Lin Park, perfil ficticio de demostración"><div><span class="context-label">Perfil ficticio de demostración</span><h3>Lin Park</h3><p class="team-card__role">Experiencia de recuperación</p><p>Organiza hábitos, contenidos y soporte alrededor de rutinas sostenibles y flexibles.</p></div></article>
       </div>
     </section>
 
-    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
-      <div class="reviews__visual reveal">
-        <img src="assets/images/reviews-community.webp" width="1024" height="576" loading="lazy" alt="Tres adultos ficticios conversan con calma alrededor de una mesa clara" data-alt-en="Three fictional adults in a calm conversation around a pale table" data-alt-es="Tres adultos ficticios conversan con calma alrededor de una mesa clara">
-      </div>
+    <section class="reviews" id="resenas" aria-labelledby="reviews-title">
+      <div class="reviews__image"><img src="assets/images/reviews-community.webp" width="1024" height="576" loading="lazy" alt="Tres adultos ficticios conversan alrededor de una mesa clara"></div>
       <div class="reviews__content">
-        <div class="review-disclosure reveal" role="note">
-          <span aria-hidden="true">!</span>
-          <p data-en="Sample reviews for concept demonstration — not real patient testimonials"
-             data-es="Reseñas de muestra para demostrar el concepto; no son testimonios de pacientes reales">Reseñas de muestra para demostrar el concepto; no son testimonios de pacientes reales</p>
-        </div>
-        <div class="review-heading reveal">
-          <p class="eyebrow" data-en="Testing the tone" data-es="Probando el tono">Probando el tono</p>
-          <h2 id="reviews-title" data-en="The proposed experience, in fictional words."
-              data-es="La experiencia propuesta, en palabras ficticias.">La experiencia propuesta, en palabras ficticias.</h2>
-        </div>
+        <div class="review-heading"><p class="eyebrow">Experiencia que se entiende</p><h2 id="reviews-title">Claridad que se nota desde el primer clic.</h2><p class="review-disclosure">Reseñas ilustrativas; no son testimonios de pacientes reales.</p></div>
         <div class="review-list">
-          <figure class="review reveal">
-            <blockquote data-en="“I could see the boundaries before the next step. That made the whole concept feel calmer and easier to understand.”"
-                        data-es="“Pude ver los límites antes del siguiente paso. Eso hizo que todo el concepto se sintiera más tranquilo y fácil de entender.”">“Pude ver los límites antes del siguiente paso. Eso hizo que todo el concepto se sintiera más tranquilo y fácil de entender.”</blockquote>
-            <figcaption><strong>Maya R.</strong><span data-en="Demo review" data-es="Reseña de demostración">Reseña de demostración</span></figcaption>
-          </figure>
-          <figure class="review reveal">
-            <blockquote data-en="“The language felt direct without turning the experience into a product pitch.”"
-                        data-es="“El lenguaje se sintió directo sin convertir la experiencia en un discurso de venta.”">“El lenguaje se sintió directo sin convertir la experiencia en un discurso de venta.”</blockquote>
-            <figcaption><strong>Daniel K.</strong><span data-en="Demo review" data-es="Reseña de demostración">Reseña de demostración</span></figcaption>
-          </figure>
-          <figure class="review reveal">
-            <blockquote data-en="“I liked knowing what the portal would need to do, and that the demo was not collecting anything from me.”"
-                        data-es="“Me gustó saber qué tendría que hacer el portal y que la demostración no recopilaba ningún dato mío.”">“Me gustó saber qué tendría que hacer el portal y que la demostración no recopilaba ningún dato mío.”</blockquote>
-            <figcaption><strong>Sofia L.</strong><span data-en="Demo review" data-es="Reseña de demostración">Reseña de demostración</span></figcaption>
-          </figure>
+          <figure class="review"><blockquote>“Encontré una opción dentro de mi presupuesto sin tener que abrir diez pestañas.”</blockquote><figcaption><strong>Marina R.</strong><span class="context-label">Reseña demo</span></figcaption></figure>
+          <figure class="review"><blockquote>“El agente explicó por qué cada ruta encajaba y me llevó directo al catálogo.”</blockquote><figcaption><strong>Diego C.</strong><span class="context-label">Reseña demo</span></figcaption></figure>
+          <figure class="review"><blockquote>“Se siente comercial y completo, pero queda claro cuándo una pregunta necesita a un profesional.”</blockquote><figcaption><strong>Sofía L.</strong><span class="context-label">Reseña demo</span></figcaption></figure>
         </div>
       </div>
     </section>
 
-    <section class="section safety" id="safety" aria-labelledby="safety-title">
-      <div class="safety__lead reveal">
-        <p class="eyebrow" data-en="Safety before selection" data-es="Seguridad antes de elegir">Seguridad antes de elegir</p>
-        <h2 id="safety-title" data-en="Eligibility would be a clinical decision, not a checkout step."
-            data-es="La elegibilidad sería una decisión clínica, no un paso de compra.">La elegibilidad sería una decisión clínica, no un paso de compra.</h2>
-        <p data-en="If Mereon ever becomes an operating service, a licensed provider would need to evaluate each person independently. Not everyone would qualify, and a different level of care or an in-person visit may be more appropriate."
-           data-es="Si Mereon llegara a operar, un profesional autorizado tendría que evaluar a cada persona de forma independiente. No todas las personas serían elegibles y podría ser más adecuado otro nivel de atención o una consulta presencial.">Si Mereon llegara a operar, un profesional autorizado tendría que evaluar a cada persona de forma independiente. No todas las personas serían elegibles y podría ser más adecuado otro nivel de atención o una consulta presencial.</p>
-      </div>
-      <div class="safety__grid">
-        <article class="reveal">
-          <span>01</span>
-          <h3 data-en="No emergency care" data-es="Sin atención de emergencias">Sin atención de emergencias</h3>
-          <p data-en="A future online service would not replace emergency services. In the United States, call 911 for an emergency."
-             data-es="Un futuro servicio en línea no sustituiría a los servicios de emergencia. En Estados Unidos, llama al 911 en una emergencia.">Un futuro servicio en línea no sustituiría a los servicios de emergencia. En Estados Unidos, llama al 911 en una emergencia.</p>
-        </article>
-        <article class="reveal">
-          <span>02</span>
-          <h3 data-en="No guaranteed treatment" data-es="Sin tratamiento garantizado">Sin tratamiento garantizado</h3>
-          <p data-en="Completing an intake or meeting a provider would never guarantee a prescription, product, or particular care plan."
-             data-es="Completar una evaluación o hablar con un profesional nunca garantizaría una receta, producto o plan de atención específico.">Completar una evaluación o hablar con un profesional nunca garantizaría una receta, producto o plan de atención específico.</p>
-        </article>
-        <article class="reveal">
-          <span>03</span>
-          <h3 data-en="Evidence comes first" data-es="La evidencia va primero">La evidencia va primero</h3>
-          <p data-en="Options would need a candid review of evidence, uncertainty, contraindications, interactions, alternatives, and follow-up."
-             data-es="Las opciones requerirían una revisión honesta de la evidencia, incertidumbre, contraindicaciones, interacciones, alternativas y seguimiento.">Las opciones requerirían una revisión honesta de la evidencia, incertidumbre, contraindicaciones, interacciones, alternativas y seguimiento.</p>
-        </article>
-        <article class="reveal">
-          <span>04</span>
-          <h3 data-en="Location matters" data-es="La ubicación importa">La ubicación importa</h3>
-          <p data-en="Provider licenses, clinical scope, pharmacy rules, and service availability vary by location. This demo is not available anywhere."
-             data-es="Las licencias, el alcance clínico, las reglas de farmacia y la disponibilidad varían según la ubicación. Esta demostración no está disponible en ningún lugar.">Las licencias, el alcance clínico, las reglas de farmacia y la disponibilidad varían según la ubicación. Esta demostración no está disponible en ningún lugar.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section faq" id="faq" aria-labelledby="faq-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow" data-en="Questions worth asking early" data-es="Preguntas que conviene hacer desde el inicio">Preguntas que conviene hacer desde el inicio</p>
-        <h2 id="faq-title" data-en="Before this becomes a business."
-            data-es="Antes de que esto se convierta en un negocio.">Antes de que esto se convierta en un negocio.</h2>
-      </div>
+    <section class="faq section" id="preguntas" aria-labelledby="faq-title">
+      <div class="section-heading section-heading--split"><div><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Antes de explorar.</h2></div><p>Respuestas breves sobre precios, recomendaciones y límites de esta experiencia interactiva.</p></div>
       <div class="faq-list">
-        <details class="reveal">
-          <summary><span data-en="Can I sign up for Mereon today?" data-es="¿Puedo registrarme en Mereon hoy?">¿Puedo registrarme en Mereon hoy?</span><span aria-hidden="true">+</span></summary>
-          <p data-en="No. Mereon is a non-operational concept created by ByAgentX to evaluate a possible business and experience. There is no account, waitlist, intake, consultation, prescription, sale, or service behind this page."
-             data-es="No. Mereon es un concepto no operativo creado por ByAgentX para evaluar un posible negocio y experiencia. Esta página no tiene cuenta, lista de espera, evaluación, consulta, receta, venta ni servicio.">No. Mereon es un concepto no operativo creado por ByAgentX para evaluar un posible negocio y experiencia. Esta página no tiene cuenta, lista de espera, evaluación, consulta, receta, venta ni servicio.</p>
-        </details>
-        <details class="reveal">
-          <summary><span data-en="Does the demo collect health or contact information?" data-es="¿La demostración recopila información médica o de contacto?">¿La demostración recopila información médica o de contacto?</span><span aria-hidden="true">+</span></summary>
-          <p data-en="No. There are no forms, uploads, accounts, checkout, analytics, or data-entry fields in this demo. Interactive controls only reveal local concept content."
-             data-es="No. Esta demostración no tiene formularios, cargas de archivos, cuentas, pagos, analítica ni campos para ingresar datos. Los controles interactivos solo muestran contenido local del concepto.">No. Esta demostración no tiene formularios, cargas de archivos, cuentas, pagos, analítica ni campos para ingresar datos. Los controles interactivos solo muestran contenido local del concepto.</p>
-        </details>
-        <details class="reveal">
-          <summary><span data-en="Are the clinicians and reviews real?" data-es="¿Los profesionales y las reseñas son reales?">¿Los profesionales y las reseñas son reales?</span><span aria-hidden="true">+</span></summary>
-          <p data-en="No. Every clinician profile, portrait, name, role, reviewer, and quote is fictional and visibly labelled. They exist only to test the design and content system."
-             data-es="No. Cada perfil, retrato, nombre, función, persona reseñadora y cita es ficticio y está identificado de forma visible. Solo existen para probar el diseño y el sistema de contenido.">No. Cada perfil, retrato, nombre, función, persona reseñadora y cita es ficticio y está identificado de forma visible. Solo existen para probar el diseño y el sistema de contenido.</p>
-        </details>
-        <details class="reveal">
-          <summary><span data-en="Would a future service guarantee eligibility or treatment?" data-es="¿Un servicio futuro garantizaría elegibilidad o tratamiento?">¿Un servicio futuro garantizaría elegibilidad o tratamiento?</span><span aria-hidden="true">+</span></summary>
-          <p data-en="It should not. Eligibility and care would require an independent assessment by an appropriately licensed provider. A provider could decline treatment, recommend an in-person evaluation, or suggest another level of care."
-             data-es="No debería. La elegibilidad y la atención requerirían una evaluación independiente por un profesional debidamente autorizado. El profesional podría rechazar el tratamiento, recomendar una evaluación presencial o sugerir otro nivel de atención.">No debería. La elegibilidad y la atención requerirían una evaluación independiente por un profesional debidamente autorizado. El profesional podría rechazar el tratamiento, recomendar una evaluación presencial o sugerir otro nivel de atención.</p>
-        </details>
-        <details class="reveal">
-          <summary><span data-en="Are peptide-related options proven or approved?" data-es="¿Las opciones relacionadas con péptidos están comprobadas o aprobadas?">¿Las opciones relacionadas con péptidos están comprobadas o aprobadas?</span><span aria-hidden="true">+</span></summary>
-          <p data-en="This demo does not offer or recommend any peptide product. Evidence and regulatory status vary by substance and intended use. Some uses discussed online may be investigational, unsupported, or inappropriate. Any future public content would require clinical and legal validation."
-             data-es="Esta demostración no ofrece ni recomienda ningún producto de péptidos. La evidencia y el estatus regulatorio varían según la sustancia y el uso previsto. Algunos usos comentados en internet pueden ser experimentales, no estar respaldados o no ser apropiados. Cualquier contenido público futuro requeriría validación clínica y legal.">Esta demostración no ofrece ni recomienda ningún producto de péptidos. La evidencia y el estatus regulatorio varían según la sustancia y el uso previsto. Algunos usos comentados en internet pueden ser experimentales, no estar respaldados o no ser apropiados. Cualquier contenido público futuro requeriría validación clínica y legal.</p>
-        </details>
-        <details class="reveal">
-          <summary><span data-en="What must happen before a launch?" data-es="¿Qué tendría que ocurrir antes de un lanzamiento?">¿Qué tendría que ocurrir antes de un lanzamiento?</span><span aria-hidden="true">+</span></summary>
-          <p data-en="The business would need operating and clinical entities, licensed professionals, validated clinical workflows, privacy and security controls, vendor and pharmacy diligence, jurisdiction review, claim substantiation, accessibility testing, approved legal terms, and full brand clearance."
-             data-es="El negocio necesitaría entidades operativas y clínicas, profesionales autorizados, procesos clínicos validados, controles de privacidad y seguridad, evaluación de proveedores y farmacias, revisión por jurisdicción, sustento de afirmaciones, pruebas de accesibilidad, términos legales aprobados y autorización completa de marca.">El negocio necesitaría entidades operativas y clínicas, profesionales autorizados, procesos clínicos validados, controles de privacidad y seguridad, evaluación de proveedores y farmacias, revisión por jurisdicción, sustento de afirmaciones, pruebas de accesibilidad, términos legales aprobados y autorización completa de marca.</p>
-        </details>
+        <details><summary><span>¿Los precios son reales?</span><span aria-hidden="true">+</span></summary><p>No. Son mensualidades ilustrativas para demostrar jerarquía comercial, comparación y recomendaciones dentro de la página.</p></details>
+        <details><summary><span>¿Qué hace el agente de ventas?</span><span aria-hidden="true">+</span></summary><p>Relaciona objetivo, preferencia y presupuesto con opciones del catálogo demo. Funciona localmente y no envía respuestas a ningún servidor.</p></details>
+        <details><summary><span>¿Puedo comprar o registrarme?</span><span aria-hidden="true">+</span></summary><p>No. Las acciones llevan a una opción recomendada o al catálogo; no existe pago, cuenta, formulario de contacto ni envío.</p></details>
+        <details><summary><span>¿El agente puede decirme qué tratamiento necesito?</span><span aria-hidden="true">+</span></summary><p>No. Puede orientar sobre categorías y programas demo. Diagnóstico, elegibilidad, medicamentos y decisiones de tratamiento corresponden a un profesional autorizado.</p></details>
+        <details><summary><span>¿Qué pasa si escribo una emergencia?</span><span aria-hidden="true">+</span></summary><p>El agente detiene la orientación comercial y dirige a servicios de emergencia locales o atención profesional inmediata.</p></details>
+        <details><summary><span>¿Las personas y reseñas son reales?</span><span aria-hidden="true">+</span></summary><p>No. Los perfiles y reseñas están identificados localmente como contenido ficticio o ilustrativo de demostración.</p></details>
       </div>
     </section>
 
-    <section class="closing" id="concept" aria-labelledby="closing-title">
-      <p class="eyebrow eyebrow--light reveal" data-en="A decision point, not a signup" data-es="Un punto de decisión, no un registro">Un punto de decisión, no un registro</p>
-      <h2 id="closing-title" class="reveal" data-en="Should a calmer health platform exist?"
-          data-es="¿Debería existir una plataforma de salud más serena?">¿Debería existir una plataforma de salud más serena?</h2>
-      <p class="reveal" data-en="This demo is here to make that question tangible. It does not take appointments, sell products, or collect a single detail about you."
-         data-es="Esta demostración busca volver tangible esa pregunta. No agenda citas, no vende productos y no recopila ningún dato sobre ti.">Esta demostración busca volver tangible esa pregunta. No agenda citas, no vende productos y no recopila ningún dato sobre ti.</p>
-      <div class="closing__actions reveal">
-        <button class="button button--mint" type="button" data-demo-open data-en="Open the concept note" data-es="Abrir la nota del concepto">Abrir la nota del concepto</button>
-        <a class="button button--ghost" href="#top" data-en="Return to the beginning" data-es="Volver al inicio">Volver al inicio</a>
-      </div>
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow eyebrow--light">Tu ruta empieza aquí</p><h2 id="closing-title">Haz que elegir se sienta sencillo.</h2>
+      <p>Prueba una conversación comercial segura o recorre las doce opciones del catálogo.</p>
+      <div><button class="button button--mint" type="button" data-agent-open>Encontrar mi opción</button><a class="button button--ghost" href="#catalogo">Ver todo el catálogo</a></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="site-footer__brand">
-      <a class="brand brand--footer" href="#top" aria-label="Inicio de Mereon" data-aria-en="Mereon home" data-aria-es="Inicio de Mereon">
-        <span class="brand__mark" aria-hidden="true"><span></span></span>
-        <span class="brand__word">Mereon</span>
-      </a>
-      <p data-en="A healthspan business concept by ByAgentX." data-es="Un concepto de negocio de salud y longevidad creado por ByAgentX.">Un concepto de negocio de salud y longevidad creado por ByAgentX.</p>
-    </div>
-    <nav class="site-footer__links" aria-label="Navegación del pie de página" data-aria-en="Footer navigation" data-aria-es="Navegación del pie de página">
-      <a href="#care" data-en="Care paths" data-es="Programas">Programas</a>
-      <a href="#clinicians" data-en="Fictional team" data-es="Equipo ficticio">Equipo ficticio</a>
-      <a href="#reviews" data-en="Demo reviews" data-es="Reseñas ficticias">Reseñas ficticias</a>
-      <a href="#safety" data-en="Safety" data-es="Seguridad">Seguridad</a>
-      <a href="#faq" data-en="FAQ" data-es="Preguntas">Preguntas</a>
-    </nav>
-    <div class="site-footer__disclaimer">
-      <strong data-en="Concept disclaimer" data-es="Aviso del concepto">Aviso del concepto</strong>
-      <p data-en="Mereon is a ByAgentX concept demonstration, not a healthcare provider, medical practice, pharmacy, prescription service, or active commercial offer. No clinician relationship is created. No products are sold. No prescriptions, consultations, diagnoses, or treatments are offered. This page collects no medical, contact, payment, or account information. All clinician profiles, reviewer identities, quotes, interface screens, and service descriptions are fictional examples for design evaluation."
-         data-es="Mereon es una demostración conceptual de ByAgentX, no un proveedor de salud, consultorio médico, farmacia, servicio de recetas ni una oferta comercial activa. No se crea una relación clínica. No se venden productos. No se ofrecen recetas, consultas, diagnósticos ni tratamientos. Esta página no recopila información médica, de contacto, pago o cuenta. Todos los perfiles clínicos, identidades de reseñadores, citas, pantallas y descripciones de servicio son ejemplos ficticios para evaluar el diseño.">Mereon es una demostración conceptual de ByAgentX, no un proveedor de salud, consultorio médico, farmacia, servicio de recetas ni una oferta comercial activa. No se crea una relación clínica. No se venden productos. No se ofrecen recetas, consultas, diagnósticos ni tratamientos. Esta página no recopila información médica, de contacto, pago o cuenta. Todos los perfiles clínicos, identidades de reseñadores, citas, pantallas y descripciones de servicio son ejemplos ficticios para evaluar el diseño.</p>
-    </div>
-    <p class="site-footer__meta"><span>© 2026 ByAgentX</span><span data-en="Concept only · Not available in any jurisdiction" data-es="Solo concepto · No disponible en ninguna jurisdicción">Solo concepto · No disponible en ninguna jurisdicción</span></p>
+    <div><a class="brand brand--footer" href="#inicio" aria-label="Ir al inicio de Mereon"><span class="brand__mark" aria-hidden="true"><span></span></span><span class="brand__word">Mereon</span></a><p>Una demostración de comercio conversacional creada por ByAgentX.</p></div>
+    <nav aria-label="Navegación de pie de página"><a href="#catalogo">Catálogo</a><a href="#comparar">Comparar</a><a href="#como-funciona">Experiencia</a><a href="#preguntas">Preguntas</a></nav>
+    <p class="site-footer__meta"><span>© 2026 ByAgentX</span><span>Contenido y precios ilustrativos · Sin transacciones</span></p>
   </footer>
 
-  <dialog class="concept-dialog" id="concept-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-copy">
-    <button class="dialog-close" type="button" data-dialog-close aria-label="Cerrar diálogo" data-aria-en="Close dialog" data-aria-es="Cerrar diálogo">×</button>
-    <p class="eyebrow" data-en="You are still inside the demo" data-es="Sigues dentro de la demostración">Sigues dentro de la demostración</p>
-    <h2 id="dialog-title" data-en="There is no signup behind this button."
-        data-es="No hay un registro detrás de este botón.">No hay un registro detrás de este botón.</h2>
-    <p id="dialog-copy" data-en="This interaction is intentionally non-collecting. A real next step would only be designed after the business, clinical model, privacy controls, jurisdictions, and consumer terms are validated."
-       data-es="Esta interacción no recopila datos de forma intencional. Un siguiente paso real solo se diseñaría después de validar el negocio, el modelo clínico, los controles de privacidad, las jurisdicciones y los términos para consumidores.">Esta interacción no recopila datos de forma intencional. Un siguiente paso real solo se diseñaría después de validar el negocio, el modelo clínico, los controles de privacidad, las jurisdicciones y los términos para consumidores.</p>
-    <div class="dialog-boundaries">
-      <p data-en="No form" data-es="Sin formulario">Sin formulario</p>
-      <p data-en="No data saved" data-es="Sin datos guardados">Sin datos guardados</p>
-      <p data-en="No active service" data-es="Sin servicio activo">Sin servicio activo</p>
+  <div class="agent-overlay" data-agent-overlay hidden></div>
+  <aside class="sales-agent" id="sales-agent" role="dialog" aria-modal="true" aria-labelledby="agent-title" hidden>
+    <header class="sales-agent__header">
+      <div class="agent-identity"><span aria-hidden="true">M</span><div><h2 id="agent-title">Asesor Mereon</h2><p><i aria-hidden="true"></i> Demo local · no guarda ni envía datos</p></div></div>
+      <div class="agent-controls"><button type="button" data-agent-reset aria-label="Reiniciar conversación">↻</button><button type="button" data-agent-close aria-label="Cerrar agente">×</button></div>
+    </header>
+    <div class="agent-boundary">Solo navegación de productos y bienestar. No compartas datos personales o médicos.</div>
+    <div class="agent-log" id="agent-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <div class="agent-quick" id="agent-quick" role="group" aria-label="Respuestas rápidas"></div>
+    <div class="agent-input-row">
+      <label class="sr-only" for="agent-input">Escribe una respuesta no sensible</label>
+      <input id="agent-input" type="text" inputmode="text" autocomplete="off" maxlength="180" placeholder="Respuesta general; sin nombres ni datos…">
+      <button id="agent-send" type="button" aria-label="Enviar respuesta">↑</button>
     </div>
-    <button class="button button--primary" type="button" data-dialog-close data-en="Continue exploring" data-es="Seguir explorando">Seguir explorando</button>
-  </dialog>
+    <p class="agent-privacy">Tus respuestas viven solo en esta ventana y se borran al cerrarla.</p>
+  </aside>
 </body>
 </html>

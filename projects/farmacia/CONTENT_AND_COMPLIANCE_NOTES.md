@@ -1,84 +1,64 @@
-# Content and compliance notes
+# Mereon demo — content and compliance notes
 
-## Scope
+Last updated: 2026-07-21
 
-Mereon is a ByAgentX concept demo. The site is not a healthcare provider, pharmacy, prescription service, medical practice, or active commercial offer. It does not sell products, determine eligibility, collect contact information, collect health information, create accounts, process payments, or connect a visitor to a clinician.
+## Public identity and global disclosure
 
-Every public-facing statement should be read as proposed experience design, not as proof that clinical, pharmacy, legal, privacy, support, or fulfillment infrastructure exists.
+Mereon is a fictional ByAgentX demonstration of storefront design and conversational product navigation. It is not represented as a pharmacy, medical provider, prescriber, dispenser, clinician network, active store, or regulated service.
 
-## Claims inventory
+The page uses one prominent above-the-fold Spanish banner:
 
-### Umbrella proposition
+> DEMO BYAGENTX — Mereon es una demostración, no una farmacia, tienda activa ni proveedor médico. No vende, prescribe, almacena ni transmite datos.
 
-Public copy describes a possible online care experience organized around six program categories. It deliberately uses terms such as "proposed," "could," "would," and "concept." Before launch, counsel and clinical leadership must validate every service description, state-availability statement, eligibility rule, response-time statement, and provider relationship.
+This is the only large global disclaimer. Other honesty statements are compact metadata placed beside the content they qualify.
 
-### Peptides and longevity
+## Catalog and pricing boundary
 
-The demo does not name drugs, compounds, protocols, doses, outcomes, or efficacy figures. It says evidence and regulatory status vary and that some uses may be investigational or inappropriate. Before launch, licensed medical leadership must define the actual scope, evidence standards, informed-consent language, sourcing restrictions, prescribing rules, adverse-event workflows, and jurisdiction-specific disclosures. Pharmacy counsel must separately review any fulfillment model.
+- All twelve program names and SKUs are fictional.
+- Monthly prices are illustrative and cannot be purchased.
+- Programs are content, planning, routine, and navigation concepts—not real prescriptions, medications, peptide compounds, treatment protocols, eligibility offers, controlled substances, or medical devices.
+- The page makes no diagnosis, prevention, cure, guaranteed-result, exact-outcome, jurisdiction, licensure, certification, approval, partnership, pharmacy, shipping, or provider-availability claim.
+- Buttons open the local demo agent or navigate to local page sections. There is no cart, checkout, payment, registration, account, upload, intake form, transaction endpoint, or external purchase link.
 
-### Metabolic, recovery, men's, women's, and hair/skin programs
+## Sales-agent boundary
 
-These are navigation concepts, not available services. They promise no diagnosis, treatment, prescription, result, speed, price, or availability. Any future version needs a line-by-line medical, advertising, and consumer-protection review, plus substantiation for every benefit or outcome statement.
+The JavaScript agent is a deterministic local catalog navigator. It asks only:
 
-### Proposed care journey
+1. a general wellness-shopping goal;
+2. preferred navigation style;
+3. illustrative monthly budget.
 
-The four-step journey is a service-design hypothesis. It does not mean Mereon currently has licensed providers, secure intake, clinical review, follow-up support, a portal, or fulfillment. A launch version would need validated state-by-state operations, identity and age checks, informed consent, provider licensure verification, privacy/security controls, escalation paths, record-retention rules, accessibility review, and audited vendors.
+It does not need or request identity, email, phone, address, diagnosis, symptoms, medication history, health history, payment, or other sensitive data. The text field exists only as an optional local interface for short non-sensitive replies; input is held in the current DOM, is never transmitted or persisted, and is removed when the panel closes or resets.
 
-### Portal and support
+Safety behavior:
 
-The portal shown is an HTML/CSS mockup with fictional interface content. It is not a functioning patient portal, does not store data, and must not be described as HIPAA compliant. A real portal would require a formal privacy/security program, contracts, access controls, audit logging, data minimization, incident response, retention/deletion policy, and legal validation of every vendor relationship.
+- Emergency/red-flag language is checked before commercial intent. The flow locks, removes recommendation controls, disables text input, and directs the visitor to local emergency/professional help.
+- Contact-like input is not repeated in the transcript and receives a non-collection boundary.
+- Medication, dose, diagnosis, treatment, contraindication, and eligibility questions are not answered or echoed; the agent redirects the visitor to a licensed professional and remains limited to catalog navigation.
+- Recommendations are limited to one to three predefined local catalog items, with commercial reasons and a local “Ver opción recomendada” action.
 
-### Discreet delivery
+No API, fetch/XHR, cookie, analytics event, localStorage, sessionStorage, database, secret, token, account, form submission, or external runtime dependency is used.
 
-The image contains generic unbranded packaging and no medication. The site describes packaging only as a future possibility. It does not promise shipping, delivery time, temperature control, pharmacy fulfillment, or availability. Any launch claim would require pharmacy, carrier, packaging, environmental, accessibility, and jurisdiction review.
+## Fictional team profiles
 
-## Fictional demo clinicians
+Amara Reed, Mateo Silva, and Lin Park are fictional editorial profiles. Every card visibly includes “perfil ficticio de demostración.” The cards deliberately omit degrees, license numbers, institutions, certifications, awards, provider identifiers, regulatory claims, years of practice, and real availability.
 
-The names, images, roles, biographies, and focus areas below are invented solely to demonstrate card design:
+Generated portraits depict fictional adults and are not intended to impersonate real people.
 
-- Amara Reed, proposed care lead
-- Mateo Silva, proposed metabolic-care lead
-- Lin Park, proposed recovery-care lead
+## Illustrative reviews
 
-They are not real clinicians and are visibly labelled "Fictional demo clinician" on the site. The demo includes no degree, license, board certification, institution, award, years-in-practice claim, or provider number. Before launch, all real profiles would need written consent, identity and licensure verification, approved biography text, image rights, ongoing update ownership, and state-specific availability rules.
+The review section states once that the reviews are illustrative and are not real patient testimonials. Every quote carries the compact label “Reseña demo.” Names are shortened fictional attributions, and quotes avoid medical outcomes, exact weight changes, cures, timelines, or guarantees.
 
-## Sample demo reviews
+## Delivery, portal, and support presentation
 
-All three quotes and names are fictional:
+Portal, packaging, delivery, and support components are visual concepts only. Copy avoids promising a real portal, shipment, support SLA, account, pharmacy fulfillment, privacy certification, or clinical operation.
 
-- Maya R.
-- Daniel K.
-- Sofia L.
+## Generated visual assets
 
-They discuss clarity, convenience, and tone only. They claim no treatment, medical outcome, weight change, lab change, prescription, or clinical success. The review area visibly states: "Sample reviews for concept demonstration — not real patient testimonials," and each quote is marked "Demo review."
+All production photography is self-hosted WebP documented in `assets/image-manifest.json`. Prompts and visual review exclude competitor trade dress, text/logos, medication, pills, needles, treatment procedures, before/after transformations, fake seals, certificates, and real-person impersonation.
 
-A real service would need authentic consented testimonials, records supporting any objective claim, material-connection disclosure, representative-results analysis, platform moderation rules, revocation handling, and legal review under applicable FTC, state, professional, and platform rules. Do not simply replace the labels with real-looking names.
+The requested GPT Image 2 model was not selectable in the active `image_generate` tool. The tool reported FAL.ai FLUX 2 Klein 9B; that tooling mismatch is disclosed in the manifest rather than misrepresented.
 
-## Images
+## Requirements before converting this demo into a real service
 
-All 12 major images were generated through the configured `image_generate` tool and self-hosted. The prompts prohibit text, logos, branded packaging, medication labels, needles in use, before/after comparisons, sensational transformations, and public-figure resemblance. A contact-sheet review found no visible labels, logos, watermarks, medication, needles, or before/after framing. The images still require standard launch review for model-release policy, generator licensing, bias, accessibility, and final crop context.
-
-The assignment requested GPT Image 2. The active Hermes tool reported a FAL.ai FLUX 2 Klein 9B backend and did not expose a model selector. This is a tooling mismatch, not a content claim. See `assets/image-manifest.json`.
-
-## Language
-
-English and Spanish copy both preserve the concept disclosure, fictional-profile labels, demo-review labels, no-data-collection message, and launch boundaries. Before launch, qualified US healthcare counsel and a professional medical translator should review both versions. Spanish readability review is not a substitute for jurisdiction-specific legal translation.
-
-## Privacy and data
-
-The demo has no form fields, upload controls, account flow, analytics code, cookies, checkout, or external runtime request. Buttons open local explanatory UI or move to local sections. No PHI or PII is requested or transmitted by the demo code.
-
-A live waitlist is intentionally absent. If one is added later, it must remain separate from clinical intake and must ship only after privacy notice, consent, security, retention, and vendor review.
-
-## Required launch work
-
-1. Form the operating and clinical entities and map responsibilities.
-2. Retain healthcare, pharmacy, privacy, advertising, employment, and trademark counsel.
-3. Define actual service categories and eliminate unsupported concept copy.
-4. Verify every clinician, license, jurisdiction, and supervisory relationship.
-5. Validate vendors, contracts, privacy/security controls, and incident response.
-6. Build and audit clinical intake, informed consent, prescribing, escalation, continuity, and adverse-event workflows.
-7. Substantiate every consumer claim and review every testimonial.
-8. Complete accessibility, security, performance, and quality assurance.
-9. Publish approved terms, privacy notices, consent language, refund/cancellation rules, contact channels, and required state disclosures.
-10. Perform full trademark and domain clearance before adopting any proposed name.
+A real launch would require a separate licensed operating entity and professional legal, regulatory, clinical, privacy, security, accessibility, advertising, pharmacy/fulfillment, jurisdiction, and vendor review. None of those capabilities or approvals should be inferred from this demonstration.
