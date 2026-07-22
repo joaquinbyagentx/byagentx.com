@@ -693,7 +693,7 @@
     .support-card > div { align-items: flex-start; flex-direction: column; gap: 3px; }
     .support-card > div strong { text-align: left; }
     .team-card { display: block; }
-    .team-card > img { aspect-ratio: 4 / 4.7; }
+    .team-card > img { height: auto; aspect-ratio: 4 / 4.7; }
     .reviews__image { min-height: 330px; }
     .reviews__content { padding: 70px 16px; }
     .review figcaption { align-items: flex-start; flex-direction: column; gap: 8px; }
