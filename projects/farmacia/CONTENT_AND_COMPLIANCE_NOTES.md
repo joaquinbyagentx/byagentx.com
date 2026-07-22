@@ -57,7 +57,7 @@ Portal, packaging, delivery, and support components are visual concepts only. Co
 
 All production photography is self-hosted WebP documented in `assets/image-manifest.json`. Prompts and visual review exclude competitor trade dress, text/logos, medication, pills, needles, treatment procedures, before/after transformations, fake seals, certificates, and real-person impersonation.
 
-The requested GPT Image 2 model was not selectable in the active `image_generate` tool. The tool reported FAL.ai FLUX 2 Klein 9B; that tooling mismatch is disclosed in the manifest rather than misrepresented.
+The five flagship commerce assets were generated with the configured OpenAI GPT Image 2 High backend (`openai-codex` / `gpt-image-2-high`), visually reviewed, optimized, and self-hosted. Earlier FAL/FLUX commerce renders are not used in production.
 
 ## Requirements before converting this demo into a real service
 

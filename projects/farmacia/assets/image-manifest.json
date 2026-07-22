@@ -2,18 +2,19 @@
   "project": "Mereon conversational commerce demo",
   "generatedAt": "2026-07-21",
   "generator": {
-    "requested": "OpenAI GPT Image 2 through image_generate",
+    "requested": "OpenAI GPT Image 2 High through image_generate",
     "actualTool": "Hermes image_generate",
-    "actualBackendObserved": "FAL.ai FLUX 2 Klein 9B",
-    "note": "The active image_generate tool reports FAL.ai/FLUX and exposes no per-call model selector. The mismatch is recorded rather than misrepresented. One rejected hero generation containing pseudo-labels and a device logo was kept out of production."
+    "actualProviderObserved": "openai-codex",
+    "actualModelObserved": "gpt-image-2-high",
+    "note": "The five commerce assets were regenerated with the configured OpenAI GPT Image 2 High backend, visually reviewed, and self-hosted. The previous FAL/FLUX commerce renders and a rejected hero containing pseudo-labels/device branding are not used in production."
   },
   "optimization": {
     "productionFormat": "WebP",
-    "quality": "82 for the original editorial set; 84 for the commerce additions",
+    "quality": "82 for the retained editorial set; 86 for the five OpenAI GPT Image 2 High commerce additions",
     "method": 6,
     "rawMasters": [
       "/tmp/healthspan-sources",
-      "/tmp/farmacia-commerce-masters"
+      "/tmp/farmacia-openai-image2-masters"
     ],
     "rawMastersCommitted": false,
     "colorMode": "RGB"
@@ -24,35 +25,35 @@
       "promptSummary": "Fictional Latina adult opening a plain kraft parcel containing linen and greenery in a warm architectural home; large sage negative space; no text, logos, products, medication, devices, procedures, or transformation framing.",
       "dimensions": "1024x576",
       "outputPath": "assets/images/hero-guided-shopping.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "generated with OpenAI GPT Image 2 High, visually reviewed, optimized"
     },
     {
       "purpose": "Metabolic catalog still life",
       "promptSummary": "Unbranded sage pouch, blank ceramic jar, water bottle, blank journal, citrus, and greens on cream stone; no labels, logos, medication, pills, or devices.",
       "dimensions": "1024x1024",
       "outputPath": "assets/images/catalog-metabolic-essentials.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "generated with OpenAI GPT Image 2 High, visually reviewed, optimized"
     },
     {
       "purpose": "Longevity catalog still life",
       "promptSummary": "Abstract amber glass, plain cream parcel, mineral stone, burgundy linen, and rosemary; no text, medication, vial/injection cues, devices, or seals.",
       "dimensions": "1024x1024",
       "outputPath": "assets/images/catalog-longevity-editorial.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "generated with OpenAI GPT Image 2 High, visually reviewed, optimized"
     },
     {
       "purpose": "Recovery catalog still life",
       "promptSummary": "Exercise band, cork mobility block, plain reusable bottle, towel, and burgundy pouch on pale stone; no text, logos, medication, supplements, or medical devices.",
       "dimensions": "1024x1024",
       "outputPath": "assets/images/catalog-recovery-kit.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "generated with OpenAI GPT Image 2 High, visually reviewed, optimized"
     },
     {
       "purpose": "Supportive daily-wellness catalog still life",
       "promptSummary": "Apricot pouch, blank journal, tea, sage eye mask, wooden massage spheres, and linen on travertine; no text, logos, medication, pills, or medical devices.",
       "dimensions": "1024x1024",
       "outputPath": "assets/images/catalog-daily-wellness.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "generated with OpenAI GPT Image 2 High, visually reviewed, optimized"
     },
 
     {

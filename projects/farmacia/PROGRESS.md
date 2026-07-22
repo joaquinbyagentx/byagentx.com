@@ -11,11 +11,11 @@ Last updated: 2026-07-21
 
 ## Image generation — COMPLETE
 
-- Generated five new original commerce assets through `image_generate`: one flagship hero and four catalog still lifes.
-- Rejected one initial hero generation because visual review found pseudo-labels and a device logo; it was not downloaded into production.
-- Visually reviewed accepted assets for text, logos, medication, needles, medical devices, before/after framing, anatomy, and obvious rendering defects.
-- Optimized accepted masters to self-hosted WebP at quality 84. Raw PNG masters remain outside production under `/tmp/farmacia-commerce-masters`.
-- Updated `assets/image-manifest.json` for all 16 referenced generated assets. The active tool reported FAL.ai FLUX 2 Klein 9B rather than the requested GPT Image 2 and exposes no model selector; the mismatch remains recorded.
+- Generated five new original commerce assets through the configured OpenAI GPT Image 2 High `image_generate` backend: one flagship hero and four catalog still lifes.
+- Rejected the earlier FAL/FLUX commerce set from final production; the replacement calls explicitly returned provider `openai-codex` and model `gpt-image-2-high`.
+- Visually reviewed the OpenAI replacements for text, pseudo-text, logos, medication, needles, medical devices, before/after framing, anatomy, impossible objects, and rendering defects.
+- Optimized accepted masters to self-hosted WebP at quality 86. Raw PNG masters remain outside production under `/tmp/farmacia-openai-image2-masters`.
+- Updated `assets/image-manifest.json` with accurate provenance for all 16 referenced assets.
 
 ## Storefront implementation — COMPLETE
 
@@ -49,4 +49,4 @@ Last updated: 2026-07-21
 - Initial independent adversarial audits correctly blocked commit on free-text echo, missed crisis phrases, dynamic focus loss, budget-label semantics, and banner prominence; those findings were fixed before this finalization pass.
 - Final regression QA preserved complete-container emergency detection while preventing routine one-digit medication quantities from being misclassified as emergencies; medication wording continues to route fail-closed to the medical boundary.
 - Production changes are scoped to `projects/farmacia/`; the supplied backup, unrelated `.gitignore` change, QA scripts, screenshots, raw generations, caches, and logs remain outside the production commit.
-- No verification blocker remains; the production tree is complete and ready for the verified local commit.
+- The technical storefront was committed as `1204b48`; the five commerce images were then replaced with verified OpenAI GPT Image 2 High assets, the full browser/agent/axe/asset QA was rerun successfully, and the replacement is recorded in a dedicated follow-up commit.
