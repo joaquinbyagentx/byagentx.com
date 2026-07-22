@@ -17,4 +17,6 @@ Last updated: 2026-07-22
 - Automated real-Chrome QA passed at exact 1440×1000, 390×844, 320×700, and reduced-motion desktop viewports.
 - Exercised duplicate add, several products, increase/decrease, remove, empty/reload persistence, all twelve add actions, count/total arithmetic, Escape/focus return, blank WhatsApp no-navigation behavior, and an in-memory-only valid destination with decoded message assertions.
 - Verified 18 images decode, no horizontal overflow, no broken local anchors, no external runtime resources, and no page/console/network/HTTP errors.
-- QA evidence remains outside Git under `/tmp/farmacia-cart-qa/`; no screenshots or generated reports are production files.
+- Refreshed the hero, reviews/community scene, and three fictional-profile portraits from the five approved OpenAI Codex `gpt-image-2-high` PNG masters; production assets are RGB WebP at each master’s native dimensions using Pillow quality 90/method 6, with no generation, crop, stretch, or upscale during integration.
+- Verified master/output dimension parity, WebP decoding, materially increased image resolution/payload versus the preserved originals, and retained the fictional editorial/profile/review boundaries.
+- QA evidence remains outside Git under `/tmp/farmacia-cart-qa/` and `/tmp/farmacia-image-refresh-qa/`; no screenshots or generated reports are production files.

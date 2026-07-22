@@ -33,6 +33,8 @@ Until that attribute contains 8–15 valid digits and does not begin with zero, 
 
 The local catalog navigator now recommends only the revised six commercial categories and remains non-prescriptive. Its privacy rejection, medical boundary, emergency stop, reset, focus management, and no-network behavior remain in place. Fictional profile cards and illustrative reviews retain their local honesty labels.
 
+The 2026-07-22 image refresh uses five previously approved OpenAI Codex `gpt-image-2-high` masters for the hero, community/reviews scene, and three profile portraits. They remain fictional editorial imagery: the portraits do not represent real clinicians or credentials, and the community scene does not represent real reviewers, testimonials, clinical outcomes, or care relationships. Integration only converted the approved PNG masters to self-hosted RGB WebP at native dimensions (Pillow quality 90/method 6); it did not generate, upscale, crop, or stretch imagery.
+
 ## Before any real launch
 
 A real service would require a separate approved operating entity, real WhatsApp destination ownership, and professional legal, regulatory, clinical, privacy, security, accessibility, advertising, fulfillment, and jurisdiction review. None of those capabilities or approvals should be inferred from this demo.

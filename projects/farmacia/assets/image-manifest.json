@@ -1,31 +1,36 @@
 {
   "project": "Mereon conversational commerce demo",
-  "generatedAt": "2026-07-21",
+  "generatedAt": "2026-07-22",
   "generator": {
     "requested": "OpenAI GPT Image 2 High through image_generate",
     "actualTool": "Hermes image_generate",
     "actualProviderObserved": "openai-codex",
     "actualModelObserved": "gpt-image-2-high",
-    "note": "The five commerce assets were regenerated with the configured OpenAI GPT Image 2 High backend, visually reviewed, and self-hosted. The previous FAL/FLUX commerce renders and a rejected hero containing pseudo-labels/device branding are not used in production."
+    "note": "The five 2026-07-22 refresh masters were previously generated with the observed OpenAI Codex GPT Image 2 High backend, approved visually, and reused for this integration without another generation call. The retained commerce assets were generated with the same observed backend. Previous FAL/FLUX commerce renders and a rejected hero containing pseudo-labels/device branding are not used in production."
   },
   "optimization": {
     "productionFormat": "WebP",
-    "quality": "82 for the retained editorial set; 86 for the five OpenAI GPT Image 2 High commerce additions",
+    "quality": "82 for unchanged legacy editorial assets; 86 for the retained OpenAI GPT Image 2 High commerce assets; 90 for the five 2026-07-22 refreshed assets",
     "method": 6,
     "rawMasters": [
       "/tmp/healthspan-sources",
-      "/tmp/farmacia-openai-image2-masters"
+      "/tmp/farmacia-openai-image2-masters",
+      "/Users/josecortesmacmini2/projects/byagentx.com-backups/farmacia-openai-image2-refresh-20260722-171205/masters"
     ],
     "rawMastersCommitted": false,
     "colorMode": "RGB"
   },
+  "refreshBoundary": "All five refreshed images are fictional editorial imagery. Portraits do not depict real clinicians or credentials, and the community scene does not depict real reviewers, testimonials, clinical outcomes, or care relationships.",
   "assets": [
     {
       "purpose": "Flagship conversational-commerce hero",
       "promptSummary": "Fictional Latina adult opening a plain kraft parcel containing linen and greenery in a warm architectural home; large sage negative space; no text, logos, products, medication, devices, procedures, or transformation framing.",
-      "dimensions": "1024x576",
+      "dimensions": "1774x887",
       "outputPath": "assets/images/hero-guided-shopping.webp",
-      "status": "generated with OpenAI GPT Image 2 High, visually reviewed, optimized"
+      "status": "refreshed from approved OpenAI GPT Image 2 High master, visually reviewed, optimized",
+      "sourceProvider": "openai-codex",
+      "sourceModel": "gpt-image-2-high",
+      "optimization": "RGB WebP, Pillow quality 90, method 6; native master dimensions preserved"
     },
     {
       "purpose": "Metabolic catalog still life",
@@ -59,23 +64,32 @@
     {
       "purpose": "Fictional demo team portrait: Amara Reed",
       "promptSummary": "Fictional Black woman in plain navy tailoring, naturally lit editorial portrait; no credentials, badge, text, logos, or devices.",
-      "dimensions": "576x1024",
+      "dimensions": "941x1672",
       "outputPath": "assets/images/clinician-amara.webp",
-      "status": "generated, edited to remove pseudo-text, visually reviewed, optimized"
+      "status": "refreshed from approved OpenAI GPT Image 2 High master, visually reviewed, optimized",
+      "sourceProvider": "openai-codex",
+      "sourceModel": "gpt-image-2-high",
+      "optimization": "RGB WebP, Pillow quality 90, method 6; native master dimensions preserved"
     },
     {
       "purpose": "Fictional demo team portrait: Mateo Silva",
       "promptSummary": "Fictional mature man in charcoal tailoring in a warm consultation setting; no credentials, badge, text, logos, or devices.",
-      "dimensions": "576x1024",
+      "dimensions": "941x1672",
       "outputPath": "assets/images/clinician-mateo.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "refreshed from approved OpenAI GPT Image 2 High master, visually reviewed, optimized",
+      "sourceProvider": "openai-codex",
+      "sourceModel": "gpt-image-2-high",
+      "optimization": "RGB WebP, Pillow quality 90, method 6; native master dimensions preserved"
     },
     {
       "purpose": "Fictional demo team portrait: Lin Park",
       "promptSummary": "Fictional East Asian woman in forest-green tailoring against a pale textured wall; no credentials, badge, text, logos, or devices.",
-      "dimensions": "576x1024",
+      "dimensions": "941x1672",
       "outputPath": "assets/images/clinician-lin.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "refreshed from approved OpenAI GPT Image 2 High master, visually reviewed, optimized",
+      "sourceProvider": "openai-codex",
+      "sourceModel": "gpt-image-2-high",
+      "optimization": "RGB WebP, Pillow quality 90, method 6; native master dimensions preserved"
     },
     {
       "purpose": "Metabolic category lifestyle image",
@@ -122,9 +136,12 @@
     {
       "purpose": "Illustrative-review editorial image",
       "promptSummary": "Three diverse fictional adults in conversation around a communal table; no clinician framing, labels, readable screens, or outcome cues.",
-      "dimensions": "1024x576",
+      "dimensions": "864x1821",
       "outputPath": "assets/images/reviews-community.webp",
-      "status": "generated, visually reviewed, optimized"
+      "status": "refreshed from approved OpenAI GPT Image 2 High master, visually reviewed, optimized",
+      "sourceProvider": "openai-codex",
+      "sourceModel": "gpt-image-2-high",
+      "optimization": "RGB WebP, Pillow quality 90, method 6; native master dimensions preserved"
     },
     {
       "purpose": "Discreet-delivery concept still life",
